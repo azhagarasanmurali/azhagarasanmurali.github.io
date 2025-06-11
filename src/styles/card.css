@@ -9,10 +9,22 @@
 	border-radius: 20px;
 	box-shadow: 10px 10px 20px var(--shadow-dark),
 		-10px -10px 20px var(--shadow-light);
-	transition: transform 0.1s ease-out;
+	transition: box-shadow 0.2s ease-in-out, transform 0.1s ease-out;
 	transform-style: preserve-3d;
 	will-change: transform;
 	padding: 0.1rem 1.5rem 0.5rem 1.5rem;
+}
+
+.card:hover {
+	box-shadow: inset 5px 5px 10px var(--shadow-dark),
+		inset -5px -5px 10px var(--shadow-light);
+	transform: none;
+}
+
+.card:active {
+	box-shadow: inset 3px 3px 6px var(--shadow-dark),
+		inset -3px -3px 6px var(--shadow-light);
+	transform: scale(0.98);
 }
 
 .card-grid {
