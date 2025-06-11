@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "../styles/card.css";
 
-const Card = ({ children }) => {
+const Card = ({ title, image, link, children }) => {
 	const cardRef = useRef();
 	const animationRef = useRef(null);
 
@@ -44,15 +44,20 @@ const Card = ({ children }) => {
 	};
 
 	return (
-		<div
+		<a
 			className="card-wrapper"
 			onMouseMove={handleMouseMove}
 			onMouseLeave={resetTransform}
+			href={link}
+			target="_blank"
+			rel="noopener noreferrer"
 		>
 			<div className="card" ref={cardRef}>
+				<h2>{title}</h2>
+				<img src={image} alt={title} style={{ width: "100%" }} />
 				{children}
 			</div>
-		</div>
+		</a>
 	);
 };
 

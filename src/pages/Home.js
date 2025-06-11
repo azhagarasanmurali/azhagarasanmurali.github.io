@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => (
 	<div>
 		<h1>Azhagarasan Murali</h1>
-		<h2>Game Developer. Programmer.</h2>
+		<h2>Game Developer | Programmer</h2>
 		<p>
 			Unity Game Developer with 9+ years of experience (since 2015),
 			including 5 years in an MNC environment. Architect of a company-wide

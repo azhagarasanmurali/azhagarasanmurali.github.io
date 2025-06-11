@@ -59,6 +59,11 @@ h2 {
 	text-align: center;
 }
 
+p {
+	font-family: "Quicksand", sans-serif;
+	font-weight: 200;
+}
+
 /* Container Card */
 .theme-container {
 	background: var(--bg);
@@ -98,7 +103,6 @@ h2 {
 
 a {
 	color: var(--text);
-	text-decoration: underline;
 }
 
 .a:visited {
