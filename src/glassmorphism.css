@@ -1,0 +1,47 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: blur(10px);
+  --text: #fff;
+}
+
+body {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: var(--text);
+}
+
+.theme-container {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  color: var(--text);
+}
+
+.theme-button {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  color: var(--text);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.theme-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-button:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.theme-footer {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}

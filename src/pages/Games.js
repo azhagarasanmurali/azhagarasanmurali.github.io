@@ -2,7 +2,7 @@ import React from 'react';
 
 const Games = () => (
   <div>
-    <h2>Games</h2>
+    <h1>Games</h1>
     <p>List of developed games.</p>
   </div>
 );

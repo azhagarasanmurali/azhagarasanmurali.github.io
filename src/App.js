@@ -11,9 +11,9 @@ import Bio from './pages/Bio';
 import Contact from './pages/Contact';
 
 const App = () => (
-  <div class="container">
+  <div className='theme-container'>
   <Router>
-    <Navbar />
+    <Navbar/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/artworks" element={<Artworks />} />
@@ -23,7 +23,7 @@ const App = () => (
       <Route path="/bio" element={<Bio />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
-    <Footer />
+    <Footer className='theme-container'/>
   </Router>
   </div>
 );
