@@ -1,0 +1,16 @@
+.card-wrapper {
+	perspective: 1000px;
+}
+
+.card {
+	width: 300px;
+	height: 400px;
+	background: var(--bg);
+	border-radius: 20px;
+	box-shadow: 10px 10px 20px var(--shadow-dark),
+		-10px -10px 20px var(--shadow-light);
+	transition: transform 0.1s ease-out;
+	transform-style: preserve-3d;
+	will-change: transform;
+	padding: 2%;
+}
