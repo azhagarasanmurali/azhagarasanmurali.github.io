@@ -7,7 +7,8 @@
 
 .theme-container {
 	flex: 1;
-	width: 1000px;
+	width: 100%;
+	max-width: 1000px;
 	margin: 2rem auto;
 	padding: 2rem;
 	background: var(--bg);
@@ -15,18 +16,40 @@
 	box-shadow: 9px 9px 16px var(--shadow-dark),
 		-9px -9px 16px var(--shadow-light);
 	color: var(--text);
+	box-sizing: border-box;
 }
 
-/* NAVBAR STYLING */
 .theme-nav {
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 	background: var(--bg);
 	box-shadow: 0 9px 16px var(--shadow-dark), 0 -9px 16px var(--shadow-light);
 	padding: 2rem 0;
+	overflow-x: auto;
 }
 
-/* FOOTER STYLING */
+nav {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: 1em;
+	margin: 0;
+	padding: 0;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+nav ul li a {
+	color: var(--text);
+	text-decoration: none;
+	white-space: nowrap;
+}
+
 .theme-footer {
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
@@ -38,26 +61,6 @@
 	margin-top: auto;
 }
 
-/* Navbar internal layout */
-nav {
-	display: flex;
-	justify-content: center;
-}
-
-nav ul {
-	list-style: none;
-	display: flex;
-	gap: 1em;
-	margin: 0;
-	padding: 0;
-}
-
-nav ul li a {
-	color: var(--text);
-	text-decoration: none;
-}
-
-/* Page text reset */
 body,
 html {
 	margin: 0;
@@ -72,4 +75,15 @@ a {
 	display: block;
 	text-align: center;
 	text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+	.theme-container {
+		width: 100%;
+		margin: 1rem 0;
+		padding: 1rem;
+		border-radius: 0;
+		box-shadow: none;
+	}
 }
