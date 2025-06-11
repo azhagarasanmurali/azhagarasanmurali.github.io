@@ -86,4 +86,12 @@ a {
 		border-radius: 0;
 		box-shadow: none;
 	}
+
+	p {
+		text-align: justify;
+	}
+
+	.card-grid {
+		justify-content: center;
+	}
 }

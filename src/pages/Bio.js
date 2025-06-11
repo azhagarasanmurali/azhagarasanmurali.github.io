@@ -3,7 +3,7 @@ import React from "react";
 const Bio = () => (
 	<div>
 		<h1>Bio</h1>
-		<p>Detailed biography and background.</p>
+		<h3>Detailed biography and background.</h3>
 	</div>
 );
 

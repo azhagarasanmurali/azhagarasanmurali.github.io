@@ -3,7 +3,7 @@ import React from "react";
 const Artworks = () => (
 	<div>
 		<h1>Artworks</h1>
-		<p>Showcase of artwork projects.</p>
+		<h3>Showcase of artwork projects.</h3>
 	</div>
 );
 

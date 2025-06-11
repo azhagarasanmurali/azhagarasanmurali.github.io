@@ -3,7 +3,7 @@ import React from "react";
 const Games = () => (
 	<div>
 		<h1>Games</h1>
-		<p>List of developed games.</p>
+		<h3>List of developed games.</h3>
 	</div>
 );
 

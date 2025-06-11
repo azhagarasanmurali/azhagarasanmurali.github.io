@@ -13,7 +13,7 @@ const cards = [
 const Apps = () => (
 	<div>
 		<h1>Apps</h1>
-		<p>Professional works and projects.</p>
+		<h3>Professional works and projects.</h3>
 		<div className="card-grid">
 			{cards.map((card, i) => (
 				<Card
