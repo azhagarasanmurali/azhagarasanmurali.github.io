@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer className='theme-container'>
-    <p><b>&copy; {new Date().getFullYear()} Azhagarasan Murali</b></p>
+  <footer>
+    <p>&copy; {new Date().getFullYear()} Azhagarasan Murali</p>
   </footer>
 );
 

@@ -1,0 +1,70 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.theme-container {
+  flex: 1;
+  width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg);
+  border-radius: 20px;
+  box-shadow: 9px 9px 16px var(--shadow-dark),
+              -9px -9px 16px var(--shadow-light);
+  color: var(--text);
+}
+
+/* NAVBAR STYLING */
+.theme-nav {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: var(--bg);
+  box-shadow: 0 9px 16px var(--shadow-dark),
+              0 -9px 16px var(--shadow-light);
+  padding: 2rem 0;
+}
+
+/* FOOTER STYLING */
+.theme-footer {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: var(--bg);
+  box-shadow: 0 -9px 16px var(--shadow-dark),
+              0 9px 16px var(--shadow-light);
+  padding: 1em;
+  text-align: center;
+  color: var(--text);
+  margin-top: auto;
+}
+
+/* Navbar internal layout */
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Page text reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: large;
+}

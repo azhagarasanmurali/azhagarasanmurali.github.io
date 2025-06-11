@@ -7,35 +7,35 @@
 
 @font-face {
     font-family: 'Quicksand';
-    src: url('./assets/fonts/Quicksand-Light.ttf') format('truetype');
+    src: url('../assets/fonts/Quicksand-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url('./assets/fonts/Quicksand-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Quicksand-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url('./assets/fonts/Quicksand-Medium.ttf') format('truetype');
+    src: url('../assets/fonts/Quicksand-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url('./assets/fonts/Quicksand-SemiBold.ttf') format('truetype');
+    src: url('../assets/fonts/Quicksand-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url('./assets/fonts/Quicksand-Bold.ttf') format('truetype');
+    src: url('../assets/fonts/Quicksand-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -43,8 +43,6 @@
 body {
     background: var(--bg);
     color: var(--text);
-    margin: 0;
-    padding: 0;
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
 }
@@ -67,8 +65,6 @@ h2 {
     border-radius: 20px;
     box-shadow: 9px 9px 16px var(--shadow-dark),
     -9px -9px 16px var(--shadow-light);
-    padding: 2rem;
-    margin: 2rem;
     color:var(--text);
 }
 

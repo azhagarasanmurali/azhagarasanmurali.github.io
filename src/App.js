@@ -11,21 +11,29 @@ import Bio from './pages/Bio';
 import Contact from './pages/Contact';
 
 const App = () => (
-  <div className='theme-container'>
   <Router>
-    <Navbar/>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/artworks" element={<Artworks />} />
-      <Route path="/3d-models" element={<Models3D />} />
-      <Route path="/games" element={<Games />} />
-      <Route path="/works" element={<Works />} />
-      <Route path="/bio" element={<Bio />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-    <Footer className='theme-container'/>
+    <div className='app-wrapper'>
+      <nav className='theme-nav'>
+        <Navbar />
+      </nav>
+
+      <main className='theme-container'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/artworks" element={<Artworks />} />
+          <Route path="/3d-models" element={<Models3D />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/works" element={<Works />} />
+          <Route path="/bio" element={<Bio />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+
+      <footer className='theme-footer'>
+        <Footer />
+      </footer>
+    </div>
   </Router>
-  </div>
 );
 
 export default App;
