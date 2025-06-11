@@ -1,0 +1,101 @@
+:root {
+  --bg: #2e2e2e;
+  --shadow-light: #3a3a3a;
+  --shadow-dark: #1c1c1c;
+  --text: #e0e0e0;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./assets/fonts/Quicksand-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./assets/fonts/Quicksand-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./assets/fonts/Quicksand-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./assets/fonts/Quicksand-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./assets/fonts/Quicksand-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Container Card */
+.theme-container {
+    background: var(--bg);
+    border-radius: 20px;
+    box-shadow: 9px 9px 16px var(--shadow-dark),
+    -9px -9px 16px var(--shadow-light);
+    padding: 2rem;
+    margin: 2rem;
+    color:var(--text);
+}
+
+/* Button Base */
+.theme-button {
+    background: var(--bg);
+    border: none;
+    border-radius: 24px;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+    -5px -5px 10px var(--shadow-light);
+    padding: 0.75rem 1.5rem;
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+}
+
+/* Button Hover */
+.theme-button:hover {
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Button Pressed */
+.theme-button:active {
+    box-shadow: inset 2px 2px 4px var(--shadow-dark),
+    inset -2px -2px 4px var(--shadow-light);
+}
