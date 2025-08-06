@@ -11,12 +11,14 @@ body {
 }
 
 .theme-container {
-	background: var(--glass-bg);
 	backdrop-filter: var(--glass-blur);
 	border-radius: 20px;
 	border: 1px solid var(--glass-border);
-	padding: 2rem;
-	margin: 2rem;
+	background: var(--bg);
+	border-radius: 20px;
+	box-shadow: 9px 9px 16px var(--shadow-dark),
+		-9px -9px 16px var(--shadow-light);
+	color: var(--text);
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	color: var(--text);
 }
