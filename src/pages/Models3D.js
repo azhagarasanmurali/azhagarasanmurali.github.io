@@ -1,9 +1,10 @@
 import React from "react";
+import { Canvas } from "@react-three/fiber";
 
 const Models3D = () => (
 	<div>
 		<h1>3D Models</h1>
-		<h3>Collection of 3D models.</h3>
+		<Canvas></Canvas>
 	</div>
 );
 
