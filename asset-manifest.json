@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.46f9c551.css",
-    "main.js": "/static/js/main.6b983694.js",
+    "main.js": "/static/js/main.3c611753.js",
     "static/media/basketball.png": "/static/media/basketball.1210da4065a14cdb4aae.png",
     "static/media/Quicksand-Medium.ttf": "/static/media/Quicksand-Medium.a8b2db068fc584f9235c.ttf",
     "static/media/Quicksand-Regular.ttf": "/static/media/Quicksand-Regular.0deed939016c22a3a9f5.ttf",
@@ -11,10 +11,10 @@
     "static/media/unicode-to-tamil.png": "/static/media/unicode-to-tamil.661fb9c811c3a0129b7f.png",
     "index.html": "/index.html",
     "main.46f9c551.css.map": "/static/css/main.46f9c551.css.map",
-    "main.6b983694.js.map": "/static/js/main.6b983694.js.map"
+    "main.3c611753.js.map": "/static/js/main.3c611753.js.map"
   },
   "entrypoints": [
     "static/css/main.46f9c551.css",
-    "static/js/main.6b983694.js"
+    "static/js/main.3c611753.js"
   ]
 }
