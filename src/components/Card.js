@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "../styles/card.css";
 
-const Card = ({ title, image, link, children }) => {
+const Card = ({ title, image, link, onClick, children }) => {
 	const cardRef = useRef();
 	const animationRef = useRef(null);
 
@@ -43,6 +43,44 @@ const Card = ({ title, image, link, children }) => {
 		cardRef.current.style.transform = `rotateX(0deg) rotateY(0deg)`;
 	};
 
+	// If onClick is provided, render as a button div instead of a link
+	if (onClick) {
+		return (
+			<div
+				className="card-wrapper"
+				onClick={onClick}
+				onMouseMove={handleMouseMove}
+				onMouseLeave={resetTransform}
+				style={{
+					cursor: "pointer",
+					width: "100%",
+					height: "100%",
+					display: "flex",
+					flexDirection: "column",
+				}}
+			>
+				<div
+					className="card"
+					ref={cardRef}
+					style={{
+						width: "100%",
+						height: "100%",
+						display: "flex",
+						flexDirection: "column",
+					}}
+				>
+					<h3>{title}</h3>
+					<img
+						src={image}
+						alt={title}
+						style={{ width: "100%", flex: 1, objectFit: "cover" }}
+					/>
+					{children}
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<a
 			className="card-wrapper"
@@ -53,7 +91,7 @@ const Card = ({ title, image, link, children }) => {
 			rel="noopener noreferrer"
 		>
 			<div className="card" ref={cardRef}>
-				<h2>{title}</h2>
+				<h3>{title}</h3>
 				<img src={image} alt={title} style={{ width: "100%" }} />
 				{children}
 			</div>
