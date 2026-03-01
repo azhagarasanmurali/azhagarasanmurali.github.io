@@ -1,10 +1,11 @@
-import React, { Suspense, useMemo, useState } from "react";
+import React, { Suspense, useMemo, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import Card from "../components/Card";
+import { useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 
-// List of 3D models
 const MODELS = [
 	{
 		id: 1,
@@ -29,7 +30,25 @@ function Loader() {
 	return <Html center>{Math.round(progress)} %</Html>;
 }
 
-function CenteredModel({ url }) {
+function calculateTriangleCount(object) {
+	let triangles = 0;
+
+	object.traverse((child) => {
+		if (child.isMesh && child.geometry) {
+			const geom = child.geometry;
+
+			if (geom.index) {
+				triangles += geom.index.count / 3;
+			} else if (geom.attributes.position) {
+				triangles += geom.attributes.position.count / 3;
+			}
+		}
+	});
+
+	return Math.floor(triangles);
+}
+
+function CenteredModel({ url, onTrianglesCalculated }) {
 	const { scene } = useGLTF(url);
 
 	const processedScene = useMemo(() => {
@@ -51,11 +70,17 @@ function CenteredModel({ url }) {
 		return cloned;
 	}, [scene]);
 
+	useEffect(() => {
+		const triCount = calculateTriangleCount(processedScene);
+		onTrianglesCalculated(triCount);
+	}, [processedScene, onTrianglesCalculated]);
+
 	return <primitive object={processedScene} />;
 }
 
 const Models3D = () => {
 	const [selectedModel, setSelectedModel] = useState(MODELS[0]);
+	const [triangles, setTriangles] = useState(0);
 
 	return (
 		<div
@@ -77,6 +102,7 @@ const Models3D = () => {
 					border: "2px solid #ddd",
 					borderRadius: "8px",
 					boxSizing: "border-box",
+					position: "relative",
 				}}
 			>
 				<Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
@@ -87,6 +113,7 @@ const Models3D = () => {
 						<CenteredModel
 							key={selectedModel.path}
 							url={selectedModel.path}
+							onTrianglesCalculated={setTriangles}
 						/>
 					</Suspense>
 
@@ -96,6 +123,34 @@ const Models3D = () => {
 						enableRotate
 						target={[0, 0, 0]}
 					/>
+
+					{/* Triangle Counter Overlay */}
+					<Html
+						fullscreen
+						style={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							width: "100%",
+							height: "100%",
+							pointerEvents: "none",
+						}}
+					>
+						<div
+							style={{
+								position: "absolute",
+								top: "-225px",
+								right: "350px",
+								color: "inherit",
+								padding: "6px 10px",
+								borderRadius: "6px",
+								fontSize: "14px",
+								whiteSpace: "nowrap",
+							}}
+						>
+							Tris: {triangles.toLocaleString()}
+						</div>
+					</Html>
 				</Canvas>
 			</div>
 
