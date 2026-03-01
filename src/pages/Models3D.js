@@ -1,10 +1,10 @@
-import React, { Suspense, useRef, useEffect, useState } from "react";
+import React, { Suspense, useMemo, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import Card from "../components/Card";
 
-// List of 3D models. Update with your own models and thumbnails.
+// List of 3D models
 const MODELS = [
 	{
 		id: 1,
@@ -22,14 +22,6 @@ const MODELS = [
 		cardHeight: "250px",
 		cardWidth: "200px",
 	},
-	// {
-	// 	id: 3,
-	// 	name: "Model 3",
-	// 	path: "/models/model1.glb",
-	// 	thumbnail: "/models/thumb1.png",
-	// 	cardHeight: "250px",
-	// 	cardWidth: "200px",
-	// },
 ];
 
 function Loader() {
@@ -38,25 +30,28 @@ function Loader() {
 }
 
 function CenteredModel({ url }) {
-	const gltf = useGLTF(url, true);
-	const ref = useRef();
+	const { scene } = useGLTF(url);
 
-	useEffect(() => {
-		if (!gltf || !gltf.scene) return;
-		const box = new THREE.Box3().setFromObject(gltf.scene);
+	const processedScene = useMemo(() => {
+		const cloned = scene.clone(true);
+
+		const box = new THREE.Box3().setFromObject(cloned);
 		const size = new THREE.Vector3();
 		box.getSize(size);
+
 		const maxDim = Math.max(size.x, size.y, size.z);
 		const scale = maxDim > 0 ? 1.5 / maxDim : 1;
-		gltf.scene.scale.setScalar(scale);
-		box.setFromObject(gltf.scene);
+		cloned.scale.setScalar(scale);
+
+		box.setFromObject(cloned);
 		const center = new THREE.Vector3();
 		box.getCenter(center);
-		gltf.scene.position.sub(center);
-		if (ref.current) ref.current.add(gltf.scene);
-	}, [gltf]);
+		cloned.position.sub(center);
 
-	return <group ref={ref} />;
+		return cloned;
+	}, [scene]);
+
+	return <primitive object={processedScene} />;
 }
 
 const Models3D = () => {
@@ -70,10 +65,8 @@ const Models3D = () => {
 				overflow: "visible",
 			}}
 		>
-			{/* Page Title */}
 			<h1>3D Models</h1>
 
-			{/* Canvas Viewer */}
 			<div
 				style={{
 					height: "500px",
@@ -89,9 +82,14 @@ const Models3D = () => {
 				<Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
 					<ambientLight intensity={0.6} />
 					<directionalLight position={[10, 10, 10]} intensity={0.8} />
+
 					<Suspense fallback={<Loader />}>
-						<CenteredModel url={selectedModel.path} />
+						<CenteredModel
+							key={selectedModel.path}
+							url={selectedModel.path}
+						/>
 					</Suspense>
+
 					<OrbitControls
 						enablePan
 						enableZoom
@@ -101,10 +99,8 @@ const Models3D = () => {
 				</Canvas>
 			</div>
 
-			{/* Model Name */}
 			<h3>{selectedModel.name}</h3>
 
-			{/* Horizontally Scrollable Card Panel */}
 			<div
 				style={{
 					padding: "24px 50px",
