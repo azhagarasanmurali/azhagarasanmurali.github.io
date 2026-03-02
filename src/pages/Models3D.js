@@ -3,8 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import Card from "../components/Card";
-import { useThree } from "@react-three/fiber";
-import { useFrame } from "@react-three/fiber";
 
 const MODELS = [
 	{

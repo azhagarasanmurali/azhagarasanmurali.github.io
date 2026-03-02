@@ -4,6 +4,7 @@ const Bio = () => (
 	<div>
 		<h1>Bio</h1>
 		<h3>Detailed biography and background.</h3>
+
 		<h1>Strengths</h1>
 		<p>
 			<ul>
