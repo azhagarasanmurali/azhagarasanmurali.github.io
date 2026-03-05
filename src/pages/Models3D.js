@@ -1,5 +1,12 @@
-import React, { Suspense, useMemo, useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, {
+	Suspense,
+	useMemo,
+	useState,
+	useEffect,
+	useRef,
+	useCallback,
+} from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 import Card from "../components/Card";
@@ -46,8 +53,9 @@ function calculateTriangleCount(object) {
 	return Math.floor(triangles);
 }
 
-function CenteredModel({ url, onTrianglesCalculated }) {
+function CenteredModel({ url, onTrianglesCalculated, onModelLoaded }) {
 	const { scene } = useGLTF(url);
+	const modelRootRef = useRef();
 
 	const processedScene = useMemo(() => {
 		const cloned = scene.clone(true);
@@ -73,12 +81,53 @@ function CenteredModel({ url, onTrianglesCalculated }) {
 		onTrianglesCalculated(triCount);
 	}, [processedScene, onTrianglesCalculated]);
 
-	return <primitive object={processedScene} />;
+	useEffect(() => {
+		if (!modelRootRef.current) {
+			return;
+		}
+
+		modelRootRef.current.position.set(0, 0, 0);
+		modelRootRef.current.rotation.set(0, 0, 0);
+		modelRootRef.current.scale.set(1, 1, 1);
+
+		onModelLoaded?.();
+	}, [processedScene, onModelLoaded]);
+
+	return (
+		<group ref={modelRootRef}>
+			<primitive object={processedScene} />
+		</group>
+	);
+}
+
+function CameraResetOnModelLoad({ resetToken, controlsRef }) {
+	const { camera } = useThree();
+
+	useEffect(() => {
+		camera.position.set(0, 0, 3);
+		camera.zoom = 1;
+
+		if (controlsRef.current) {
+			controlsRef.current.target.set(0, 0, 0);
+			controlsRef.current.update();
+		}
+
+		camera.lookAt(0, 0, 0);
+		camera.updateProjectionMatrix();
+	}, [resetToken, camera, controlsRef]);
+
+	return null;
 }
 
 const Models3D = () => {
 	const [selectedModel, setSelectedModel] = useState(MODELS[0]);
 	const [triangles, setTriangles] = useState(0);
+	const [modelLoadToken, setModelLoadToken] = useState(0);
+	const controlsRef = useRef();
+
+	const handleModelLoaded = useCallback(() => {
+		setModelLoadToken((prevToken) => prevToken + 1);
+	}, []);
 
 	return (
 		<div
@@ -104,6 +153,11 @@ const Models3D = () => {
 				}}
 			>
 				<Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
+					<CameraResetOnModelLoad
+						resetToken={modelLoadToken}
+						controlsRef={controlsRef}
+					/>
+
 					<ambientLight intensity={0.6} />
 					<directionalLight position={[10, 10, 10]} intensity={0.8} />
 
@@ -112,44 +166,34 @@ const Models3D = () => {
 							key={selectedModel.path}
 							url={selectedModel.path}
 							onTrianglesCalculated={setTriangles}
+							onModelLoaded={handleModelLoaded}
 						/>
 					</Suspense>
 
 					<OrbitControls
+						ref={controlsRef}
 						enablePan
 						enableZoom
 						enableRotate
 						target={[0, 0, 0]}
 					/>
-
-					{/* Triangle Counter Overlay */}
-					<Html
-						fullscreen
-						style={{
-							position: "absolute",
-							top: 0,
-							left: 0,
-							width: "100%",
-							height: "100%",
-							pointerEvents: "none",
-						}}
-					>
-						<div
-							style={{
-								position: "absolute",
-								top: "-225px",
-								right: "350px",
-								color: "inherit",
-								padding: "6px 10px",
-								borderRadius: "6px",
-								fontSize: "14px",
-								whiteSpace: "nowrap",
-							}}
-						>
-							Tris: {triangles.toLocaleString()}
-						</div>
-					</Html>
 				</Canvas>
+
+				<div
+					style={{
+						position: "absolute",
+						top: "12px",
+						right: "24px",
+						zIndex: 2,
+						pointerEvents: "none",
+						padding: "6px 10px",
+						borderRadius: "6px",
+						fontSize: "14px",
+						lineHeight: 1.2,
+					}}
+				>
+					Tris: {triangles.toLocaleString()}
+				</div>
 			</div>
 
 			<h3>{selectedModel.name}</h3>
