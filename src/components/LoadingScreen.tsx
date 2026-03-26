@@ -15,13 +15,33 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 	);
 	const pool = messages.length ? messages : fallbackMessages;
 	const [messageIndex, setMessageIndex] = useState(0);
+	const [displayProgress, setDisplayProgress] = useState(0);
+	const [isMessageVisible, setIsMessageVisible] = useState(true);
 
 	useEffect(() => {
+		let swapTimeout: number | null = null;
 		const interval = window.setInterval(() => {
-			setMessageIndex((prev) => (prev + 1) % pool.length);
-		}, 1200);
-		return () => window.clearInterval(interval);
-	}, [pool]);
+			setIsMessageVisible(false);
+			swapTimeout = window.setTimeout(() => {
+				setMessageIndex((prev) => (prev + 1) % pool.length);
+				setIsMessageVisible(true);
+			}, 170);
+		}, 2400);
+
+		return () => {
+			window.clearInterval(interval);
+			if (swapTimeout !== null) {
+				window.clearTimeout(swapTimeout);
+			}
+		};
+	}, [pool.length]);
+
+	useEffect(() => {
+		setDisplayProgress((current) => {
+			if (progress <= current) return current;
+			return progress;
+		});
+	}, [progress]);
 
 	return (
 		<div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-slate-950">
@@ -34,22 +54,26 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 				<h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
 					Azhagarasan Murali
 				</h2>
-				<p className="mb-8 min-h-7 text-base text-slate-200 sm:text-lg">
+				<p
+					className={`mb-8 min-h-7 text-base text-slate-200 sm:text-lg transition-opacity duration-200 ${
+						isMessageVisible ? "opacity-100" : "opacity-0"
+					}`}
+				>
 					{pool[messageIndex]}
 				</p>
 
 				<div className="mx-auto w-full max-w-md rounded-full border border-white/10 bg-white/5 p-1.5">
 					<div className="h-2.5 rounded-full bg-slate-900/50">
 						<div
-							className="h-full rounded-full bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 transition-[width] duration-300"
+							className="h-full rounded-full bg-gradient-to-r from-accent-primary via-fuchsia-400 to-accent-secondary shadow-[0_0_14px_rgba(34,211,238,0.55)] transition-[width] duration-700 ease-out"
 							style={{
-								width: `${Math.max(6, Math.min(100, progress))}%`,
+								width: `${Math.max(6, Math.min(100, displayProgress))}%`,
 							}}
 						/>
 					</div>
 				</div>
 				<div className="mt-3 text-sm text-slate-400">
-					{Math.round(Math.max(0, Math.min(100, progress)))}%
+					{Math.round(Math.max(0, Math.min(100, displayProgress)))}%
 				</div>
 			</div>
 		</div>

@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 	}, []);
 
 	return (
-		<section className="relative flex h-screen w-full justify-center overflow-hidden bg-slate-950">
+		<section className="relative flex h-full min-h-[calc(100vh-64px)] w-full justify-center overflow-hidden bg-slate-950">
 			{/* Background Video or Image */}
 			{data.backgroundVideo && (
 				<video
@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 				{/* Scroll Indicator */}
 				{shouldShowScrollCue && (
 					<div
-						className={`absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce ${
+						className={`absolute bottom-5 left-1/2 -translate-x-1/2 transform animate-bounce sm:bottom-7 ${
 							isVisible ? "opacity-100" : "opacity-0"
 						}`}
 					>

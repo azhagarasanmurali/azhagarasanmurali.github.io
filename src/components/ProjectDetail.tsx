@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 interface Project {
@@ -39,6 +39,47 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 }) => {
 	const marqueeDurationSeconds = Math.max(24, project.images.length * 6);
 	const loopedImages = [...project.images, ...project.images];
+	const videos = useMemo(() => {
+		const items: Array<
+			| { id: string; kind: "youtube"; src: string; title: string }
+			| { id: string; kind: "asset"; src: string; title: string }
+		> = [];
+
+		if (project.youtubeUrl) {
+			items.push({
+				id: `${project.id}-youtube`,
+				kind: "youtube",
+				src: project.youtubeUrl,
+				title: "YouTube Showcase",
+			});
+		}
+
+		if (project.videoAsset) {
+			items.push({
+				id: `${project.id}-video-asset`,
+				kind: "asset",
+				src: project.videoAsset,
+				title: "Gameplay Video",
+			});
+		}
+
+		return items;
+	}, [project.id, project.videoAsset, project.youtubeUrl]);
+	const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+	const hasMultipleVideos = videos.length > 1;
+	const activeVideo = videos[currentVideoIndex];
+
+	const goToPreviousVideo = () => {
+		if (!videos.length) return;
+		setCurrentVideoIndex(
+			(prev) => (prev - 1 + videos.length) % videos.length,
+		);
+	};
+
+	const goToNextVideo = () => {
+		if (!videos.length) return;
+		setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+	};
 
 	useEffect(() => {
 		const originalOverflow = document.body.style.overflow;
@@ -52,6 +93,10 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 			document.body.style.overscrollBehavior = originalOverscroll;
 		};
 	}, []);
+
+	useEffect(() => {
+		setCurrentVideoIndex(0);
+	}, [project.id]);
 
 	return (
 		<div
@@ -159,34 +204,83 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 					)}
 
 					{/* Video Section */}
-					{project.youtubeUrl && (
+					{videos.length > 0 && (
 						<div className="mb-12 rounded-[2rem] border border-white/10 bg-slate-950/78 p-6 shadow-[0_30px_80px_rgba(15,23,42,0.45)] backdrop-blur-2xl sm:p-8">
-							<h2 className="text-3xl font-bold text-white mb-6">
-								Video Showcase
-							</h2>
-							<div className="aspect-video rounded-xl overflow-hidden">
-								<iframe
-									src={project.youtubeUrl}
-									title={`${project.title} Video`}
-									className="w-full h-full"
-									allowFullScreen
-								/>
+							<div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+								<h2 className="text-3xl font-bold text-white">
+									Video Showcase
+								</h2>
+								{activeVideo && (
+									<span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+										{activeVideo.title}
+									</span>
+								)}
 							</div>
-						</div>
-					)}
+							<div className="relative">
+								<div className="aspect-video overflow-hidden rounded-xl border border-white/10 bg-black/60">
+									{activeVideo?.kind === "youtube" ? (
+										<iframe
+											key={activeVideo.id}
+											src={activeVideo.src}
+											title={`${project.title} Video`}
+											className="fade-in-soft h-full w-full"
+											allowFullScreen
+										/>
+									) : (
+										<video
+											key={activeVideo?.id}
+											controls
+											className="fade-in-soft h-full w-full"
+										>
+											<source
+												src={activeVideo?.src}
+												type="video/mp4"
+											/>
+											Your browser does not support the
+											video tag.
+										</video>
+									)}
+								</div>
 
-					{project.videoAsset && !project.youtubeUrl && (
-						<div className="mb-12 rounded-[2rem] border border-white/10 bg-slate-950/78 p-6 shadow-[0_30px_80px_rgba(15,23,42,0.45)] backdrop-blur-2xl sm:p-8">
-							<h2 className="text-3xl font-bold text-white mb-6">
-								Gameplay Video
-							</h2>
-							<video controls className="w-full rounded-xl">
-								<source
-									src={project.videoAsset}
-									type="video/mp4"
-								/>
-								Your browser does not support the video tag.
-							</video>
+								{hasMultipleVideos && (
+									<>
+										<button
+											type="button"
+											onClick={goToPreviousVideo}
+											className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-slate-900/80 px-3 py-2 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-slate-800"
+										>
+											←
+										</button>
+										<button
+											type="button"
+											onClick={goToNextVideo}
+											className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-slate-900/80 px-3 py-2 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-slate-800"
+										>
+											→
+										</button>
+									</>
+								)}
+							</div>
+
+							{hasMultipleVideos && (
+								<div className="mt-4 flex items-center justify-center gap-2">
+									{videos.map((video, index) => (
+										<button
+											key={video.id}
+											type="button"
+											onClick={() =>
+												setCurrentVideoIndex(index)
+											}
+											aria-label={`Show video ${index + 1}`}
+											className={`h-2.5 rounded-full transition-all ${
+												currentVideoIndex === index
+													? "w-8 bg-accent-secondary"
+													: "w-2.5 bg-white/35 hover:bg-white/55"
+											}`}
+										/>
+									))}
+								</div>
+							)}
 						</div>
 					)}
 

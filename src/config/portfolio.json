@@ -3,10 +3,10 @@
 		"name": "Azhagarasan Murali",
 		"title": "Game Developer & Creative Technologist",
 		"tagline": "Crafting immersive gaming experiences with cutting-edge technology",
-		"email": "your.email@example.com",
-		"phone": "+1 (555) 123-4567",
+		"email": "azhagarasan.azhagu@gmail.com",
+		"phone": "+91 97882 65926",
 		"resumeUrl": "assets/documents/azhagarasan-resume.pdf",
-		"location": "Your City, Country"
+		"location": "Chennai, India"
 	},
 	"hero": {
 		"heading": "Game Developer Portfolio",
@@ -93,10 +93,9 @@
 			"Audio Design",
 			"UI/UX Design",
 			"Version Control (Git, SVN)",
-			"Agile Development",
 			"SOLID Principles"
 		],
-		"profileImage": "assets/images/Azhagarasan.jpg"
+		"profileImage": "assets/images/azhagarasan.jpg"
 	},
 	"projectsSection": {
 		"title": "Projects",
@@ -114,14 +113,14 @@
 			"category": "Sports, Casual",
 			"year": 2026,
 			"description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
-			"detailedDescription": "This project represents my most ambitious work to date. Built with Unreal Engine 5, it features realistic basketball mechanics, dynamic player AI, and immersive stadium environments.",
+			"detailedDescription": "Quick-Shot: Basketball is a mobile game that combines realistic physics with engaging gameplay mechanics to provide a casual experience. Players can shoot hoops in various environments.",
 			"thumbnail": "assets/images/quick-shot-basketball/thumbnail.png",
 			"images": [
 				"assets/images/quick-shot-basketball/phone-screenshot-1.png",
 				"assets/images/quick-shot-basketball/phone-screenshot-2.png"
 			],
 			"youtubeUrl": "https://www.youtube.com/embed/rfFN6XBV0wA",
-			"comment_videoAsset": "assets/videos/project1-demo.mp4",
+			"videoAsset": "assets/videos/quick-shot-basketball/project-demo.mp4",
 			"role": "Full Stack Game Developer",
 			"team": 1,
 			"duration": "2 months",
@@ -179,11 +178,11 @@
 		},
 		{
 			"id": "project-3",
-			"type": "Professional",
+			"type": "Sify Technologies",
 			"title": "Ultrasonic Immersive Scanner",
 			"tagline": "Non-destructive 3D scanner simulation",
 			"category": "Simulation",
-			"year": 2023,
+			"year": 2025,
 			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
 			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
 			"thumbnail": "assets/images/project3-thumb.jpg",
@@ -196,13 +195,184 @@
 			"videoAsset": "assets/videos/project3-gameplay.mp4",
 			"role": "Network Programmer & Backend Developer",
 			"team": 3,
-			"duration": "12 months",
+			"duration": "18 months",
 			"technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
 			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
 			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
 			"results": "1M+ registered players with 50K daily active users",
 			"links": {
 				"website": "https://example.com/project3",
+				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		},
+		{
+			"id": "project-4",
+			"type": "Sify Technologies",
+			"title": "Starter Template",
+			"tagline": "Ready to use Unity starter template for multi-platform development",
+			"category": "Template",
+			"year": 2024,
+			"description": "A cross-platform Unity starter template designed to accelerate development for the developers. It includes pre-built systems for character movement, camera control, UI management, audio management, all optimized for performance and scalability.",
+			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
+			"thumbnail": "assets/images/project5-thumb.jpg",
+			"images": [
+				"assets/images/project5-img1.jpg",
+				"assets/images/project5-img2.jpg",
+				"assets/images/project5-img3.jpg"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
+			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"role": "Unity Programmer & Template Architect",
+			"team": 1,
+			"duration": "3 months",
+			"technologies": [
+				"Unity",
+				"C#",
+				"Windows",
+				"macOS",
+				"VR",
+				"WebGL",
+				"SOLID Principles",
+				"Singletons",
+				"Scriptable Objects",
+				"Observer Pattern"
+			],
+			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
+			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
+			"results": "1M+ registered players with 50K daily active users",
+			"links": {
+				"website": "https://example.com/project5",
+				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		},
+		{
+			"id": "project-5",
+			"type": "Sify Technologies",
+			"title": "ToolingU SME Virtual Simulator",
+			"tagline": "Industrial scenario simulation",
+			"category": "Simulation",
+			"year": 2023,
+			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
+			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
+			"thumbnail": "assets/images/project4-thumb.jpg",
+			"images": [
+				"assets/images/project4-img1.jpg",
+				"assets/images/project4-img2.jpg",
+				"assets/images/project4-img3.jpg"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
+			"videoAsset": "assets/videos/project4-gameplay.mp4",
+			"role": "Platform Migration, CCD Integration, Appshell Integration",
+			"team": 12,
+			"duration": "36 months",
+			"technologies": [
+				"Unity",
+				"C#",
+				"VR",
+				"WebGL",
+				"Asset Bundles",
+				"Amazon S3",
+				"MongoDB"
+			],
+			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
+			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
+			"results": "1M+ registered players with 50K daily active users",
+			"links": {
+				"website": "https://example.com/project4",
+				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		},
+		{
+			"id": "project-6",
+			"type": "Sify Technologies",
+			"title": "NetApp",
+			"tagline": "Server rack simulation for training and organising",
+			"category": "Training Simulation",
+			"year": 2021,
+			"description": "A server rack simulation designed for training and organizing IT infrastructure. It includes pre-built systems for server management, network configuration, and troubleshooting exercises, all optimized for realistic training scenarios.",
+			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
+			"thumbnail": "assets/images/project5-thumb.jpg",
+			"images": [
+				"assets/images/project5-img1.jpg",
+				"assets/images/project5-img2.jpg",
+				"assets/images/project5-img3.jpg"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
+			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"role": "Unity Programmer & Tester",
+			"team": 4,
+			"duration": "3 months",
+			"technologies": ["Unity", "C#", "Windows", "WebGL"],
+			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
+			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
+			"results": "1M+ registered players with 50K daily active users",
+			"links": {
+				"website": "https://example.com/project5",
+				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		},
+		{
+			"id": "project-7",
+			"type": "Sify Technologies",
+			"title": "3D Model Viewer",
+			"tagline": "Interactive 3D model visualization tool",
+			"category": "Visualization Tool",
+			"year": 2021,
+			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features for model manipulation, annotation, and real-time rendering.",
+			"detailedDescription": "A robust 3D model viewer featuring interactive controls, real-time rendering, and support for various 3D file formats. Built with scalability in mind to handle large and complex models.",
+			"thumbnail": "assets/images/project5-thumb.jpg",
+			"images": [
+				"assets/images/project5-img1.jpg",
+				"assets/images/project5-img2.jpg",
+				"assets/images/project5-img3.jpg"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
+			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"role": "Unity Programmer",
+			"team": 4,
+			"duration": "3 months",
+			"technologies": [
+				"Unity",
+				"C#",
+				"Windows",
+				"WebGL",
+				"Android",
+				"Amazon S3"
+			],
+			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
+			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
+			"results": "1M+ registered players with 50K daily active users",
+			"links": {
+				"website": "https://example.com/project5",
+				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		},
+		{
+			"id": "project-7",
+			"type": "Gamin Inztinct",
+			"title": "Carrom Board",
+			"tagline": "Interactive Multiplayer Carrom Board Game",
+			"category": "Multiplayer",
+			"year": 2019,
+			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features for model manipulation, annotation, and real-time rendering.",
+			"detailedDescription": "A robust 3D model viewer featuring interactive controls, real-time rendering, and support for various 3D file formats. Built with scalability in mind to handle large and complex models.",
+			"thumbnail": "assets/images/project5-thumb.jpg",
+			"images": [
+				"assets/images/project5-img1.jpg",
+				"assets/images/project5-img2.jpg",
+				"assets/images/project5-img3.jpg"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
+			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"role": "Unity Programmer",
+			"team": 4,
+			"duration": "3 months",
+			"technologies": ["Unity", "C#", "Android", "Photon Pun"],
+			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
+			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
+			"results": "1M+ registered players with 50K daily active users",
+			"links": {
+				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
 		}

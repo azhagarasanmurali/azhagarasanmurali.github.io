@@ -20,12 +20,16 @@ export const Navigation: React.FC<NavigationProps> = ({
 	const [isScrolled, setIsScrolled] = useState(false);
 
 	useEffect(() => {
+		const main = document.querySelector("main");
+		if (!main) return;
+
 		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 50);
+			setIsScrolled(main.scrollTop > 20);
 		};
 
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		main.addEventListener("scroll", handleScroll, { passive: true });
+		handleScroll();
+		return () => main.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	const handleNavigate = (id: string) => {
@@ -59,10 +63,10 @@ export const Navigation: React.FC<NavigationProps> = ({
 								<button
 									key={section.id}
 									onClick={() => handleNavigate(section.id)}
-									className={`transition-colors duration-300 ${
+									className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-all duration-300 ${
 										activeSectionId === section.id
-											? "text-accent-primary"
-											: "text-gray-300 hover:text-accent-primary"
+											? "border-accent-primary/60 bg-accent-primary/15 text-accent-primary"
+											: "border-transparent text-gray-300 hover:border-white/20 hover:text-accent-primary"
 									}`}
 								>
 									{section.label}

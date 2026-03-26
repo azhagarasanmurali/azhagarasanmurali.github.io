@@ -29,9 +29,24 @@
 	}
 }
 
+@keyframes soft-fade-in {
+	0% {
+		opacity: 0;
+		transform: translateY(2px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 @layer base {
 	* {
-		@apply transition-colors duration-300;
+		transition-property:
+			color, background-color, border-color, opacity, transform,
+			box-shadow, filter, backdrop-filter;
+		transition-duration: 220ms;
+		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
 	html {
@@ -77,5 +92,9 @@
 
 	.hobby-marquee-row:hover .hobby-marquee-track {
 		animation-play-state: paused;
+	}
+
+	.fade-in-soft {
+		animation: soft-fade-in 240ms ease-out both;
 	}
 }

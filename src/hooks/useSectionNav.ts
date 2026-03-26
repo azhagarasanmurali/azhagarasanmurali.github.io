@@ -43,35 +43,46 @@ export const useSectionNav = (
 		if (!main) return;
 
 		mainRef.current = main as HTMLElement;
+		const computeActiveSection = () => {
+			const currentMain = mainRef.current;
+			if (!currentMain) return;
 
-		// Create intersection observer to track which section is in view
-		const observerOptions = {
-			root: main,
-			rootMargin: "-50% 0px -50% 0px",
-			threshold: 0,
+			const viewportCenter = currentMain.scrollTop + currentMain.clientHeight / 2;
+			let nextActive = sectionIds[0] ?? "";
+			let smallestDistance = Number.POSITIVE_INFINITY;
+
+			sectionIds.forEach((id) => {
+				const section = document.getElementById(id);
+				if (!section) return;
+
+				const sectionCenter = section.offsetTop + section.offsetHeight / 2;
+				const distance = Math.abs(sectionCenter - viewportCenter);
+				if (distance < smallestDistance) {
+					smallestDistance = distance;
+					nextActive = id;
+				}
+			});
+
+			setActiveSectionId(nextActive);
 		};
 
-		const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-			const visibleEntry = entries.find((entry) => entry.isIntersecting);
-			if (visibleEntry) {
-				setActiveSectionId(visibleEntry.target.id);
-			}
+		let rafId: number | null = null;
+		const handleMainScroll = () => {
+			if (rafId !== null) return;
+			rafId = window.requestAnimationFrame(() => {
+				rafId = null;
+				computeActiveSection();
+			});
 		};
 
-		observerRef.current = new IntersectionObserver(
-			handleIntersection,
-			observerOptions,
-		);
-
-		// Observe all sections
-		sectionIds.forEach((id) => {
-			const section = document.getElementById(id);
-			if (section && observerRef.current) {
-				observerRef.current.observe(section);
-			}
-		});
+		main.addEventListener("scroll", handleMainScroll, { passive: true });
+		computeActiveSection();
 
 		return () => {
+			main.removeEventListener("scroll", handleMainScroll);
+			if (rafId !== null) {
+				window.cancelAnimationFrame(rafId);
+			}
 			if (observerRef.current) {
 				observerRef.current.disconnect();
 			}

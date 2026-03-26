@@ -85,6 +85,9 @@ function App() {
 
 	useEffect(() => {
 		let isCancelled = false;
+		const loadStartAt = Date.now();
+		const minimumLoadingDurationMs = 1600;
+		const finishHoldMs = 450;
 
 		const preloadImage = (src: string) =>
 			new Promise<void>((resolve) => {
@@ -119,9 +122,19 @@ function App() {
 
 		if (!total) {
 			setLoadingProgress(100);
-			setIsLoading(false);
-			setShowSkeleton(true);
-			window.setTimeout(() => setShowSkeleton(false), 500);
+			const elapsed = Date.now() - loadStartAt;
+			const waitForMinimum = Math.max(
+				0,
+				minimumLoadingDurationMs - elapsed,
+			);
+			window.setTimeout(() => {
+				if (isCancelled) return;
+				setIsLoading(false);
+				setShowSkeleton(true);
+				window.setTimeout(() => {
+					if (!isCancelled) setShowSkeleton(false);
+				}, 500);
+			}, waitForMinimum + finishHoldMs);
 			return;
 		}
 
@@ -146,11 +159,19 @@ function App() {
 
 			if (!isCancelled) {
 				setLoadingProgress(100);
-				setIsLoading(false);
-				setShowSkeleton(true);
+				const elapsed = Date.now() - loadStartAt;
+				const waitForMinimum = Math.max(
+					0,
+					minimumLoadingDurationMs - elapsed,
+				);
 				window.setTimeout(() => {
-					if (!isCancelled) setShowSkeleton(false);
-				}, 500);
+					if (isCancelled) return;
+					setIsLoading(false);
+					setShowSkeleton(true);
+					window.setTimeout(() => {
+						if (!isCancelled) setShowSkeleton(false);
+					}, 500);
+				}, waitForMinimum + finishHoldMs);
 			}
 		};
 
