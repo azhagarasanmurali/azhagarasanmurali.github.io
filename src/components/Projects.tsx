@@ -3,6 +3,12 @@ import { ProjectCard } from "./ProjectCard";
 import { AnimatedItem } from "./AnimatedItem";
 import { useInView } from "../hooks/useInView";
 
+interface VideoItem {
+	type: "youtube" | "asset";
+	url: string;
+	title?: string;
+}
+
 interface Project {
 	id: string;
 	title: string;
@@ -14,8 +20,7 @@ interface Project {
 	detailedDescription: string;
 	thumbnail: string;
 	images: string[];
-	youtubeUrl?: string;
-	videoAsset?: string;
+	videos?: VideoItem[];
 	role: string;
 	team: number;
 	duration: string;

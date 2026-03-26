@@ -36,6 +36,127 @@ const stripCommentFields = (value: JsonValue): JsonValue => {
 	);
 };
 
+// Type definitions for portfolio data structure
+interface VideoItem {
+	type: "youtube" | "asset";
+	url: string;
+	title?: string;
+}
+
+interface Project {
+	id: string;
+	type: string;
+	title: string;
+	tagline: string;
+	category: string;
+	year: number;
+	description: string;
+	detailedDescription: string;
+	thumbnail: string;
+	images: string[];
+	videos?: VideoItem[];
+	role: string;
+	team: number;
+	duration: string;
+	technologies: string[];
+	challenge: string;
+	solution: string;
+	results: string;
+	links: {
+		website?: string;
+		github?: string;
+		steam?: string;
+		itch?: string;
+	};
+}
+
+interface PortfolioData {
+	personal: {
+		name: string;
+		title: string;
+		tagline: string;
+		email: string;
+		phone: string;
+		resumeUrl: string;
+		location: string;
+	};
+	loading: {
+		messages: string[];
+	};
+	hero: {
+		heading: string;
+		subheading: string;
+		ctaText: string;
+		heroImage?: string;
+		backgroundVideo?: string;
+		design?: {
+			verticalAlign?: string;
+			spacing?: string;
+			textScale?: string;
+			contentWidth?: string;
+			mood?: string;
+			ctaTone?: string;
+			showScrollCue?: boolean;
+		};
+	};
+	about: {
+		title: string;
+		description: string;
+		skills: string[];
+		profileImage?: string;
+		design?: {
+			layout?: string;
+			spacing?: string;
+			surface?: string;
+			skillsStyle?: string;
+			verticalAlign?: string;
+			contentWidth?: string;
+		};
+	};
+	projects: Project[];
+	hobbies?: {
+		title: string;
+		description: string;
+		design?: { verticalAlign?: string };
+		entries: Array<{
+			id: string;
+			type?: string;
+			title: string;
+			description: string;
+			[key: string]: unknown;
+		}>;
+	};
+	social?: {
+		title: string;
+		description: string;
+		design?: { verticalAlign?: string };
+		links: Array<{
+			platform: string;
+			url: string;
+			icon: string;
+		}>;
+	};
+	contact: {
+		title: string;
+		description: string;
+		email: string;
+		availability: string;
+		design?: {
+			verticalAlign?: string;
+		};
+	};
+	projectsSection?: {
+		title?: string;
+		description?: string;
+		design?: { verticalAlign?: string };
+	};
+	sections?: Array<{
+		id: string;
+		label: string;
+	}>;
+	[key: string]: unknown;
+}
+
 export const portfolioData = stripCommentFields(
 	rawPortfolioData as unknown as JsonValue,
-) as unknown as typeof rawPortfolioData;
+) as unknown as PortfolioData;

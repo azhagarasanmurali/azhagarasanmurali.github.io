@@ -1,6 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
+interface VideoItem {
+	type: "youtube" | "asset";
+	url: string;
+	title?: string;
+}
+
 interface Project {
 	id: string;
 	title: string;
@@ -11,8 +17,7 @@ interface Project {
 	detailedDescription: string;
 	thumbnail: string;
 	images: string[];
-	youtubeUrl?: string;
-	videoAsset?: string;
+	videos?: VideoItem[];
 	role: string;
 	team: number;
 	duration: string;
@@ -40,31 +45,16 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 	const marqueeDurationSeconds = Math.max(24, project.images.length * 6);
 	const loopedImages = [...project.images, ...project.images];
 	const videos = useMemo(() => {
-		const items: Array<
-			| { id: string; kind: "youtube"; src: string; title: string }
-			| { id: string; kind: "asset"; src: string; title: string }
-		> = [];
-
-		if (project.youtubeUrl) {
-			items.push({
-				id: `${project.id}-youtube`,
-				kind: "youtube",
-				src: project.youtubeUrl,
-				title: "YouTube Showcase",
-			});
-		}
-
-		if (project.videoAsset) {
-			items.push({
-				id: `${project.id}-video-asset`,
-				kind: "asset",
-				src: project.videoAsset,
-				title: "Gameplay Video",
-			});
-		}
-
-		return items;
-	}, [project.id, project.videoAsset, project.youtubeUrl]);
+		if (!project.videos || !project.videos.length) return [];
+		return project.videos.map((video, index) => ({
+			id: `${project.id}-video-${index}`,
+			type: video.type,
+			src: video.url,
+			title:
+				video.title ??
+				(video.type === "youtube" ? "YouTube Showcase" : "Video"),
+		}));
+	}, [project.videos, project.id]);
 	const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 	const hasMultipleVideos = videos.length > 1;
 	const activeVideo = videos[currentVideoIndex];
@@ -218,7 +208,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 							</div>
 							<div className="relative">
 								<div className="aspect-video overflow-hidden rounded-xl border border-white/10 bg-black/60">
-									{activeVideo?.kind === "youtube" ? (
+									{activeVideo?.type === "youtube" ? (
 										<iframe
 											key={activeVideo.id}
 											src={activeVideo.src}

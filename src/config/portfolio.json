@@ -119,8 +119,18 @@
 				"assets/images/quick-shot-basketball/phone-screenshot-1.png",
 				"assets/images/quick-shot-basketball/phone-screenshot-2.png"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/rfFN6XBV0wA",
-			"videoAsset": "assets/videos/quick-shot-basketball/project-demo.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/rfFN6XBV0wA",
+					"title": "Quick-Shot Demo Reel"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/quick-shot-basketball/project-demo.mp4",
+					"title": "Gameplay Showcase"
+				}
+			],
 			"role": "Full Stack Game Developer",
 			"team": 1,
 			"duration": "2 months",
@@ -155,8 +165,7 @@
 				"assets/images/unicode-to-tamil/img1.png",
 				"assets/images/unicode-to-tamil/img2.png"
 			],
-			"comment_youtubeUrl": "https://www.youtube.com/embed/aqz-KE-bpKQ",
-			"comment_videoAsset": "assets/videos/project2-demo.mp4",
+			"videos": [],
 			"role": "Solo Developer",
 			"team": 1,
 			"duration": "1 month",
@@ -191,8 +200,18 @@
 				"assets/images/project3-img2.jpg",
 				"assets/images/project3-img3.jpg"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
-			"videoAsset": "assets/videos/project3-gameplay.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"title": "Ultrasonic Scanner Overview"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/project3-gameplay.mp4",
+					"title": "Scanner in Action"
+				}
+			],
 			"role": "Network Programmer & Backend Developer",
 			"team": 3,
 			"duration": "18 months",
@@ -220,8 +239,18 @@
 				"assets/images/project5-img2.jpg",
 				"assets/images/project5-img3.jpg"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
-			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"title": "Template Overview"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/project5-gameplay.mp4",
+					"title": "Setup & Demo"
+				}
+			],
 			"role": "Unity Programmer & Template Architect",
 			"team": 1,
 			"duration": "3 months",
@@ -260,8 +289,18 @@
 				"assets/images/project4-img2.jpg",
 				"assets/images/project4-img3.jpg"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
-			"videoAsset": "assets/videos/project4-gameplay.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/DEAJMCInhBg",
+					"title": "Simulator Overview"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/project4-gameplay.mp4",
+					"title": "Training Demo"
+				}
+			],
 			"role": "Platform Migration, CCD Integration, Appshell Integration",
 			"team": 12,
 			"duration": "36 months",
@@ -297,8 +336,18 @@
 				"assets/images/project5-img2.jpg",
 				"assets/images/project5-img3.jpg"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
-			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"title": "NetApp Training Overview"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/project5-gameplay.mp4",
+					"title": "Server Configuration Demo"
+				}
+			],
 			"role": "Unity Programmer & Tester",
 			"team": 4,
 			"duration": "3 months",
@@ -326,8 +375,18 @@
 				"assets/images/project5-img2.jpg",
 				"assets/images/project5-img3.jpg"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
-			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"title": "3D Model Viewer Demo"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/project5-gameplay.mp4",
+					"title": "Interactive Visualization Tutorial"
+				}
+			],
 			"role": "Unity Programmer",
 			"team": 4,
 			"duration": "3 months",
@@ -362,8 +421,18 @@
 				"assets/images/project5-img2.jpg",
 				"assets/images/project5-img3.jpg"
 			],
-			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
-			"videoAsset": "assets/videos/project5-gameplay.mp4",
+			"videos": [
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"title": "Carrom Gameplay"
+				},
+				{
+					"type": "asset",
+					"url": "assets/videos/project5-gameplay.mp4",
+					"title": "Tutorial Video"
+				}
+			],
 			"role": "Unity Programmer",
 			"team": 4,
 			"duration": "3 months",

@@ -108,13 +108,22 @@ function App() {
 			});
 
 		const assets = new Set<string>();
-		assets.add(portfolioData.hero.heroImage);
-		assets.add(portfolioData.hero.backgroundVideo);
-		assets.add(portfolioData.about.profileImage);
+		if (portfolioData.hero.heroImage)
+			assets.add(portfolioData.hero.heroImage);
+		if (portfolioData.hero.backgroundVideo)
+			assets.add(portfolioData.hero.backgroundVideo);
+		if (portfolioData.about.profileImage)
+			assets.add(portfolioData.about.profileImage);
 		portfolioData.projects.forEach((project) => {
 			assets.add(project.thumbnail);
 			project.images.forEach((img) => assets.add(img));
-			if (project.videoAsset) assets.add(project.videoAsset);
+			if (project.videos) {
+				project.videos.forEach((video) => {
+					if (video.type === "asset") {
+						assets.add(video.url);
+					}
+				});
+			}
 		});
 
 		const assetList = Array.from(assets).filter(Boolean);
