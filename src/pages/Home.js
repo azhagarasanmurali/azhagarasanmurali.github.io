@@ -5,18 +5,20 @@ const Home = () => (
 		<h1>Azhagarasan Murali</h1>
 		<h2>Game Developer | Programmer</h2>
 		<p>
-			Unity Game Developer with 9+ years of experience (since 2015),
-			including 5 years in an MNC environment. Architect of a company-wide
-			Unity template project that significantly reduces development time
-			through scalable, reusable systems. Specialized in cross-platform UI
-			solutions adaptable to Windows, Mac, WebGL, Android, and VR
-			(world-space UI). Proficient in industrial simulation development
-			and experienced across the latest Unity 6 features, including UI
-			Toolkit, Input System, XR Interaction Toolkit, and DOTS (ECS).
-			Skilled in multiplayer implementation using Netcode for GameObjects.
-			Consistently deliver tasks on time with zero missed deadlines.
-			Strong cross-functional communication with designers and QA for
-			efficient bug resolution.
+			I'm a Unity Game Developer using Unity for more than 9 years (since
+			2015). I have 5+ years of experience in an MNC environment
+			developing Industrial Simulation Projects in Unity for Windows,
+			WebGL and VR platforms. I have architected a company-wide Unity
+			Template project using SOLID principles and design patterns
+			(Singleton and Observer) that significantly cuts down development
+			time for new projects by half through reusable, scalable systems
+			that works well across different platforms. I have experience in the
+			latest Unity 6 features including UI Toolkit, Input System, XR
+			Interaction Toolkit and DOTS (ECS). I have also implemented
+			multiplayer features using Netcode for GameObjects. I have a track
+			record of consistently delivering tasks on time with zero missed
+			deadlines and acts as a communication bridge between developers,
+			designers and QA for efficient bug resolution.
 		</p>
 	</div>
 );
