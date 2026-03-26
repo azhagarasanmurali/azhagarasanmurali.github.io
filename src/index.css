@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes glow-orbit-cyan {
+	0%,
+	100% {
+		box-shadow:
+			0 0 8px 3px rgba(34, 211, 238, 0.55),
+			0 0 18px 8px rgba(34, 211, 238, 0.22);
+	}
+	50% {
+		box-shadow:
+			0 0 20px 7px rgba(34, 211, 238, 0.85),
+			0 0 40px 16px rgba(34, 211, 238, 0.35);
+	}
+}
+
+.glow-orb-cyan {
+	animation: glow-orbit-cyan 2s ease-in-out infinite;
+}
+
+@keyframes hobby-marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@layer base {
+	* {
+		@apply transition-colors duration-300;
+	}
+
+	html {
+		@apply scroll-smooth;
+		overscroll-behavior: none;
+	}
+
+	body {
+		@apply bg-dark-950 text-gray-300 font-sans;
+		overscroll-behavior: none;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-white font-bold tracking-tight;
+	}
+}
+
+@layer utilities {
+	main {
+		scroll-behavior: smooth;
+		scroll-snap-type: y mandatory;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	section {
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+	}
+
+	.hobby-marquee-track {
+		animation: hobby-marquee 32s linear infinite;
+		will-change: transform;
+	}
+
+	.hobby-marquee-track-reverse {
+		animation-direction: reverse;
+	}
+
+	.hobby-marquee-row:hover .hobby-marquee-track {
+		animation-play-state: paused;
+	}
+}

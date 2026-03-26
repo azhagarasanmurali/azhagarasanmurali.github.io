@@ -1,0 +1,472 @@
+{
+	"personal": {
+		"name": "Azhagarasan Murali",
+		"title": "Game Developer & Creative Technologist",
+		"tagline": "Crafting immersive gaming experiences with cutting-edge technology",
+		"email": "your.email@example.com",
+		"phone": "+1 (555) 123-4567",
+		"resumeUrl": "assets/documents/azhagarasan-resume.pdf",
+		"location": "Your City, Country"
+	},
+	"hero": {
+		"heading": "Game Developer Portfolio",
+		"subheading": "Bringing worlds to life through code and creativity",
+		"ctaText": "Explore My Work",
+		"backgroundVideo": "assets/videos/hero-bg.mp4",
+		"heroImage": "assets/images/hero-image.jpg",
+		"design": {
+			"verticalAlign": "center",
+			"spacing": "comfortable",
+			"textScale": "regular",
+			"contentWidth": "standard",
+			"mood": "balanced",
+			"ctaTone": "strong",
+			"showScrollCue": true
+		}
+	},
+	"loading": {
+		"messages": [
+			"Loading portfolio experience...",
+			"Streaming visuals and gameplay captures...",
+			"Preparing projects, experience, hobbies, and social links...",
+			"Almost ready. Syncing final assets..."
+		]
+	},
+	"sections": [
+		{
+			"id": "hero",
+			"label": "Home"
+		},
+		{
+			"id": "about",
+			"label": "About"
+		},
+		{
+			"id": "projects",
+			"label": "Projects"
+		},
+		{
+			"id": "hobbies",
+			"label": "Hobbies"
+		},
+		{
+			"id": "experience",
+			"label": "Experience"
+		},
+		{
+			"id": "social",
+			"label": "Social"
+		},
+		{
+			"id": "contact",
+			"label": "Contact"
+		}
+	],
+	"design": {
+		"notes": "Design settings are optional. Use section-level design fields to tune layout and spacing without code changes.",
+		"sectionOptions": {
+			"verticalAlign": "top|center",
+			"spacing": "compact|comfortable|airy",
+			"surface": "plain|muted|elevated",
+			"contentWidth": "narrow|standard|wide",
+			"emphasis": "soft|balanced|strong"
+		}
+	},
+	"about": {
+		"title": "About Me",
+		"description": "With 5+ years of experience in game development, I specialize in creating engaging gameplay mechanics and immersive environments. My passion for storytelling and technical innovation drives every project I undertake.",
+		"design": {
+			"layout": "split",
+			"spacing": "comfortable",
+			"surface": "muted",
+			"skillsStyle": "card",
+			"verticalAlign": "top",
+			"contentWidth": "wide"
+		},
+		"skills": [
+			"Unity",
+			"C#",
+			"3D Graphics",
+			"Game Design",
+			"Multiplayer Networking",
+			"Physics Systems",
+			"Audio Design",
+			"UI/UX Design",
+			"Version Control (Git, SVN)",
+			"Agile Development",
+			"SOLID Principles"
+		],
+		"profileImage": "assets/images/Azhagarasan.jpg"
+	},
+	"projectsSection": {
+		"title": "Projects",
+		"description": "Explore my latest game development projects and case studies.",
+		"design": {
+			"verticalAlign": "top"
+		}
+	},
+	"projects": [
+		{
+			"id": "project-1",
+			"type": "Personal",
+			"title": "Quick-Shot: Basketball",
+			"tagline": "An immersive basketball experience",
+			"category": "Sports, Casual",
+			"year": 2026,
+			"description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
+			"detailedDescription": "This project represents my most ambitious work to date. Built with Unreal Engine 5, it features realistic basketball mechanics, dynamic player AI, and immersive stadium environments.",
+			"thumbnail": "assets/images/quick-shot-basketball/thumbnail.png",
+			"images": [
+				"assets/images/quick-shot-basketball/phone-screenshot-1.png",
+				"assets/images/quick-shot-basketball/phone-screenshot-2.png"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/rfFN6XBV0wA",
+			"comment_videoAsset": "assets/videos/project1-demo.mp4",
+			"role": "Full Stack Game Developer",
+			"team": 1,
+			"duration": "2 months",
+			"technologies": [
+				"Unity Engine",
+				"C#",
+				"Google Analytics",
+				"Unity Ads",
+				"Unity Analytics",
+				"SOLID Principles",
+				"Git Version Control"
+			],
+			"challenge": "Creating a seamless open world with minimal loading times while maintaining visual fidelity and gameplay performance.",
+			"solution": "Implemented advanced streaming systems and optimized rendering pipelines to achieve 60 FPS on target platforms.",
+			"results": "Successfully launched in Google Play Store",
+			"links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
+				"github": "https://github.com/yourname/project1"
+			}
+		},
+		{
+			"id": "project-2",
+			"type": "Personal",
+			"title": "Unicode to Tamil",
+			"tagline": "A font converter app",
+			"category": "Utility",
+			"year": 2020,
+			"description": "A utility app for converting Unicode text to Tamil and vice versa.",
+			"detailedDescription": "This app provides a seamless experience for converting Unicode text into Tamil font and vice versa.",
+			"thumbnail": "assets/images/unicode-to-tamil/thumbnail.png",
+			"images": [
+				"assets/images/unicode-to-tamil/img1.png",
+				"assets/images/unicode-to-tamil/img2.png"
+			],
+			"comment_youtubeUrl": "https://www.youtube.com/embed/aqz-KE-bpKQ",
+			"comment_videoAsset": "assets/videos/project2-demo.mp4",
+			"role": "Solo Developer",
+			"team": 1,
+			"duration": "1 month",
+			"technologies": [
+				"Android Studio",
+				"JAVA",
+				"Kotlin",
+				"Google AdMob",
+				"Firebase Analytics",
+				"Firebase Crashlytics"
+			],
+			"challenge": "Processing large text inputs efficiently while maintaining a responsive user interface.",
+			"solution": "Implemented optimized text processing algorithms and background threading to ensure smooth performance.",
+			"results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
+			"links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+				"comment_itch": "https://yourname.itch.io/pixel-paradise"
+			}
+		},
+		{
+			"id": "project-3",
+			"type": "Professional",
+			"title": "Ultrasonic Immersive Scanner",
+			"tagline": "Non-destructive 3D scanner simulation",
+			"category": "Simulation",
+			"year": 2023,
+			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
+			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
+			"thumbnail": "assets/images/project3-thumb.jpg",
+			"images": [
+				"assets/images/project3-img1.jpg",
+				"assets/images/project3-img2.jpg",
+				"assets/images/project3-img3.jpg"
+			],
+			"youtubeUrl": "https://www.youtube.com/embed/jNQXAC9IVRw",
+			"videoAsset": "assets/videos/project3-gameplay.mp4",
+			"role": "Network Programmer & Backend Developer",
+			"team": 3,
+			"duration": "12 months",
+			"technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
+			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
+			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
+			"results": "1M+ registered players with 50K daily active users",
+			"links": {
+				"website": "https://example.com/project3",
+				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		}
+	],
+	"hobbies": {
+		"title": "Hobbies & Interests",
+		"description": "Things I explore outside production work to stay creative, curious, and game-ready.",
+		"design": {
+			"verticalAlign": "top"
+		},
+		"entries": [
+			{
+				"id": "hobby-1",
+				"type": "creative",
+				"title": "Game Jam Prototyping",
+				"description": "I regularly build rapid prototypes during game jams to test mechanics, improve iteration speed, and discover unconventional gameplay loops."
+			},
+			{
+				"id": "hobby-2",
+				"type": "creative",
+				"title": "Shader and VFX Experiments",
+				"description": "I experiment with stylized shaders, post-processing stacks, and visual effects to improve scene mood and gameplay feedback."
+			},
+			{
+				"id": "hobby-3",
+				"type": "active",
+				"title": "Basketball",
+				"description": "Basketball helps me reset mentally and inspires responsive movement ideas that often translate into game feel improvements."
+			},
+			{
+				"id": "hobby-4",
+				"type": "active",
+				"title": "Arcade and Sports Game Analysis",
+				"description": "I study pacing, input feel, and reward loops in arcade and sports titles to identify design patterns worth adapting."
+			}
+		],
+		"hobbyGallery": {
+			"title": "Artworks",
+			"description": "A collection of my traditional and digital artworks.",
+			"rows": [
+				{
+					"id": "gallery-row-1",
+					"speedSeconds": 28,
+					"direction": "left",
+					"images": [
+						{
+							"id": "row1-1",
+							"src": "assets/images/traditional-art/batman.jpg",
+							"alt": "Batman artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-2",
+							"src": "assets/images/traditional-art/ash-pikachu.jpg",
+							"alt": "Ash and Pikachu artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-3",
+							"src": "assets/images/traditional-art/avatar-the-last-airbender.jpg",
+							"alt": "Avatar: The Last Airbender artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-4",
+							"src": "assets/images/traditional-art/ben-10.jpg",
+							"alt": "Ben 10 artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-5",
+							"src": "assets/images/traditional-art/goku.jpg",
+							"alt": "Goku artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-6",
+							"src": "assets/images/traditional-art/kid-goku.jpg",
+							"alt": "Kid Goku artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-7",
+							"src": "assets/images/traditional-art/goofy.jpg",
+							"alt": "Goofy artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row1-8",
+							"src": "assets/images/traditional-art/sunset.jpg",
+							"alt": "Sunset artwork by Azhagarasan Murali"
+						}
+					]
+				},
+				{
+					"id": "gallery-row-2",
+					"speedSeconds": 34,
+					"direction": "right",
+					"images": [
+						{
+							"id": "row2-1",
+							"src": "assets/images/digital-art/avatar-the-last-airbender-digital.jpg",
+							"alt": "Avatar: The Last Airbender artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row2-2",
+							"src": "assets/images/digital-art/gohan.jpg",
+							"alt": "Gohan artwork by Azhagarasan Murali"
+						},
+						{
+							"id": "row2-3",
+							"src": "assets/images/digital-art/jackie-chan.png",
+							"alt": "Jackie Chan artwork by Azhagarasan Murali"
+						}
+					]
+				}
+			]
+		},
+		"modelViewer": {
+			"title": "3D Modeling",
+			"description": "A collection of 3D models made with Blender.",
+			"interactionButtonText": "Start Model Interaction",
+			"models": [
+				{
+					"id": "viewer-model-1",
+					"name": "Basketball Hoop",
+					"path": "assets/models/basketball_hoop.glb",
+					"thumbnail": "assets/images/models-thumbnails/basketball_hoop.png",
+					"view": {
+						"cameraPosition": [0.3, 0.9, 4.4],
+						"target": [0, 0.3, 0],
+						"zoom": 1,
+						"modelPosition": [0, -0.05, 0],
+						"modelRotation": [0, 0.45, 0],
+						"modelScale": 1
+					}
+				},
+				{
+					"id": "viewer-model-2",
+					"name": "Turret",
+					"path": "assets/models/turret.glb",
+					"thumbnail": "assets/images/models-thumbnails/turret.png",
+					"view": {
+						"cameraPosition": [0.5, 0.6, 3.7],
+						"target": [0, 0.15, 0],
+						"zoom": 1,
+						"modelPosition": [0, -0.08, 0],
+						"modelRotation": [0, 0.2, 0],
+						"modelScale": 1
+					}
+				}
+			]
+		}
+	},
+	"experience": {
+		"title": "Experience & Education",
+		"description": "A snapshot of the teams, products, and academic foundations that shaped my approach to building interactive experiences.",
+		"design": {
+			"verticalAlign": "top",
+			"spacing": "comfortable",
+			"surface": "muted",
+			"lineStyle": "balanced",
+			"cardTone": "balanced"
+		},
+		"entries": [
+			{
+				"id": "timeline-1",
+				"type": "work",
+				"title": "Unity Developer",
+				"organization": "Sify Technologies",
+				"location": "Taramani, Tamil Nadu, India",
+				"period": "Sep 2020 - Present",
+				"description": "Leading gameplay systems development for cross-platform titles, partnering with designers and artists to ship polished features on tight production schedules.",
+				"highlights": [
+					"Game System Architecture",
+					"Performance Optimization",
+					"Cross-Platform Development"
+				]
+			},
+			{
+				"id": "timeline-2",
+				"type": "work",
+				"title": "Unity Game Developer Intern",
+				"organization": "Gamin Inztinct",
+				"location": "Mylapore, Tamil Nadu, India",
+				"period": "Dec 2019 - Feb 2020",
+				"description": "Built prototypes, vertical slices, and production-ready gameplay features for indie teams, with a focus on responsive controls and maintainable technical pipelines.",
+				"highlights": [
+					"Unity Tooling",
+					"Rapid Prototyping",
+					"Client Collaboration",
+					"Multiplayer Networking"
+				]
+			},
+			{
+				"id": "timeline-3",
+				"type": "education",
+				"title": "M.Sc. Game Technology",
+				"organization": "ICAT Design and Media College",
+				"location": "Mylapore, Tamil Nadu, India",
+				"period": "2018 - 2020",
+				"description": "Focused on advanced game development techniques, including real-time rendering, physics simulation, and interactive storytelling.",
+				"highlights": ["Game Programming", "2D & 3D Art", "Game Design"]
+			},
+			{
+				"id": "timeline-4",
+				"type": "work",
+				"title": "J2EE Backend Developer",
+				"organization": "Wipro Technologies",
+				"location": "Sholinganallur, Tamil Nadu, India",
+				"period": "Oct 2017 - Aug 2018",
+				"description": "Worked on backend development using J2EE technologies, focusing on building scalable and maintainable enterprise applications.",
+				"highlights": [
+					"JAVA Spring Framework",
+					"DB2 Database",
+					"Client Collaboration"
+				]
+			},
+			{
+				"id": "timeline-5",
+				"type": "education",
+				"title": "B.E. Computer Science and Engineering",
+				"organization": "M.Kumarasamy College of Engineering",
+				"location": "Karur, Tamil Nadu, India",
+				"period": "2013 - 2017",
+				"description": "Studied software engineering fundamentals, graphics, and systems design while building a strong foundation in algorithmic thinking and interactive application development.",
+				"highlights": [
+					"Data Structures",
+					"Computer Graphics",
+					"Software Engineering",
+					"JAVA Programming"
+				]
+			}
+		]
+	},
+	"social": {
+		"title": "Connect With Me",
+		"description": "Let's collaborate and create something amazing together",
+		"design": {
+			"verticalAlign": "center"
+		},
+		"links": [
+			{
+				"platform": "GitHub",
+				"url": "https://github.com/azhagarasanmurali",
+				"icon": "github"
+			},
+			{
+				"platform": "LinkedIn",
+				"url": "https://www.linkedin.com/in/azhagarasan-murali/",
+				"icon": "linkedin"
+			},
+			{
+				"platform": "itch.io",
+				"url": "https://mrgreenstudio.itch.io",
+				"icon": "gamepad"
+			},
+			{
+				"platform": "YouTube",
+				"url": "https://youtube.com/@mr.greenstudio3879",
+				"icon": "youtube"
+			}
+		]
+	},
+	"contact": {
+		"title": "Let's Work Together",
+		"description": "Have an exciting project in mind? Let's discuss how we can collaborate.",
+		"email": "azhagarasan.azhagu@gmail.com",
+		"availability": "Open to freelance and full-time opportunities",
+		"design": {
+			"verticalAlign": "center"
+		}
+	}
+}
