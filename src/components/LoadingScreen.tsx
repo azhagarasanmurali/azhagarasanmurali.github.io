@@ -47,10 +47,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 		<div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-slate-950">
 			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.16),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(59,130,246,0.2),transparent_35%)]" />
 			<div className="relative w-full max-w-xl px-6 text-center">
-				<div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-300/30 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-					<div className="h-2.5 w-2.5 animate-pulse rounded-full bg-cyan-300" />
-					Loading
-				</div>
 				<h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl">
 					Azhagarasan Murali
 				</h2>

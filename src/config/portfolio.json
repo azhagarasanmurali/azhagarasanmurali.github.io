@@ -106,86 +106,6 @@
 	},
 	"projects": [
 		{
-			"id": "project-1",
-			"type": "Personal",
-			"title": "Quick-Shot: Basketball",
-			"tagline": "An immersive basketball experience",
-			"category": "Sports, Casual",
-			"year": 2026,
-			"description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
-			"detailedDescription": "Quick-Shot: Basketball is a mobile game that combines realistic physics with engaging gameplay mechanics to provide a casual experience. Players can shoot hoops in various environments.",
-			"thumbnail": "assets/images/quick-shot-basketball/thumbnail.png",
-			"images": [
-				"assets/images/quick-shot-basketball/phone-screenshot-1.png",
-				"assets/images/quick-shot-basketball/phone-screenshot-2.png"
-			],
-			"videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/rfFN6XBV0wA",
-					"title": "Quick-Shot Demo Reel"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/quick-shot-basketball/project-demo.mp4",
-					"title": "Gameplay Showcase"
-				}
-			],
-			"role": "Full Stack Game Developer",
-			"team": 1,
-			"duration": "2 months",
-			"technologies": [
-				"Unity Engine",
-				"C#",
-				"Google Analytics",
-				"Unity Ads",
-				"Unity Analytics",
-				"SOLID Principles",
-				"Git Version Control"
-			],
-			"challenge": "Creating a seamless open world with minimal loading times while maintaining visual fidelity and gameplay performance.",
-			"solution": "Implemented advanced streaming systems and optimized rendering pipelines to achieve 60 FPS on target platforms.",
-			"results": "Successfully launched in Google Play Store",
-			"links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
-				"github": "https://github.com/yourname/project1"
-			}
-		},
-		{
-			"id": "project-2",
-			"type": "Personal",
-			"title": "Unicode to Tamil",
-			"tagline": "A font converter app",
-			"category": "Utility",
-			"year": 2020,
-			"description": "A utility app for converting Unicode text to Tamil and vice versa.",
-			"detailedDescription": "This app provides a seamless experience for converting Unicode text into Tamil font and vice versa.",
-			"thumbnail": "assets/images/unicode-to-tamil/thumbnail.png",
-			"images": [
-				"assets/images/unicode-to-tamil/img1.png",
-				"assets/images/unicode-to-tamil/img2.png"
-			],
-			"videos": [],
-			"role": "Solo Developer",
-			"team": 1,
-			"duration": "1 month",
-			"technologies": [
-				"Android Studio",
-				"JAVA",
-				"Kotlin",
-				"Google AdMob",
-				"Firebase Analytics",
-				"Firebase Crashlytics"
-			],
-			"challenge": "Processing large text inputs efficiently while maintaining a responsive user interface.",
-			"solution": "Implemented optimized text processing algorithms and background threading to ensure smooth performance.",
-			"results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
-			"links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
-				"comment_itch": "https://yourname.itch.io/pixel-paradise"
-			}
-		},
-		{
 			"id": "project-3",
 			"type": "Sify Technologies",
 			"title": "Ultrasonic Immersive Scanner",
@@ -443,6 +363,86 @@
 			"links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
+			}
+		},
+		{
+			"id": "project-1",
+			"type": "Personal",
+			"title": "Quick-Shot: Basketball",
+			"tagline": "An immersive basketball experience",
+			"category": "Sports, Casual",
+			"year": 2026,
+			"description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
+			"detailedDescription": "Quick-Shot: Basketball is a mobile game that combines realistic physics with engaging gameplay mechanics to provide a casual experience. Players can shoot hoops in various environments.",
+			"thumbnail": "assets/images/quick-shot-basketball/thumbnail.png",
+			"images": [
+				"assets/images/quick-shot-basketball/phone-screenshot-1.png",
+				"assets/images/quick-shot-basketball/phone-screenshot-2.png"
+			],
+			"videos": [
+				{
+					"type": "asset",
+					"url": "assets/videos/quick-shot-basketball/project-demo.mp4",
+					"title": "Gameplay Showcase"
+				},
+				{
+					"type": "youtube",
+					"url": "https://www.youtube.com/embed/rfFN6XBV0wA",
+					"title": "Quick-Shot Demo Reel"
+				}
+			],
+			"role": "Full Stack Game Developer",
+			"team": 1,
+			"duration": "2 months",
+			"technologies": [
+				"Unity Engine",
+				"C#",
+				"Google Analytics",
+				"Unity Ads",
+				"Unity Analytics",
+				"SOLID Principles",
+				"Git Version Control"
+			],
+			"challenge": "Creating a seamless open world with minimal loading times while maintaining visual fidelity and gameplay performance.",
+			"solution": "Implemented advanced streaming systems and optimized rendering pipelines to achieve 60 FPS on target platforms.",
+			"results": "Successfully launched in Google Play Store",
+			"links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
+				"github": "https://github.com/yourname/project1"
+			}
+		},
+		{
+			"id": "project-2",
+			"type": "Personal",
+			"title": "Unicode to Tamil",
+			"tagline": "A font converter app",
+			"category": "Utility",
+			"year": 2020,
+			"description": "A utility app for converting Unicode text to Tamil and vice versa.",
+			"detailedDescription": "This app provides a seamless experience for converting Unicode text into Tamil font and vice versa.",
+			"thumbnail": "assets/images/unicode-to-tamil/thumbnail.png",
+			"images": [
+				"assets/images/unicode-to-tamil/img1.png",
+				"assets/images/unicode-to-tamil/img2.png"
+			],
+			"videos": [],
+			"role": "Solo Developer",
+			"team": 1,
+			"duration": "1 month",
+			"technologies": [
+				"Android Studio",
+				"JAVA",
+				"Kotlin",
+				"Google AdMob",
+				"Firebase Analytics",
+				"Firebase Crashlytics"
+			],
+			"challenge": "Processing large text inputs efficiently while maintaining a responsive user interface.",
+			"solution": "Implemented optimized text processing algorithms and background threading to ensure smooth performance.",
+			"results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
+			"links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+				"comment_itch": "https://yourname.itch.io/pixel-paradise"
 			}
 		}
 	],

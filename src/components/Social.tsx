@@ -105,7 +105,7 @@ export const Social: React.FC<SocialProps> = ({ data }) => {
 				</div>
 			</div>
 
-			<div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-accent-primary/10 opacity-20 blur-3xl" />
+			<div className="absolute bottom-0 right-0 h-[clamp(14rem,22vw,32rem)] w-[clamp(14rem,22vw,32rem)] rounded-full bg-accent-primary/10 opacity-20 blur-3xl" />
 		</section>
 	);
 };

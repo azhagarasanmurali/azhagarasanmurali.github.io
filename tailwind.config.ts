@@ -23,6 +23,35 @@ export default {
       'gray-800': '#1f2937',
     },
     extend: {
+      screens: {
+        '3xl': '1920px',
+        '4xl': '2560px',
+        '5xl': '3840px',
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          lg: '2rem',
+          '3xl': '3rem',
+        },
+      },
+      // Make some common max-widths and spacing fluid so layout scales on very large screens
+      maxWidth: {
+        '3xl': 'clamp(48rem, 6vw + 2rem, 86rem)',
+        '4xl': 'clamp(56rem, 8vw + 2rem, 110rem)',
+        '5xl': 'clamp(64rem, 10vw + 2rem, 130rem)',
+        '6xl': 'clamp(72rem, 12vw + 2rem, 150rem)',
+        '7xl': 'clamp(80rem, 14vw + 2rem, 170rem)',
+      },
+      spacing: {
+        '96': 'clamp(4.5rem, 3.5vw + 1rem, 9rem)',
+        '80': 'clamp(3.5rem, 3vw + 1rem, 7.5rem)',
+        '72': 'clamp(3rem, 2.5vw + 0.75rem, 6.5rem)',
+        '56': 'clamp(2.5rem, 2vw + 0.5rem, 4.5rem)',
+        '44': 'clamp(2rem, 1.6vw + 0.4rem, 3.5rem)',
+        '36': 'clamp(1.5rem, 1.2vw + 0.2rem, 2.5rem)'
+      },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',
         'slide-in-right': 'slideInRight 0.8s ease-out',

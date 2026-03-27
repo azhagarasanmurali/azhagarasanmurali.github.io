@@ -71,11 +71,9 @@ export const Contact: React.FC<ContactProps> = ({
 	return (
 		<section
 			ref={ref}
-			className="relative flex items-center justify-center min-h-[calc(100vh-64px)] bg-slate-900 px-4 py-10 sm:px-6 lg:px-8"
+			className="relative flex items-center justify-center section-vh bg-slate-900 px-4 py-[clamp(1.5rem,2.5vw,2rem)] sm:px-6 lg:px-8"
 		>
-			<div
-			className="max-w-4xl w-full"
-		>
+			<div className="max-w-4xl w-full">
 				<div
 					className={`text-center w-full transform transition-all duration-1000 ${
 						isInView
@@ -83,17 +81,17 @@ export const Contact: React.FC<ContactProps> = ({
 							: "opacity-0 translate-y-10"
 					}`}
 				>
-					<h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+					<h2 className="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-[clamp(0.8rem,1.2vw,1.2rem)]">
 						{contact.title}
 					</h2>
-					<p className="text-lg text-gray-400 mb-8">
+					<p className="text-[clamp(0.95rem,1.2vw,1.15rem)] text-gray-400 mb-[clamp(1rem,1.5vw,1.5rem)]">
 						{contact.description}
 					</p>
 
-					<div className="flex flex-col sm:flex-row gap-4 justify-center">
+					<div className="flex flex-col gap-[clamp(0.8rem,1vw,1rem)] sm:flex-row sm:justify-center">
 						<a
 							href={`mailto:${contact.email}`}
-							className="px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-accent-primary/50 transition-all duration-300 hover:scale-105"
+							className="px-[clamp(1rem,1.5vw,1.4rem)] py-[clamp(0.6rem,0.9vw,0.8rem)] bg-gradient-to-r from-accent-primary to-accent-secondary text-[clamp(0.9rem,0.95vw,1rem)] text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-primary/50"
 						>
 							Get In Touch
 						</a>
@@ -102,37 +100,39 @@ export const Contact: React.FC<ContactProps> = ({
 								href={resumeUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+								className="px-[clamp(1rem,1.5vw,1.4rem)] py-[clamp(0.6rem,0.9vw,0.8rem)] bg-slate-800 hover:bg-slate-700 text-[clamp(0.9rem,0.95vw,1rem)] text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-[clamp(0.4rem,0.6vw,0.6rem)]"
 							>
 								Download Resume
-								<ExternalLink className="w-4 h-4" />
+								<ExternalLink className="w-[clamp(0.8rem,1vw,1.1rem)] h-[clamp(0.8rem,1vw,1.1rem)]" />
 							</a>
 						)}
 					</div>
 
-					<p className="text-gray-500 mt-6">{contact.availability}</p>
+					<p className="text-[clamp(0.85rem,1vw,1rem)] text-gray-500 mt-[clamp(0.8rem,1.2vw,1.2rem)]">
+						{contact.availability}
+					</p>
 
 					{social && social.links.length > 0 && (
-						<div className="mt-10 border-t border-white/10 pt-8">
-							<h3 className="mb-3 text-2xl font-bold text-white">
+						<div className="mt-[clamp(1.5rem,2vw,2rem)] border-t border-white/10 pt-[clamp(1.2rem,1.8vw,1.8rem)]">
+							<h3 className="mb-[clamp(0.6rem,1vw,1rem)] text-[clamp(1.3rem,2.5vw,1.8rem)] font-bold text-white">
 								{social.title}
 							</h3>
-							<p className="mx-auto mb-6 max-w-2xl text-gray-400">
+							<p className="mx-auto mb-[clamp(1rem,1.5vw,1.5rem)] max-w-2xl text-[clamp(0.9rem,1vw,1.05rem)] text-gray-400">
 								{social.description}
 							</p>
-							<div className="flex flex-wrap justify-center gap-4">
+							<div className="flex flex-wrap justify-center gap-[clamp(0.8rem,1.2vw,1rem)]">
 								{social.links.map((link) => (
 									<a
 										key={link.platform}
 										href={link.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="group flex items-center gap-3 rounded-lg bg-slate-800 px-5 py-3 transition-all duration-300 hover:bg-slate-700"
+										className="group flex items-center gap-[clamp(0.6rem,0.8vw,0.8rem)] rounded-lg bg-slate-800 px-[clamp(1rem,1.2vw,1.3rem)] py-[clamp(0.5rem,0.8vw,0.9rem)] transition-all duration-300 hover:bg-slate-700"
 									>
-										<span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-gray-400 transition-colors duration-300 group-hover:border-cyan-300/40 group-hover:bg-cyan-400/10 group-hover:text-accent-primary">
+										<span className="flex h-[clamp(1.8rem,2.2vw,2.4rem)] w-[clamp(1.8rem,2.2vw,2.4rem)] items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[clamp(0.85rem,1vw,1.1rem)] text-gray-400 transition-colors duration-300 group-hover:border-cyan-300/40 group-hover:bg-cyan-400/10 group-hover:text-accent-primary">
 											{getIconComponent(link.icon)}
 										</span>
-										<span className="font-semibold text-white">
+										<span className="font-semibold text-[clamp(0.85rem,1vw,1.1rem)] text-white">
 											{link.platform}
 										</span>
 									</a>
@@ -144,8 +144,8 @@ export const Contact: React.FC<ContactProps> = ({
 			</div>
 
 			{/* Background Elements */}
-			<div className="absolute top-0 left-0 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl opacity-20" />
-			<div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl opacity-20" />
+			<div className="absolute left-0 top-0 h-[clamp(14rem,22vw,32rem)] w-[clamp(14rem,22vw,32rem)] rounded-full bg-accent-secondary/10 blur-3xl opacity-20" />
+			<div className="absolute bottom-0 right-0 h-[clamp(14rem,22vw,32rem)] w-[clamp(14rem,22vw,32rem)] rounded-full bg-accent-primary/10 blur-3xl opacity-20" />
 		</section>
 	);
 };

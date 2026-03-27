@@ -128,6 +128,19 @@ const toVec3 = (
 const toNumber = (value: number | undefined, fallback: number) =>
 	typeof value === "number" ? value : fallback;
 
+const buildCollagePool = (images: HobbyGalleryImage[], minCount = 14) => {
+	if (!images.length) return [];
+
+	const targetCount = Math.max(minCount, images.length * 2);
+	return Array.from({ length: targetCount }, (_, index) => {
+		const image = images[index % images.length];
+		return {
+			...image,
+			instanceId: `${image.id}-${index}`,
+		};
+	});
+};
+
 function ViewerLoader() {
 	const { progress } = useProgress();
 	return (
@@ -415,16 +428,16 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 		>
 			<div className="mx-auto max-w-6xl">
 				<div
-					className={`mb-14 transform transition-all duration-1000 ${
+					className={`mb-[clamp(1.5rem,2vw,2rem)] transform transition-all duration-1000 ${
 						isInView
 							? "opacity-100 translate-y-0"
 							: "opacity-0 translate-y-10"
 					}`}
 				>
-					<h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+					<h2 className="mb-[clamp(0.8rem,1.2vw,1.2rem)] text-[clamp(1.8rem,5vw,3rem)] font-bold text-white">
 						{data.title}
 					</h2>
-					<p className="max-w-3xl text-lg text-slate-300">
+					<p className="max-w-3xl text-[clamp(0.95rem,1.2vw,1.15rem)] text-slate-300">
 						{data.description}
 					</p>
 				</div>
@@ -432,11 +445,11 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 				<div className="space-y-12">
 					{grouped.map((group, groupIndex) => (
 						<AnimatedItem key={group.key} delay={groupIndex * 100}>
-							<div className="mb-5 flex items-center justify-between">
-								<h3 className="text-2xl font-bold text-cyan-100">
+							<div className="mb-[clamp(0.8rem,1.2vw,1.2rem)] flex items-center justify-between">
+								<h3 className="text-[clamp(1.2rem,2.2vw,1.7rem)] font-bold text-cyan-100">
 									{group.title}
 								</h3>
-								<span className="rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+								<span className="rounded-full border border-cyan-300/25 bg-cyan-400/10 px-[clamp(0.6rem,0.8vw,1rem)] py-[clamp(0.25rem,0.4vw,0.4rem)] text-[clamp(0.65rem,0.75vw,0.8rem)] font-semibold uppercase tracking-[0.2em] text-cyan-200">
 									{group.entries.length} Item
 									{group.entries.length > 1 ? "s" : ""}
 								</span>
@@ -473,54 +486,118 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 								</p>
 
 								<div className="space-y-4">
-									{galleryRows.map((row, rowIndex) => (
-										<div
-											key={row.id}
-											className="hobby-marquee-row overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-4 shadow-[0_20px_60px_rgba(15,23,42,0.35)]"
-										>
-											<div
-												className={`hobby-marquee-track flex w-max gap-4 ${
-													row.direction === "right"
-														? "hobby-marquee-track-reverse"
-														: ""
-												}`}
-												style={{
-													animationDuration: `${
-														row.speedSeconds ??
-														28 + rowIndex * 4
-													}s`,
-												}}
+									{galleryRows.map((row, rowIndex) => {
+										const collagePool = buildCollagePool(
+											row.images,
+											16 + rowIndex * 2,
+										);
+
+										const columns = [] as Array<
+											Array<
+												HobbyGalleryImage & {
+													instanceId: string;
+												}
 											>
-												{[
-													...row.images,
-													...row.images,
-												].map((image, index) => (
-													<div
-														key={`${row.id}-${image.id}-${index}`}
-														className="w-56 shrink-0 overflow-hidden rounded-xl sm:w-72"
-													>
-														<button
-															type="button"
-															onClick={() =>
-																openLightbox(
-																	image.src,
-																	image.alt,
-																)
-															}
-															className="block w-full"
-														>
-															<img
-																src={image.src}
-																alt={image.alt}
-																className="h-36 w-full object-cover transition-transform duration-300 hover:scale-[1.03] sm:h-44"
-																loading="lazy"
-															/>
-														</button>
-													</div>
-												))}
+										>;
+
+										for (
+											let index = 0;
+											index < collagePool.length;
+											index += 2
+										) {
+											columns.push(
+												collagePool.slice(
+													index,
+													index + 2,
+												),
+											);
+										}
+
+										const repeatedColumns = [
+											...columns,
+											...columns,
+										];
+
+										return (
+											<div
+												key={row.id}
+												className="hobby-marquee-row overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 px-4 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.35)] sm:px-6 sm:py-10"
+											>
+												<div
+													className={`hobby-marquee-track flex w-max items-center gap-4 sm:gap-5 ${
+														row.direction ===
+														"right"
+															? "hobby-marquee-track-reverse"
+															: ""
+													}`}
+													style={{
+														animationDuration: `${
+															row.speedSeconds ??
+															34 + rowIndex * 4
+														}s`,
+													}}
+												>
+													{repeatedColumns.map(
+														(
+															column,
+															columnIndex,
+														) => {
+															const offsetClass =
+																columnIndex %
+																	4 ===
+																0
+																	? "-translate-y-3"
+																	: columnIndex %
+																				4 ===
+																		  1
+																		? "translate-y-5"
+																		: columnIndex %
+																					4 ===
+																			  2
+																			? "-translate-y-1"
+																			: "translate-y-3";
+
+															return (
+																<div
+																	key={`${row.id}-col-${columnIndex}`}
+																	className={`w-48 sm:w-56 lg:w-64 ${offsetClass} shrink-0 space-y-4 transition-transform duration-300 sm:space-y-5`}
+																>
+																	{column.map(
+																		(
+																			image,
+																		) => (
+																			<button
+																				key={`${row.id}-${image.instanceId}`}
+																				type="button"
+																				onClick={() =>
+																					openLightbox(
+																						image.src,
+																						image.alt,
+																					)
+																				}
+																				className="group block w-full aspect-square overflow-hidden rounded-xl border border-white/15 bg-slate-950/85 p-2"
+																			>
+																				<img
+																					src={
+																						image.src
+																					}
+																					alt={
+																						image.alt
+																					}
+																					className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+																					loading="lazy"
+																				/>
+																			</button>
+																		),
+																	)}
+																</div>
+															);
+														},
+													)}
+												</div>
 											</div>
-										</div>
-									))}
+										);
+									})}
 								</div>
 							</div>
 						</AnimatedItem>
@@ -536,7 +613,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 									"Rotate, pan, zoom, switch models, and inspect poly counts."}
 							</p>
 
-							<div className="relative mt-5 h-[360px] overflow-hidden rounded-xl border border-white/10 bg-slate-950 sm:h-[460px]">
+							<div className="relative mt-5 h-[28vh] min-h-[220px] overflow-hidden rounded-xl border border-white/10 bg-slate-950 sm:h-[38vh] sm:min-h-[300px]">
 								<Canvas
 									camera={{
 										position: toVec3(
@@ -627,7 +704,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 								</button>
 							</div>
 
-							<div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+							<div className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 								{models.map((model) => {
 									const isActive =
 										selectedModelId === model.id;
@@ -638,39 +715,54 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 											onClick={() =>
 												setSelectedModelId(model.id)
 											}
-											className={`group overflow-hidden rounded-2xl border text-left transition-all duration-300 ${
+											className={`group overflow-hidden rounded-lg text-left transition-all duration-500 shadow-[0_0_26px_rgba(124,58,237,0.12)] hover:shadow-[0_0_52px_rgba(124,58,237,0.38),0_20px_60px_rgba(0,0,0,0.44)] ${
 												isActive
-													? "border-cyan-300/70 bg-gradient-to-br from-cyan-400/12 via-slate-950/95 to-blue-400/10 shadow-[0_18px_40px_rgba(34,211,238,0.18)]"
-													: "border-white/10 bg-slate-950/80 hover:border-cyan-300/30 hover:bg-slate-900/90"
+													? "bg-slate-700 ring-2 ring-cyan-400/60"
+													: "bg-slate-800 hover:bg-slate-700"
 											}`}
 										>
-											{model.thumbnail ? (
-												<div className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+											{/* Thumbnail */}
+											<div className="relative overflow-hidden aspect-square bg-slate-900">
+												{model.thumbnail ? (
 													<img
 														src={model.thumbnail}
 														alt={model.name}
-														className="h-36 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-40"
+														className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
 													/>
-													<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+												) : (
+													<div className="w-full h-full flex items-center justify-center text-sm text-slate-400">
+														No thumbnail
+													</div>
+												)}
+												<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+											</div>
+											{/* Content */}
+											<div className="p-6 space-y-3">
+												<div className="flex items-start justify-between gap-4">
+													<div className="flex-1">
+														<h3 className="text-xl font-bold text-white group-hover:text-accent-primary transition-colors duration-300">
+															{model.name}
+														</h3>
+														<p className="text-gray-400 text-sm mt-1">
+															{isActive
+																? "Currently selected"
+																: "Switch viewer focus"}
+														</p>
+													</div>
 												</div>
-											) : (
-												<div className="flex h-36 w-full items-center justify-center bg-slate-900 text-sm text-slate-400 sm:h-40">
-													No thumbnail
-												</div>
-											)}
-											<div className="space-y-1 px-4 py-3">
-												<div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-200/80">
-													{model.path
-														? "GLB Model"
-														: "Primitive Model"}
-												</div>
-												<div className="text-base font-semibold text-white">
-													{model.name}
-												</div>
-												<div className="text-sm text-slate-400">
-													{isActive
-														? "Selected for inspection"
-														: "Switch viewer focus"}
+												<div className="flex items-center justify-between border-t border-slate-700 pt-4">
+													<div className="flex gap-2 flex-wrap">
+														<span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-300">
+															{model.path
+																? "GLB Model"
+																: "Primitive Model"}
+														</span>
+														{isActive && (
+															<span className="px-3 py-1 bg-cyan-400/10 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-400/20">
+																Selected
+															</span>
+														)}
+													</div>
 												</div>
 											</div>
 										</button>

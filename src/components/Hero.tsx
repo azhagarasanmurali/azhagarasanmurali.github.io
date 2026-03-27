@@ -34,22 +34,22 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 
 	const contentWidthClass =
 		contentWidth === "narrow"
-			? "max-w-2xl"
+			? "max-w-3xl"
 			: contentWidth === "wide"
-				? "max-w-5xl"
-				: "max-w-3xl";
+				? "max-w-6xl"
+				: "max-w-5xl";
 	const headingClass =
 		textScale === "compact"
-			? "text-4xl sm:text-5xl lg:text-6xl"
+			? "text-[clamp(1.6rem,4.4vw,4.5rem)]"
 			: textScale === "large"
-				? "text-5xl sm:text-7xl lg:text-8xl"
-				: "text-4xl sm:text-6xl lg:text-7xl";
+				? "text-[clamp(2rem,6vw,6.8rem)]"
+				: "text-[clamp(1.75rem,5.25vw,5.8rem)]";
 	const subheadingClass =
 		textScale === "compact"
-			? "text-base sm:text-lg lg:text-xl"
+			? "text-[clamp(0.95rem,1.35vw,1.4rem)]"
 			: textScale === "large"
-				? "text-xl sm:text-2xl lg:text-3xl"
-				: "text-lg sm:text-xl lg:text-2xl";
+				? "text-[clamp(1.1rem,1.85vw,2rem)]"
+				: "text-[clamp(1rem,1.55vw,1.7rem)]";
 	const spacingClass =
 		spacing === "compact"
 			? "space-y-4"
@@ -70,10 +70,10 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 				: "opacity-20";
 	const ctaClass =
 		ctaTone === "soft"
-			? "mt-8 inline-block rounded-lg bg-slate-800 px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-slate-700"
+			? "mt-8 inline-block rounded-lg bg-slate-800 px-[clamp(1.2rem,1.9vw,2.4rem)] py-[clamp(0.8rem,1vw,1.15rem)] text-[clamp(0.95rem,1vw,1.2rem)] font-semibold text-white transition-all duration-300 hover:bg-slate-700"
 			: ctaTone === "strong"
-				? "mt-8 inline-block rounded-lg bg-gradient-to-r from-accent-primary to-accent-secondary px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-primary/50"
-				: "mt-8 inline-block rounded-lg bg-gradient-to-r from-accent-primary to-accent-secondary px-8 py-4 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/40";
+				? "mt-8 inline-block rounded-lg bg-gradient-to-r from-accent-primary to-accent-secondary px-[clamp(1.2rem,1.9vw,2.4rem)] py-[clamp(0.8rem,1vw,1.15rem)] text-[clamp(0.95rem,1vw,1.2rem)] font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-primary/50"
+				: "mt-8 inline-block rounded-lg bg-gradient-to-r from-accent-primary to-accent-secondary px-[clamp(1.2rem,1.9vw,2.4rem)] py-[clamp(0.8rem,1vw,1.15rem)] text-[clamp(0.95rem,1vw,1.2rem)] font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/40";
 	const verticalAlignClass =
 		verticalAlign === "top" ? "items-start pt-24" : "items-center";
 
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 	}, []);
 
 	return (
-		<section className="relative flex h-full min-h-[calc(100vh-64px)] w-full justify-center overflow-hidden bg-slate-950">
+		<section className="relative flex w-full justify-center overflow-hidden bg-slate-950 section-vh">
 			{/* Background Video or Image */}
 			{data.backgroundVideo && (
 				<video
@@ -118,13 +118,13 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 					}`}
 				>
 					<h1
-						className={`${headingClass} font-bold leading-tight text-white`}
+						className={`${headingClass} whitespace-nowrap font-bold leading-none text-white`}
 					>
 						{data.heading}
 					</h1>
 
 					<p
-						className={`${subheadingClass} mx-auto font-light text-gray-300`}
+						className={`${subheadingClass} mx-auto max-w-4xl font-light text-gray-300`}
 					>
 						{data.subheading}
 					</p>
@@ -148,10 +148,10 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 
 			{/* Ambient Light Effects */}
 			<div
-				className={`absolute right-20 top-20 h-96 w-96 rounded-full bg-accent-primary/20 blur-3xl animate-blob ${ambientClass}`}
+				className={`absolute right-[clamp(1rem,5vw,5rem)] top-[clamp(1rem,5vw,5rem)] h-[clamp(16rem,24vw,34rem)] w-[clamp(16rem,24vw,34rem)] rounded-full bg-accent-primary/20 blur-3xl animate-blob ${ambientClass}`}
 			/>
 			<div
-				className={`absolute bottom-20 left-20 h-96 w-96 rounded-full bg-accent-secondary/20 blur-3xl animate-blob animation-delay-2000 ${ambientClass}`}
+				className={`absolute bottom-[clamp(1rem,5vw,5rem)] left-[clamp(1rem,5vw,5rem)] h-[clamp(16rem,24vw,34rem)] w-[clamp(16rem,24vw,34rem)] rounded-full bg-accent-secondary/20 blur-3xl animate-blob animation-delay-2000 ${ambientClass}`}
 			/>
 		</section>
 	);

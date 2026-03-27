@@ -32,9 +32,7 @@ export const DynamicSection: React.FC<DynamicSectionProps> = ({
 		normalizeDesignClass(design.sectionClass) ||
 		"relative overflow-hidden bg-slate-900 px-4 py-20 sm:px-6 lg:px-8";
 	const contentAlign =
-		design.verticalAlign === "center"
-			? "min-h-[calc(100vh-4rem)] flex items-center"
-			: "";
+		design.verticalAlign === "center" ? "section-vh-center" : "";
 
 	const list =
 		(data.entries as unknown[] | undefined) ??
@@ -66,17 +64,17 @@ export const DynamicSection: React.FC<DynamicSectionProps> = ({
 			<div className={`${containerClass} ${contentAlign}`}>
 				<div className="w-full">
 					<div
-						className={`mb-12 transform transition-all duration-1000 ${
+						className={`mb-[clamp(1.5rem,2vw,2rem)] transform transition-all duration-1000 ${
 							isInView
 								? "opacity-100 translate-y-0"
 								: "opacity-0 translate-y-10"
 						}`}
 					>
-						<h2 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
+						<h2 className="mb-[clamp(0.8rem,1.2vw,1.2rem)] text-[clamp(1.8rem,5vw,3rem)] font-bold text-white">
 							{title}
 						</h2>
 						{description && (
-							<p className="max-w-3xl text-lg text-slate-300">
+							<p className="max-w-3xl text-[clamp(0.95rem,1.2vw,1.15rem)] text-slate-300">
 								{description}
 							</p>
 						)}
@@ -89,11 +87,11 @@ export const DynamicSection: React.FC<DynamicSectionProps> = ({
 									key={group.key}
 									delay={groupIndex * 80}
 								>
-									<div className="mb-4 flex items-center justify-between">
-										<h3 className="text-2xl font-bold text-cyan-100">
+									<div className="mb-[clamp(0.8rem,1.2vw,1.2rem)] flex items-center justify-between">
+										<h3 className="text-[clamp(1.2rem,2.2vw,1.7rem)] font-bold text-cyan-100">
 											{group.title}
 										</h3>
-										<span className="rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+										<span className="rounded-full border border-cyan-300/25 bg-cyan-400/10 px-[clamp(0.6rem,0.8vw,1rem)] py-[clamp(0.25rem,0.4vw,0.4rem)] text-[clamp(0.65rem,0.75vw,0.8rem)] font-semibold uppercase tracking-[0.2em] text-cyan-200">
 											{group.values.length} Item
 											{group.values.length > 1 ? "s" : ""}
 										</span>

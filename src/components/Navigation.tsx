@@ -46,24 +46,24 @@ export const Navigation: React.FC<NavigationProps> = ({
 			}`}
 		>
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex items-center justify-between h-16">
+				<div className="flex items-center justify-between h-[var(--nav-height)]">
 					{/* Logo */}
 					<button
 						onClick={() => handleNavigate("hero")}
-						className="text-xl font-bold bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-300"
+						className="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-[clamp(1.05rem,1.15vw,1.45rem)] font-bold text-transparent transition-opacity duration-300 hover:opacity-80"
 					>
 						{personalName}
 					</button>
 
 					{/* Desktop Menu */}
-					<div className="hidden md:flex items-center gap-8">
+					<div className="hidden md:flex items-center gap-[clamp(1rem,1.5vw,2.2rem)]">
 						{sections
 							.filter((section) => section.id !== "hero")
 							.map((section) => (
 								<button
 									key={section.id}
 									onClick={() => handleNavigate(section.id)}
-									className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-all duration-300 ${
+									className={`rounded-full border px-[clamp(0.7rem,0.9vw,1rem)] py-[clamp(0.35rem,0.5vw,0.55rem)] text-[clamp(0.78rem,0.75vw,0.95rem)] font-medium transition-all duration-300 ${
 										activeSectionId === section.id
 											? "border-accent-primary/60 bg-accent-primary/15 text-accent-primary"
 											: "border-transparent text-gray-300 hover:border-white/20 hover:text-accent-primary"
@@ -77,7 +77,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 								href={resumeUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="px-6 py-2 bg-accent-primary hover:bg-accent-primary/80 text-white font-semibold rounded-lg transition-colors duration-300"
+								className="rounded-lg bg-accent-primary px-[clamp(1rem,1.2vw,1.5rem)] py-[clamp(0.5rem,0.7vw,0.7rem)] text-[clamp(0.82rem,0.8vw,1rem)] font-semibold text-white transition-colors duration-300 hover:bg-accent-primary/80"
 							>
 								Resume
 							</a>

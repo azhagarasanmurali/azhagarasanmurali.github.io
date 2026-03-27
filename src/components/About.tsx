@@ -36,19 +36,17 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 				: "bg-slate-900";
 	const spacingClass =
 		spacing === "compact"
-			? "py-14"
+			? "py-[clamp(2rem,3vw,2.5rem)]"
 			: spacing === "airy"
-				? "py-28"
-				: "py-20";
+				? "py-[clamp(3rem,5vw,4.5rem)]"
+				: "py-[clamp(2.5rem,4vw,3.5rem)]";
 	const widthClass = contentWidth === "standard" ? "max-w-5xl" : "max-w-6xl";
 	const layoutClass =
 		layout === "stacked"
 			? "grid grid-cols-1 gap-10"
 			: "grid items-center gap-12 md:grid-cols-2";
 	const verticalAlignClass =
-		verticalAlign === "center"
-			? "min-h-[calc(100vh-4rem)] flex items-center"
-			: "";
+		verticalAlign === "center" ? "section-vh-center" : "";
 	const skillItemClass =
 		skillsStyle === "minimal"
 			? "rounded border border-slate-700 px-4 py-2 text-gray-300"
@@ -77,19 +75,19 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 								: "opacity-0 -translate-x-10"
 						}`}
 					>
-						<h2 className="text-4xl sm:text-5xl font-bold text-white">
+						<h2 className="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-[clamp(1rem,1.5vw,1.5rem)]">
 							{data.title}
 						</h2>
 
-						<p className="text-lg text-gray-300 leading-relaxed">
+						<p className="text-[clamp(0.95rem,1.2vw,1.2rem)] text-gray-300 leading-relaxed">
 							{data.description}
 						</p>
 
 						<div>
-							<h3 className="text-xl font-semibold text-white mb-4">
+							<h3 className="text-[clamp(1rem,1.5vw,1.3rem)] font-semibold text-white mb-[clamp(0.8rem,1vw,1.2rem)]">
 								Skills & Expertise
 							</h3>
-							<div className="grid grid-cols-2 gap-3">
+							<div className="grid grid-cols-2 gap-[clamp(0.6rem,0.8vw,1rem)]">
 								{data.skills.map((skill, index) => (
 									<div key={index} className={skillItemClass}>
 										{skill}

@@ -7,7 +7,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ year, name }) => {
 	return (
-		<footer className="bg-slate-950|slate-950 border-t border-slate-800 py-8 px-4 sm:px-6 lg:px-8">
+		<footer className="bg-slate-950 border-t border-slate-800 py-[clamp(1.5rem,2vw,2rem)] px-4 sm:px-6 lg:px-8">
 			<div className="max-w-6xl mx-auto text-center text-gray-400">
 				<p>
 					&copy; {year} {name}. All rights reserved.

@@ -116,13 +116,32 @@ function App() {
 			assets.add(portfolioData.about.profileImage);
 		portfolioData.projects.forEach((project) => {
 			assets.add(project.thumbnail);
-			project.images.forEach((img) => assets.add(img));
-			if (project.videos) {
-				project.videos.forEach((video) => {
-					if (video.type === "asset") {
-						assets.add(video.url);
-					}
-				});
+		});
+
+		const hobbiesSection = portfolioData.hobbies as
+			| {
+					hobbyGallery?: {
+						rows?: Array<{
+							images?: Array<{ src: string }>;
+						}>;
+					};
+					modelViewer?: {
+						models?: Array<{ thumbnail?: string }>;
+					};
+			  }
+			| undefined;
+
+		hobbiesSection?.hobbyGallery?.rows?.forEach((row) => {
+			row.images?.forEach((image) => {
+				if (image.src) {
+					assets.add(image.src);
+				}
+			});
+		});
+
+		hobbiesSection?.modelViewer?.models?.forEach((model) => {
+			if (model.thumbnail) {
+				assets.add(model.thumbnail);
 			}
 		});
 
@@ -207,7 +226,7 @@ function App() {
 	}
 
 	return (
-		<div className="relative h-screen bg-dark-950">
+		<div className="relative h-screen overflow-hidden bg-dark-950">
 			{showSkeleton && <AppSkeleton />}
 			{/* Navigation */}
 			<Navigation
@@ -218,9 +237,12 @@ function App() {
 				resumeUrl={portfolioData.personal.resumeUrl}
 			/>
 
-			<main className="h-[calc(100vh-64px)] overflow-y-auto snap-y snap-proximity scroll-smooth">
+			<main className="screen-main">
 				{orderedSections.map((sectionId) => {
-					const sectionClassName = `min-h-[calc(100vh-64px)] snap-start`;
+					const isActiveSection = activeSectionId === sectionId;
+					const sectionClassName = `screen-section transition-opacity duration-500 ease-out ${
+						isActiveSection ? "opacity-100" : "opacity-80"
+					}`;
 
 					if (sectionId === "hero") {
 						return (

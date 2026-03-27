@@ -41,6 +41,10 @@
 }
 
 @layer base {
+	:root {
+		--nav-height: clamp(4rem, 3.7rem + 0.75vw, 5rem);
+	}
+
 	* {
 		transition-property:
 			color, background-color, border-color, opacity, transform,
@@ -51,12 +55,31 @@
 
 	html {
 		@apply scroll-smooth;
+		overflow: hidden;
 		overscroll-behavior: none;
+		font-size: clamp(13px, 0.28vw + 12px, 18px);
 	}
 
 	body {
 		@apply bg-dark-950 text-gray-300 font-sans;
+		overflow: hidden;
 		overscroll-behavior: none;
+	}
+
+	#root {
+		min-height: 100vh;
+	}
+
+	.section-vh {
+		height: calc(100vh - var(--nav-height));
+		min-height: calc(100vh - var(--nav-height));
+	}
+
+	.section-vh-center {
+		height: calc(100vh - var(--nav-height));
+		min-height: calc(100vh - var(--nav-height));
+		display: flex;
+		align-items: center;
 	}
 
 	h1,
@@ -70,13 +93,22 @@
 }
 
 @layer utilities {
-	main {
+	.screen-main {
+		height: 100vh;
+		overflow-y: auto;
+		overscroll-behavior-y: contain;
+		padding-top: var(--nav-height);
 		scroll-behavior: smooth;
-		scroll-snap-type: y mandatory;
+		scroll-snap-type: y proximity;
 		-webkit-overflow-scrolling: touch;
 	}
 
-	section {
+	.screen-section {
+		min-height: calc(100vh - var(--nav-height));
+		overscroll-behavior-y: contain;
+	}
+
+	section.screen-section {
 		scroll-snap-align: start;
 		scroll-snap-stop: always;
 	}

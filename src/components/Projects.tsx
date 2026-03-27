@@ -85,7 +85,7 @@ export const Projects: React.FC<ProjectsProps> = ({
 	return (
 		<section
 			ref={ref}
-			className="pt-20 pb-32 px-4 sm:px-6 lg:px-8 bg-slate-950|slate-950 relative overflow-hidden"
+			className="relative overflow-x-clip bg-slate-950 px-4 py-[clamp(2rem,4vw,3rem)] sm:px-6 lg:px-8"
 		>
 			<div className="max-w-6xl mx-auto">
 				{/* Section Header */}
@@ -102,15 +102,15 @@ export const Projects: React.FC<ProjectsProps> = ({
 					<p className="text-lg text-gray-400">{description}</p>
 				</div>
 
-				<div className="space-y-14">
+				<div className="space-y-[clamp(2rem,3vw,3.5rem)]">
 					{projectGroups.map((group, groupIndex) => (
 						<AnimatedItem key={group.key} delay={groupIndex * 120}>
 							<div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
 								<div>
-									<h3 className="text-2xl font-bold text-white">
+									<h3 className="text-[clamp(1.3rem,2.5vw,1.8rem)] font-bold text-white">
 										{group.title}
 									</h3>
-									<p className="mt-2 max-w-2xl text-sm text-slate-400 sm:text-base">
+									<p className="mt-2 max-w-2xl text-[clamp(0.8rem,0.95vw,0.95rem)] text-slate-400">
 										{group.description}
 									</p>
 								</div>
@@ -139,7 +139,7 @@ export const Projects: React.FC<ProjectsProps> = ({
 			</div>
 
 			{/* Background Elements */}
-			<div className="absolute top-1/2 -right-1/2 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl opacity-20" />
+			<div className="absolute top-1/2 right-[clamp(-18rem,-10vw,-8rem)] h-[clamp(14rem,22vw,32rem)] w-[clamp(14rem,22vw,32rem)] rounded-full bg-accent-primary/10 blur-3xl opacity-20" />
 		</section>
 	);
 };
