@@ -80,7 +80,7 @@
 			"spacing": "comfortable",
 			"surface": "muted",
 			"skillsStyle": "card",
-			"verticalAlign": "top",
+			"verticalAlign": "center",
 			"contentWidth": "wide"
 		},
 		"skills": [

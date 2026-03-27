@@ -25,7 +25,7 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 	const spacing = design.spacing ?? "comfortable";
 	const surface = design.surface ?? "muted";
 	const skillsStyle = design.skillsStyle ?? "card";
-	const verticalAlign = design.verticalAlign ?? "top";
+	const verticalAlign = design.verticalAlign ?? "center";
 	const contentWidth = design.contentWidth ?? "wide";
 
 	const sectionSurfaceClass =
