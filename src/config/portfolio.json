@@ -74,7 +74,7 @@
 	},
 	"about": {
 		"title": "About Me",
-		"description": "With 5+ years of experience in game development, I specialize in creating engaging gameplay mechanics and immersive environments. My passion for storytelling and technical innovation drives every project I undertake.",
+		"description": "I'm a Unity Game Developer using Unity for more than 9 years (since 2015). I have 5+ years of experience in an MNC environment developing Industrial Simulation Projects in Unity for Windows, WebGL and VR platforms. I have architected a company-wide Unity Template project using SOLID principles and design patterns (Singleton and Observer) that significantly cuts down development time for new projects by half through reusable, scalable systems that works well across different platforms. I have experience in the latest Unity 6 features including UI Toolkit, Input System, XR Interaction Toolkit and DOTS (ECS). I have also implemented multiplayer features using Netcode for GameObjects. I have a track record of consistently delivering tasks on time with zero missed deadlines and acts as a communication bridge between developers, designers and QA for efficient bug resolution.",
 		"design": {
 			"layout": "split",
 			"spacing": "comfortable",
@@ -106,11 +106,11 @@
 	},
 	"projects": [
 		{
-			"id": "project-3",
+			"id": "project-1",
 			"type": "Sify Technologies",
 			"title": "Ultrasonic Immersive Scanner",
 			"tagline": "Non-destructive 3D scanner simulation",
-			"category": "Simulation",
+			"category": ["Simulation"],
 			"year": 2025,
 			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
 			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
@@ -132,7 +132,7 @@
 					"title": "Scanner in Action"
 				}
 			],
-			"role": "Network Programmer & Backend Developer",
+			"role": ["Network Programmer", "Backend Developer"],
 			"team": 3,
 			"duration": "18 months",
 			"technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
@@ -145,14 +145,14 @@
 			}
 		},
 		{
-			"id": "project-4",
+			"id": "project-2",
 			"type": "Sify Technologies",
 			"title": "Starter Template",
-			"tagline": "Ready to use Unity starter template for multi-platform development",
-			"category": "Template",
+			"tagline": "Ready to use Unity starter template for multi-platform development.",
+			"category": ["Template"],
 			"year": 2024,
 			"description": "A cross-platform Unity starter template designed to accelerate development for the developers. It includes pre-built systems for character movement, camera control, UI management, audio management, all optimized for performance and scalability.",
-			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
+			"detailedDescription": "Template project featuring reusable systems for character movement, camera control, UI management, and audio management. Built with scalability in mind to support various platforms.",
 			"thumbnail": "assets/images/project5-thumb.jpg",
 			"images": [
 				"assets/images/project5-img1.jpg",
@@ -171,7 +171,7 @@
 					"title": "Setup & Demo"
 				}
 			],
-			"role": "Unity Programmer & Template Architect",
+			"role": ["Unity Programmer", "Template Architect"],
 			"team": 1,
 			"duration": "3 months",
 			"technologies": [
@@ -186,28 +186,31 @@
 				"Scriptable Objects",
 				"Observer Pattern"
 			],
-			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
-			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
-			"results": "1M+ registered players with 50K daily active users",
+			"challenge": "Creating a new project and setting up core systems can take weeks, delaying prototyping and iteration.",
+			"solution": "Developed a reusable starter template with pre-built systems to accelerate project setup and iteration.",
+			"results": "Reduced project setup time from weeks to days, enabling faster prototyping and development.",
 			"links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
 		},
 		{
-			"id": "project-5",
+			"id": "project-3",
 			"type": "Sify Technologies",
 			"title": "ToolingU SME Virtual Simulator",
 			"tagline": "Industrial scenario simulation",
-			"category": "Simulation",
+			"category": ["Simulation", "Training"],
 			"year": 2023,
-			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
-			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
-			"thumbnail": "assets/images/project4-thumb.jpg",
+			"description": "A virtual simulator designed for industrial training scenarios, providing realistic simulations of various industrial processes and equipment.",
+			"detailedDescription": "The ToolingU SME Virtual Simulator offers an immersive training experience for industrial professionals. It includes detailed simulations of machinery, interactive training modules, and performance tracking to ensure effective learning outcomes.",
+			"thumbnail": "assets/images/toolingu/thumbnail.png",
 			"images": [
-				"assets/images/project4-img1.jpg",
-				"assets/images/project4-img2.jpg",
-				"assets/images/project4-img3.jpg"
+				"assets/images/toolingu/toolingu_1.png",
+				"assets/images/toolingu/toolingu_2.png",
+				"assets/images/toolingu/toolingu_3.png",
+				"assets/images/toolingu/toolingu_4.png",
+				"assets/images/toolingu/toolingu_5.png",
+				"assets/images/toolingu/toolingu_6.png"
 			],
 			"videos": [
 				{
@@ -221,7 +224,11 @@
 					"title": "Training Demo"
 				}
 			],
-			"role": "Platform Migration, CCD Integration, Appshell Integration",
+			"role": [
+				"Platform Migration",
+				"CCD Integration",
+				"Appshell Integration"
+			],
 			"team": 12,
 			"duration": "36 months",
 			"technologies": [
@@ -242,11 +249,11 @@
 			}
 		},
 		{
-			"id": "project-6",
+			"id": "project-4",
 			"type": "Sify Technologies",
 			"title": "NetApp",
 			"tagline": "Server rack simulation for training and organising",
-			"category": "Training Simulation",
+			"category": ["Training Simulation"],
 			"year": 2021,
 			"description": "A server rack simulation designed for training and organizing IT infrastructure. It includes pre-built systems for server management, network configuration, and troubleshooting exercises, all optimized for realistic training scenarios.",
 			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
@@ -268,7 +275,7 @@
 					"title": "Server Configuration Demo"
 				}
 			],
-			"role": "Unity Programmer & Tester",
+			"role": ["Unity Programmer", "Tester"],
 			"team": 4,
 			"duration": "3 months",
 			"technologies": ["Unity", "C#", "Windows", "WebGL"],
@@ -281,11 +288,11 @@
 			}
 		},
 		{
-			"id": "project-7",
+			"id": "project-5",
 			"type": "Sify Technologies",
 			"title": "3D Model Viewer",
 			"tagline": "Interactive 3D model visualization tool",
-			"category": "Visualization Tool",
+			"category": ["Visualization Tool"],
 			"year": 2021,
 			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features for model manipulation, annotation, and real-time rendering.",
 			"detailedDescription": "A robust 3D model viewer featuring interactive controls, real-time rendering, and support for various 3D file formats. Built with scalability in mind to handle large and complex models.",
@@ -307,7 +314,7 @@
 					"title": "Interactive Visualization Tutorial"
 				}
 			],
-			"role": "Unity Programmer",
+			"role": ["Unity Programmer"],
 			"team": 4,
 			"duration": "3 months",
 			"technologies": [
@@ -327,14 +334,14 @@
 			}
 		},
 		{
-			"id": "project-7",
+			"id": "project-6",
 			"type": "Gamin Inztinct",
 			"title": "Carrom Board",
 			"tagline": "Interactive Multiplayer Carrom Board Game",
-			"category": "Multiplayer",
+			"category": ["Multiplayer"],
 			"year": 2019,
-			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features for model manipulation, annotation, and real-time rendering.",
-			"detailedDescription": "A robust 3D model viewer featuring interactive controls, real-time rendering, and support for various 3D file formats. Built with scalability in mind to handle large and complex models.",
+			"description": "An interactive multiplayer carrom board game with realistic physics and engaging gameplay.",
+			"detailedDescription": "A robust multiplayer carrom board game featuring interactive controls, real-time physics, and support for various platforms. Built with scalability in mind to handle multiple concurrent players.",
 			"thumbnail": "assets/images/project5-thumb.jpg",
 			"images": [
 				"assets/images/project5-img1.jpg",
@@ -353,24 +360,24 @@
 					"title": "Tutorial Video"
 				}
 			],
-			"role": "Unity Programmer",
+			"role": ["Unity Programmer"],
 			"team": 4,
 			"duration": "3 months",
 			"technologies": ["Unity", "C#", "Android", "Photon Pun"],
 			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
 			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
 			"results": "1M+ registered players with 50K daily active users",
-			"links": {
+			"comment_links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
 		},
 		{
-			"id": "project-1",
+			"id": "project-7",
 			"type": "Personal",
 			"title": "Quick-Shot: Basketball",
 			"tagline": "An immersive basketball experience",
-			"category": "Sports, Casual",
+			"category": ["Sports", "Casual"],
 			"year": 2026,
 			"description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
 			"detailedDescription": "Quick-Shot: Basketball is a mobile game that combines realistic physics with engaging gameplay mechanics to provide a casual experience. Players can shoot hoops in various environments.",
@@ -391,7 +398,7 @@
 					"title": "Quick-Shot Demo Reel"
 				}
 			],
-			"role": "Full Stack Game Developer",
+			"role": ["Full Stack Game Developer"],
 			"team": 1,
 			"duration": "2 months",
 			"technologies": [
@@ -412,21 +419,28 @@
 			}
 		},
 		{
-			"id": "project-2",
+			"id": "project-8",
 			"type": "Personal",
 			"title": "Unicode to Tamil",
 			"tagline": "A font converter app",
-			"category": "Utility",
+			"category": ["Utility"],
 			"year": 2020,
 			"description": "A utility app for converting Unicode text to Tamil and vice versa.",
 			"detailedDescription": "This app provides a seamless experience for converting Unicode text into Tamil font and vice versa.",
 			"thumbnail": "assets/images/unicode-to-tamil/thumbnail.png",
 			"images": [
-				"assets/images/unicode-to-tamil/img1.png",
-				"assets/images/unicode-to-tamil/img2.png"
+				"assets/images/unicode-to-tamil/feature_graphic.png",
+				"assets/images/unicode-to-tamil/l_main_screen.png",
+				"assets/images/unicode-to-tamil/l_bamini_to_unicode.png",
+				"assets/images/unicode-to-tamil/l_unicode_to_bamini.png",
+				"assets/images/unicode-to-tamil/l_settings.png",
+				"assets/images/unicode-to-tamil/d_main_screen.png",
+				"assets/images/unicode-to-tamil/d_bamini_to_unicode.png",
+				"assets/images/unicode-to-tamil/d_unicode_to_bamini.png",
+				"assets/images/unicode-to-tamil/d_settings.png"
 			],
 			"videos": [],
-			"role": "Solo Developer",
+			"role": ["Solo Developer"],
 			"team": 1,
 			"duration": "1 month",
 			"technologies": [
@@ -437,8 +451,8 @@
 				"Firebase Analytics",
 				"Firebase Crashlytics"
 			],
-			"challenge": "Processing large text inputs efficiently while maintaining a responsive user interface.",
-			"solution": "Implemented optimized text processing algorithms and background threading to ensure smooth performance.",
+			"challenge": "Users needed to use online tools for font conversion, which was inconvenient and time-consuming.",
+			"solution": "Developed a mobile app that provides quick and easy font conversion with an intuitive interface and offline functionality.",
 			"results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
 			"links": {
 				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
@@ -456,26 +470,38 @@
 			{
 				"id": "hobby-1",
 				"type": "creative",
-				"title": "Game Jam Prototyping",
-				"description": "I regularly build rapid prototypes during game jams to test mechanics, improve iteration speed, and discover unconventional gameplay loops."
+				"title": "Game Prototyping",
+				"description": "I regularly build rapid prototypes to test mechanics, improve iteration speed, and discover unconventional gameplay loops."
 			},
 			{
 				"id": "hobby-2",
 				"type": "creative",
-				"title": "Shader and VFX Experiments",
-				"description": "I experiment with stylized shaders, post-processing stacks, and visual effects to improve scene mood and gameplay feedback."
+				"title": "Mobile Application Development",
+				"description": "I create utility apps and small games for mobile platforms to explore new technologies and reach wider audiences."
 			},
 			{
 				"id": "hobby-3",
-				"type": "active",
-				"title": "Basketball",
-				"description": "Basketball helps me reset mentally and inspires responsive movement ideas that often translate into game feel improvements."
+				"type": "creative",
+				"title": "Full Stack Web App Development",
+				"description": "I build full stack web applications to experiment with interactive web technologies and create engaging online experiences."
 			},
 			{
 				"id": "hobby-4",
+				"type": "creative",
+				"title": "Drawing & Digital Art",
+				"description": "I create traditional and digital artworks to explore visual storytelling and improve my artistic skills."
+			},
+			{
+				"id": "hobby-5",
 				"type": "active",
-				"title": "Arcade and Sports Game Analysis",
-				"description": "I study pacing, input feel, and reward loops in arcade and sports titles to identify design patterns worth adapting."
+				"title": "Travelling",
+				"description": "Traveling allows me to experience new cultures, gain fresh perspectives, and find inspiration for my creative work."
+			},
+			{
+				"id": "hobby-6",
+				"type": "active",
+				"title": "Gardening",
+				"description": "Gardening helps me relax and find inspiration in nature, which often influences my creative process."
 			}
 		],
 		"hobbyGallery": {

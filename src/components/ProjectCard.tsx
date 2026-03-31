@@ -6,11 +6,11 @@ interface ProjectCardProps {
 		id: string;
 		title: string;
 		tagline: string;
-		category: string;
+		category: string[];
 		type?: string;
 		year: number;
 		thumbnail: string;
-		detailedDescription: string;
+		detailedDescription?: string;
 	};
 	onClick: (projectId: string) => void;
 }
@@ -53,15 +53,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 				</div>
 
 				<div className="flex items-center justify-between border-t border-slate-700 pt-4">
-					<div className="flex gap-2">
+					<div className="flex flex-wrap gap-2">
 						{project.type && (
 							<span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-300">
 								{project.type}
 							</span>
 						)}
-						<span className="px-3 py-1 bg-accent-primary/10 text-accent-primary text-xs font-semibold rounded-full">
-							{project.category}
-						</span>
+						{project.category.map((category) => (
+							<span
+								key={category}
+								className="px-3 py-1 bg-accent-primary/10 text-accent-primary text-xs font-semibold rounded-full"
+							>
+								{category}
+							</span>
+						))}
 						<span className="px-3 py-1 bg-gray-800 text-gray-400 text-xs font-semibold rounded-full">
 							{project.year}
 						</span>

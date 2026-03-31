@@ -14,21 +14,21 @@ interface Project {
 	title: string;
 	tagline: string;
 	type?: string;
-	category: string;
+	category: string[];
 	year: number;
-	description: string;
-	detailedDescription: string;
+	description?: string;
+	detailedDescription?: string;
 	thumbnail: string;
 	images: string[];
 	videos?: VideoItem[];
-	role: string;
-	team: number;
-	duration: string;
-	technologies: string[];
-	challenge: string;
-	solution: string;
-	results: string;
-	links: {
+	role?: string[];
+	team?: number;
+	duration?: string;
+	technologies?: string[];
+	challenge?: string;
+	solution?: string;
+	results?: string;
+	links?: {
 		website?: string;
 		github?: string;
 		steam?: string;
@@ -90,10 +90,10 @@ export const Projects: React.FC<ProjectsProps> = ({
 			<div className="max-w-6xl mx-auto">
 				{/* Section Header */}
 				<div
-					className={`mb-16 transform transition-all duration-1000 ${
+					className={`mb-16 transform-gpu transition-all duration-1000 will-change-[opacity,transform,filter] ${
 						isInView
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-10"
+							? "opacity-100 translate-y-0 scale-100 blur-0"
+							: "opacity-0 translate-y-10 scale-[0.98] blur-[10px]"
 					}`}
 				>
 					<h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">

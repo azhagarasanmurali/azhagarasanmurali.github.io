@@ -48,21 +48,21 @@ interface Project {
 	type: string;
 	title: string;
 	tagline: string;
-	category: string;
+	category: string[];
 	year: number;
-	description: string;
-	detailedDescription: string;
+	description?: string;
+	detailedDescription?: string;
 	thumbnail: string;
 	images: string[];
 	videos?: VideoItem[];
-	role: string;
-	team: number;
-	duration: string;
-	technologies: string[];
-	challenge: string;
-	solution: string;
-	results: string;
-	links: {
+	role?: string[];
+	team?: number;
+	duration?: string;
+	technologies?: string[];
+	challenge?: string;
+	solution?: string;
+	results?: string;
+	links?: {
 		website?: string;
 		github?: string;
 		steam?: string;
@@ -157,6 +157,59 @@ interface PortfolioData {
 	[key: string]: unknown;
 }
 
-export const portfolioData = stripCommentFields(
+const normalizeCategoryList = (value: unknown): string[] => {
+	if (Array.isArray(value)) {
+		return value
+			.filter((entry): entry is string => typeof entry === "string")
+			.map((entry) => entry.trim())
+			.filter(Boolean);
+	}
+
+	if (typeof value === "string") {
+		return value
+			.split(",")
+			.map((entry) => entry.trim())
+			.filter(Boolean);
+	}
+
+	return [];
+};
+
+const normalizeTextList = (value: unknown): string[] => {
+	if (Array.isArray(value)) {
+		return value
+			.filter((entry): entry is string => typeof entry === "string")
+			.map((entry) => entry.trim())
+			.filter(Boolean);
+	}
+
+	if (typeof value === "string") {
+		return value
+			.split(",")
+			.map((entry) => entry.trim())
+			.filter(Boolean);
+	}
+
+	return [];
+};
+
+const sanitizedPortfolioData = stripCommentFields(
 	rawPortfolioData as unknown as JsonValue,
 ) as unknown as PortfolioData;
+
+const normalizedProjects = (sanitizedPortfolioData.projects ?? []).map(
+	(project) => ({
+		...project,
+		category: normalizeCategoryList(project.category),
+		images: Array.isArray(project.images) ? project.images : [],
+		videos: Array.isArray(project.videos) ? project.videos : [],
+		role: normalizeTextList(project.role),
+		technologies: normalizeTextList(project.technologies),
+		links: project.links ?? {},
+	}),
+);
+
+export const portfolioData = {
+	...sanitizedPortfolioData,
+	projects: normalizedProjects,
+} as PortfolioData;

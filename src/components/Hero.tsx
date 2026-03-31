@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ChevronDown } from "lucide-react";
+import { useInView } from "../hooks/useInView";
 
 interface HeroProps {
 	data: {
@@ -22,7 +23,10 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
-	const [isVisible, setIsVisible] = useState(false);
+	const [ref, isInView] = useInView({
+		threshold: 0.2,
+		rootMargin: "0px 0px -12% 0px",
+	});
 	const design = data.design ?? {};
 	const spacing = design.spacing ?? "comfortable";
 	const textScale = design.textScale ?? "regular";
@@ -77,12 +81,11 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 	const verticalAlignClass =
 		verticalAlign === "top" ? "items-start pt-24" : "items-center";
 
-	useEffect(() => {
-		setIsVisible(true);
-	}, []);
-
 	return (
-		<section className="relative flex w-full justify-center overflow-hidden bg-slate-950 section-vh">
+		<section
+			ref={ref}
+			className="relative flex w-full justify-center overflow-hidden bg-slate-950 section-vh"
+		>
 			{/* Background Video or Image */}
 			{data.backgroundVideo && (
 				<video
@@ -111,10 +114,10 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 				className={`relative z-10 flex w-full px-4 text-center sm:px-6 lg:px-8 ${verticalAlignClass}`}
 			>
 				<div
-					className={`${contentWidthClass} mx-auto ${spacingClass} transform transition-all duration-1000 ${
-						isVisible
-							? "opacity-100 translate-y-0"
-							: "opacity-0 translate-y-10"
+					className={`${contentWidthClass} mx-auto ${spacingClass} transform-gpu transition-all duration-1000 will-change-[opacity,transform,filter] ${
+						isInView
+							? "opacity-100 translate-y-0 scale-100 blur-0"
+							: "opacity-0 translate-y-12 scale-[0.98] blur-[10px]"
 					}`}
 				>
 					<h1
@@ -137,8 +140,10 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 				{/* Scroll Indicator */}
 				{shouldShowScrollCue && (
 					<div
-						className={`absolute bottom-5 left-1/2 -translate-x-1/2 transform animate-bounce sm:bottom-7 ${
-							isVisible ? "opacity-100" : "opacity-0"
+						className={`absolute bottom-5 left-1/2 -translate-x-1/2 transform transition-all duration-700 animate-bounce sm:bottom-7 ${
+							isInView
+								? "opacity-100 translate-y-0"
+								: "opacity-0 translate-y-6"
 						}`}
 					>
 						<ChevronDown className="h-6 w-6 text-accent-secondary" />

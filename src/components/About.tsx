@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatedItem } from "./AnimatedItem";
 import { useInView } from "../hooks/useInView";
 
 interface AboutProps {
@@ -41,12 +42,17 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 				? "py-[clamp(3rem,5vw,4.5rem)]"
 				: "py-[clamp(2.5rem,4vw,3.5rem)]";
 	const widthClass = contentWidth === "standard" ? "max-w-5xl" : "max-w-6xl";
-	const layoutClass =
-		layout === "stacked"
-			? "grid grid-cols-1 gap-10"
-			: "grid items-center gap-12 md:grid-cols-2";
+	const isStackedLayout = layout === "stacked";
+	const layoutClass = isStackedLayout
+		? "grid grid-cols-1 gap-10"
+		: "grid gap-10 md:grid-cols-2 xl:grid-cols-12 xl:items-start";
 	const verticalAlignClass =
 		verticalAlign === "center" ? "section-vh-center" : "";
+	const textColumnClass = isStackedLayout ? "" : "xl:col-span-7";
+	const imageColumnClass = isStackedLayout
+		? ""
+		: "md:max-w-md xl:col-span-5 xl:w-full xl:justify-self-end";
+	const skillsColumnClass = isStackedLayout ? "" : "xl:col-span-12";
 	const skillItemClass =
 		skillsStyle === "minimal"
 			? "rounded border border-slate-700 px-4 py-2 text-gray-300"
@@ -69,40 +75,27 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 				<div className={`w-full ${layoutClass}`}>
 					{/* Left Side - Text */}
 					<div
-						className={`space-y-8 transform transition-all duration-1000 ${
+						className={`${textColumnClass} space-y-8 transform-gpu transition-all duration-1000 will-change-[opacity,transform,filter] ${
 							isInView
-								? "opacity-100 translate-x-0"
-								: "opacity-0 -translate-x-10"
+								? "opacity-100 translate-x-0 scale-100 blur-0"
+								: "opacity-0 -translate-x-12 scale-[0.98] blur-[10px]"
 						}`}
 					>
 						<h2 className="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-[clamp(1rem,1.5vw,1.5rem)]">
 							{data.title}
 						</h2>
 
-						<p className="text-[clamp(0.95rem,1.2vw,1.2rem)] text-gray-300 leading-relaxed">
+						<p className="max-w-3xl text-[clamp(0.95rem,1.2vw,1.2rem)] leading-relaxed text-gray-300">
 							{data.description}
 						</p>
-
-						<div>
-							<h3 className="text-[clamp(1rem,1.5vw,1.3rem)] font-semibold text-white mb-[clamp(0.8rem,1vw,1.2rem)]">
-								Skills & Expertise
-							</h3>
-							<div className="grid grid-cols-2 gap-[clamp(0.6rem,0.8vw,1rem)]">
-								{data.skills.map((skill, index) => (
-									<div key={index} className={skillItemClass}>
-										{skill}
-									</div>
-								))}
-							</div>
-						</div>
 					</div>
 
 					{/* Right Side - Image */}
 					<div
-						className={`transform transition-all duration-1000 ${
+						className={`${imageColumnClass} transform-gpu transition-all duration-1000 will-change-[opacity,transform,filter] ${
 							isInView
-								? "opacity-100 translate-x-0"
-								: "opacity-0 translate-x-10"
+								? "opacity-100 translate-x-0 scale-100 blur-0"
+								: "opacity-0 translate-x-12 scale-[0.98] blur-[10px]"
 						}`}
 					>
 						{data.profileImage && (
@@ -117,6 +110,31 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 								/>
 							</div>
 						)}
+					</div>
+
+					<div
+						className={`${skillsColumnClass} transform-gpu transition-all duration-1000 will-change-[opacity,transform,filter] ${
+							isInView
+								? "opacity-100 translate-y-0 scale-100 blur-0"
+								: "opacity-0 translate-y-8 scale-[0.98] blur-[10px]"
+						}`}
+					>
+						<h3 className="mb-[clamp(0.8rem,1vw,1.2rem)] text-[clamp(1rem,1.5vw,1.3rem)] font-semibold text-white">
+							Skills & Expertise
+						</h3>
+						<div className="grid grid-cols-1 gap-[clamp(0.6rem,0.8vw,1rem)] sm:grid-cols-2 xl:grid-cols-4">
+							{data.skills.map((skill, index) => (
+								<AnimatedItem
+									key={skill}
+									delay={index * 55}
+									from={index % 2 === 0 ? "left" : "right"}
+								>
+									<div className={skillItemClass}>
+										{skill}
+									</div>
+								</AnimatedItem>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

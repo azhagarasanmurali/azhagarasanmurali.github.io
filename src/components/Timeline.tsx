@@ -197,10 +197,10 @@ export const Timeline: React.FC<TimelineProps> = ({
 			<div className={`relative mx-auto max-w-6xl ${verticalAlignClass}`}>
 				<div className="w-full">
 					<div
-						className={`mb-[clamp(1.5rem,2vw,2rem)] transform transition-all duration-1000 ${
+						className={`mb-[clamp(1.5rem,2vw,2rem)] transform-gpu transition-all duration-1000 will-change-[opacity,transform,filter] ${
 							isInView
-								? "opacity-100 translate-y-0"
-								: "opacity-0 translate-y-10"
+								? "opacity-100 translate-y-0 scale-100 blur-0"
+								: "opacity-0 translate-y-10 scale-[0.98] blur-[10px]"
 						}`}
 					>
 						<h2 className="mb-[clamp(0.8rem,1.2vw,1.2rem)] text-[clamp(1.8rem,5vw,3rem)] font-bold text-white">

@@ -46,13 +46,27 @@ export const useSectionNav = (
 		const main = document.querySelector("main");
 		if (!main) return;
 
-		const wheelSnapThreshold = 65;
-		const snapLockDurationMs = 520;
-		const sectionEdgeThreshold = 48;
+		const wheelSnapThreshold = 40;
+		const wheelResetDelayMs = 170;
+		const snapLockDurationMs = 400;
+		const sectionEdgeThreshold = 28;
+		const wheelScrollBoost = 3.5;
 
 		mainRef.current = main as HTMLElement;
 		const getNavHeight = () =>
 			document.querySelector("nav")?.getBoundingClientRect().height ?? 64;
+
+		const normalizeWheelDelta = (event: WheelEvent) => {
+			if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) {
+				return event.deltaY * 16;
+			}
+
+			if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) {
+				return event.deltaY * main.clientHeight;
+			}
+
+			return event.deltaY;
+		};
 
 		const getSectionTop = (id: string) => {
 			const section = document.getElementById(id);
@@ -149,10 +163,16 @@ export const useSectionNav = (
 
 			const target = event.target as HTMLElement | null;
 			if (!target) return;
+			if (target.closest("[data-modal-scroll-root], [data-model-viewer]")) {
+				return;
+			}
 			const isEditableTarget =
 				target.closest("input, textarea, select, [contenteditable='true']") !==
 				null;
 			if (isEditableTarget) return;
+
+			const adjustedDeltaY = normalizeWheelDelta(event) * wheelScrollBoost;
+			if (Math.abs(adjustedDeltaY) < 0.5) return;
 
 			event.preventDefault();
 
@@ -165,31 +185,31 @@ export const useSectionNav = (
 				: null;
 			const viewportTop = main.scrollTop;
 			const viewportBottom = viewportTop + main.clientHeight;
-			const isScrollingDown = event.deltaY > 0;
+			const isScrollingDown = adjustedDeltaY > 0;
 
 			if (currentSectionBounds) {
 				const remainingBelow = currentSectionBounds.bottom - viewportBottom;
 				const remainingAbove = viewportTop - currentSectionBounds.top;
 
 				if (isScrollingDown && remainingBelow > sectionEdgeThreshold) {
-					main.scrollBy({ top: event.deltaY, behavior: "auto" });
+					main.scrollBy({ top: adjustedDeltaY, behavior: "auto" });
 					return;
 				}
 
 				if (!isScrollingDown && remainingAbove > sectionEdgeThreshold) {
-					main.scrollBy({ top: event.deltaY, behavior: "auto" });
+					main.scrollBy({ top: adjustedDeltaY, behavior: "auto" });
 					return;
 				}
 			}
 
-			wheelDeltaAccumulatorRef.current += event.deltaY;
+			wheelDeltaAccumulatorRef.current += adjustedDeltaY;
 			if (wheelResetTimerRef.current !== null) {
 				window.clearTimeout(wheelResetTimerRef.current);
 			}
 			wheelResetTimerRef.current = window.setTimeout(() => {
 				wheelDeltaAccumulatorRef.current = 0;
 				wheelResetTimerRef.current = null;
-			}, 140);
+			}, wheelResetDelayMs);
 
 			if (Math.abs(wheelDeltaAccumulatorRef.current) < wheelSnapThreshold) {
 				return;

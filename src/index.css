@@ -71,12 +71,10 @@
 	}
 
 	.section-vh {
-		height: calc(100vh - var(--nav-height));
 		min-height: calc(100vh - var(--nav-height));
 	}
 
 	.section-vh-center {
-		height: calc(100vh - var(--nav-height));
 		min-height: calc(100vh - var(--nav-height));
 		display: flex;
 		align-items: center;

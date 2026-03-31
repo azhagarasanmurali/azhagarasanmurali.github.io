@@ -9,6 +9,7 @@ import React, {
 import { Canvas, useThree } from "@react-three/fiber";
 import { Html, OrbitControls, useGLTF, useProgress } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import * as THREE from "three";
 import { AnimatedItem } from "./AnimatedItem";
 import { useInView } from "../hooks/useInView";
@@ -139,6 +140,11 @@ const buildCollagePool = (images: HobbyGalleryImage[], minCount = 14) => {
 			instanceId: `${image.id}-${index}`,
 		};
 	});
+};
+
+const getWrappedIndex = (nextIndex: number, total: number) => {
+	if (!total) return 0;
+	return (nextIndex + total) % total;
 };
 
 function ViewerLoader() {
@@ -326,14 +332,11 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 	const [triangles, setTriangles] = useState(0);
 	const [resetToken, setResetToken] = useState(0);
 	const [isViewerInteractive, setIsViewerInteractive] = useState(false);
-	const [lightboxImage, setLightboxImage] = useState<{
-		src: string;
-		alt: string;
-	} | null>(null);
 	const models = data.modelViewer?.models.length
 		? data.modelViewer.models
 		: DEFAULT_MODELS;
 	const [selectedModelId, setSelectedModelId] = useState(models[0]?.id ?? "");
+	const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 	const controlsRef = useRef<OrbitControlsImpl | null>(null);
 	const selectedModel =
 		models.find((model) => model.id === selectedModelId) ?? models[0];
@@ -341,6 +344,21 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 	const wasInViewRef = useRef(false);
 
 	const galleryRows = data.hobbyGallery?.rows ?? [];
+	const galleryImages = useMemo(() => {
+		const uniqueImages = new Map<string, HobbyGalleryImage>();
+
+		galleryRows.forEach((row) => {
+			row.images.forEach((image) => {
+				if (!uniqueImages.has(image.src)) {
+					uniqueImages.set(image.src, image);
+				}
+			});
+		});
+
+		return Array.from(uniqueImages.values());
+	}, [galleryRows]);
+	const activeLightboxImage =
+		lightboxIndex !== null ? (galleryImages[lightboxIndex] ?? null) : null;
 
 	const grouped = data.entries.reduce<
 		Array<{ key: string; title: string; entries: HobbyEntry[] }>
@@ -371,12 +389,34 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 		setIsViewerInteractive(true);
 	}, []);
 
-	const openLightbox = useCallback((src: string, alt: string) => {
-		setLightboxImage({ src, alt });
-	}, []);
+	const openLightbox = useCallback(
+		(index: number) => {
+			const wrappedIndex = getWrappedIndex(index, galleryImages.length);
+			setLightboxIndex(wrappedIndex);
+		},
+		[galleryImages.length],
+	);
+
+	const goToPreviousLightboxImage = useCallback(() => {
+		if (lightboxIndex === null) return;
+		const nextIndex = getWrappedIndex(
+			lightboxIndex - 1,
+			galleryImages.length,
+		);
+		setLightboxIndex(nextIndex);
+	}, [galleryImages.length, lightboxIndex]);
+
+	const goToNextLightboxImage = useCallback(() => {
+		if (lightboxIndex === null) return;
+		const nextIndex = getWrappedIndex(
+			lightboxIndex + 1,
+			galleryImages.length,
+		);
+		setLightboxIndex(nextIndex);
+	}, [galleryImages.length, lightboxIndex]);
 
 	const closeLightbox = useCallback(() => {
-		setLightboxImage(null);
+		setLightboxIndex(null);
 	}, []);
 
 	useEffect(() => {
@@ -407,19 +447,47 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 	}, [handleResetView, isInView]);
 
 	useEffect(() => {
-		if (!lightboxImage) {
+		if (!galleryImages.length) {
+			setLightboxIndex(null);
+			return;
+		}
+
+		setLightboxIndex((currentIndex) =>
+			currentIndex === null
+				? null
+				: getWrappedIndex(currentIndex, galleryImages.length),
+		);
+	}, [galleryImages.length]);
+
+	useEffect(() => {
+		if (lightboxIndex === null) {
 			return;
 		}
 
 		const handleEscape = (event: KeyboardEvent) => {
 			if (event.key === "Escape") {
 				closeLightbox();
+				return;
+			}
+
+			if (event.key === "ArrowLeft") {
+				goToPreviousLightboxImage();
+				return;
+			}
+
+			if (event.key === "ArrowRight") {
+				goToNextLightboxImage();
 			}
 		};
 
 		window.addEventListener("keydown", handleEscape);
 		return () => window.removeEventListener("keydown", handleEscape);
-	}, [closeLightbox, lightboxImage]);
+	}, [
+		closeLightbox,
+		goToNextLightboxImage,
+		goToPreviousLightboxImage,
+		lightboxIndex,
+	]);
 
 	return (
 		<section
@@ -565,30 +633,43 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 																	{column.map(
 																		(
 																			image,
-																		) => (
-																			<button
-																				key={`${row.id}-${image.instanceId}`}
-																				type="button"
-																				onClick={() =>
-																					openLightbox(
+																		) => {
+																			const imageIndex =
+																				galleryImages.findIndex(
+																					(
+																						galleryImage,
+																					) =>
+																						galleryImage.src ===
 																						image.src,
-																						image.alt,
-																					)
-																				}
-																				className="group block w-full aspect-square overflow-hidden rounded-xl border border-white/15 bg-slate-950/85 p-2"
-																			>
-																				<img
-																					src={
-																						image.src
+																				);
+
+																			return (
+																				<button
+																					key={`${row.id}-${image.instanceId}`}
+																					type="button"
+																					onClick={() =>
+																						openLightbox(
+																							imageIndex >=
+																								0
+																								? imageIndex
+																								: 0,
+																						)
 																					}
-																					alt={
-																						image.alt
-																					}
-																					className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-																					loading="lazy"
-																				/>
-																			</button>
-																		),
+																					className="group block w-full aspect-square overflow-hidden rounded-xl border border-white/15 bg-slate-950/85 p-2"
+																				>
+																					<img
+																						src={
+																							image.src
+																						}
+																						alt={
+																							image.alt
+																						}
+																						className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+																						loading="lazy"
+																					/>
+																				</button>
+																			);
+																		},
 																	)}
 																</div>
 															);
@@ -613,7 +694,10 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 									"Rotate, pan, zoom, switch models, and inspect poly counts."}
 							</p>
 
-							<div className="relative mt-5 h-[28vh] min-h-[220px] overflow-hidden rounded-xl border border-white/10 bg-slate-950 sm:h-[38vh] sm:min-h-[300px]">
+							<div
+								data-model-viewer
+								className="relative mt-5 aspect-square w-full overflow-hidden rounded-xl border border-white/10 bg-slate-950"
+							>
 								<Canvas
 									camera={{
 										position: toVec3(
@@ -774,25 +858,62 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 				</div>
 			</div>
 
-			{lightboxImage && (
+			{activeLightboxImage && (
 				<div
-					className="fixed inset-0 z-[70] flex items-center justify-center bg-black/75 p-4 backdrop-blur-2xl"
+					className="fixed inset-0 z-[70] flex items-center justify-center bg-black/55 p-4 backdrop-blur-[20px]"
 					onClick={closeLightbox}
 				>
-					<div className="absolute inset-0 bg-black/45" />
+					<div className="absolute inset-0 bg-slate-950/45 backdrop-blur-[20px]" />
 					<button
 						type="button"
-						onClick={closeLightbox}
-						className="absolute right-4 top-4 z-10 rounded-md border border-white/20 bg-slate-950/85 px-3 py-2 text-sm font-semibold text-white backdrop-blur-xl"
+						onClick={(event) => {
+							event.stopPropagation();
+							goToPreviousLightboxImage();
+						}}
+						className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-slate-950/85 p-3 text-white backdrop-blur-xl transition-colors hover:bg-slate-800"
+						aria-label="Previous image"
 					>
-						Close
+						<ChevronLeft className="h-5 w-5" />
 					</button>
-					<img
-						src={lightboxImage.src}
-						alt={lightboxImage.alt}
-						className="relative z-10 max-h-[88vh] max-w-[92vw] rounded-xl border border-white/15 object-contain shadow-[0_30px_90px_rgba(0,0,0,0.6)]"
+					<button
+						type="button"
+						onClick={(event) => {
+							event.stopPropagation();
+							closeLightbox();
+						}}
+						className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-slate-950/85 p-3 text-white backdrop-blur-xl transition-colors hover:bg-slate-800"
+						aria-label="Close image"
+					>
+						<X className="h-5 w-5" />
+					</button>
+					<button
+						type="button"
+						onClick={(event) => {
+							event.stopPropagation();
+							goToNextLightboxImage();
+						}}
+						className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-slate-950/85 p-3 text-white backdrop-blur-xl transition-colors hover:bg-slate-800"
+						aria-label="Next image"
+					>
+						<ChevronRight className="h-5 w-5" />
+					</button>
+					<div
+						className="relative z-10 flex max-w-[92vw] flex-col items-center gap-3"
 						onClick={(event) => event.stopPropagation()}
-					/>
+					>
+						<img
+							src={activeLightboxImage.src}
+							alt={activeLightboxImage.alt}
+							className="max-h-[84vh] max-w-[92vw] rounded-xl border border-white/15 object-contain shadow-[0_30px_90px_rgba(0,0,0,0.6)]"
+						/>
+						<p className="text-center text-sm text-slate-200">
+							{activeLightboxImage.alt}
+							<span className="ml-2 text-slate-400">
+								{(lightboxIndex ?? 0) + 1} /{" "}
+								{galleryImages.length}
+							</span>
+						</p>
+					</div>
 				</div>
 			)}
 		</section>
