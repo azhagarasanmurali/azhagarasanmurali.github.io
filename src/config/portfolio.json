@@ -110,11 +110,11 @@
 			"type": "Sify Technologies",
 			"title": "Ultrasonic Immersive Scanner",
 			"tagline": "Non-destructive 3D scanner simulation",
-			"category": ["Simulation"],
+			"category": ["Training", "Simulation"],
 			"year": 2025,
 			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
 			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
-			"thumbnail": "assets/images/project3-thumb.jpg",
+			"thumbnail": "assets/images/uti/thumbnail.png",
 			"images": [
 				"assets/images/project3-img1.jpg",
 				"assets/images/project3-img2.jpg",
@@ -123,23 +123,18 @@
 			"videos": [
 				{
 					"type": "youtube",
-					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"url": "https://www.youtube.com/embed/5PmVvP9cTCE",
 					"title": "Ultrasonic Scanner Overview"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/project3-gameplay.mp4",
-					"title": "Scanner in Action"
 				}
 			],
-			"role": ["Network Programmer", "Backend Developer"],
+			"role": ["Unity Programmer"],
 			"team": 3,
 			"duration": "18 months",
 			"technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
-			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
-			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
-			"results": "1M+ registered players with 50K daily active users",
-			"links": {
+			"challenge": "Ensuring accurate simulation of ultrasonic wave behavior and real-time interaction while maintaining performance across platforms.",
+			"solution": "Developed optimized algorithms and leveraged platform-specific features to achieve high performance and accuracy.",
+			"results": "Successfully created a realistic and responsive simulation environment, enhancing user experience and training effectiveness.",
+			"comment_links": {
 				"website": "https://example.com/project3",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
@@ -153,13 +148,13 @@
 			"year": 2024,
 			"description": "A cross-platform Unity starter template designed to accelerate development for the developers. It includes pre-built systems for character movement, camera control, UI management, audio management, all optimized for performance and scalability.",
 			"detailedDescription": "Template project featuring reusable systems for character movement, camera control, UI management, and audio management. Built with scalability in mind to support various platforms.",
-			"thumbnail": "assets/images/project5-thumb.jpg",
+			"thumbnail": "assets/images/starter-template/thumbnail.jpg",
 			"images": [
-				"assets/images/project5-img1.jpg",
-				"assets/images/project5-img2.jpg",
-				"assets/images/project5-img3.jpg"
+				"assets/images/starter-template/starter_template_1.jpg",
+				"assets/images/starter-template/starter_template_2.jpg",
+				"assets/images/starter-template/starter_template_3.jpg"
 			],
-			"videos": [
+			"comment_videos": [
 				{
 					"type": "youtube",
 					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
@@ -189,7 +184,7 @@
 			"challenge": "Creating a new project and setting up core systems can take weeks, delaying prototyping and iteration.",
 			"solution": "Developed a reusable starter template with pre-built systems to accelerate project setup and iteration.",
 			"results": "Reduced project setup time from weeks to days, enabling faster prototyping and development.",
-			"links": {
+			"comment_links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
@@ -203,25 +198,20 @@
 			"year": 2023,
 			"description": "A virtual simulator designed for industrial training scenarios, providing realistic simulations of various industrial processes and equipment.",
 			"detailedDescription": "The ToolingU SME Virtual Simulator offers an immersive training experience for industrial professionals. It includes detailed simulations of machinery, interactive training modules, and performance tracking to ensure effective learning outcomes.",
-			"thumbnail": "assets/images/toolingu/thumbnail.png",
+			"thumbnail": "assets/images/toolingu/thumbnail.jpg",
 			"images": [
-				"assets/images/toolingu/toolingu_1.png",
-				"assets/images/toolingu/toolingu_2.png",
-				"assets/images/toolingu/toolingu_3.png",
-				"assets/images/toolingu/toolingu_4.png",
-				"assets/images/toolingu/toolingu_5.png",
-				"assets/images/toolingu/toolingu_6.png"
+				"assets/images/toolingu/toolingu_1.jpg",
+				"assets/images/toolingu/toolingu_2.jpg",
+				"assets/images/toolingu/toolingu_3.jpg",
+				"assets/images/toolingu/toolingu_4.jpg",
+				"assets/images/toolingu/toolingu_5.jpg",
+				"assets/images/toolingu/toolingu_6.jpg"
 			],
 			"videos": [
 				{
 					"type": "youtube",
 					"url": "https://www.youtube.com/embed/DEAJMCInhBg",
-					"title": "Simulator Overview"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/project4-gameplay.mp4",
-					"title": "Training Demo"
+					"title": "ToolingU SME Virtual Simulator"
 				}
 			],
 			"role": [
@@ -240,9 +230,9 @@
 				"Amazon S3",
 				"MongoDB"
 			],
-			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
-			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
-			"results": "1M+ registered players with 50K daily active users",
+			"challenge": "A solution for tracking progress and assessment data from VR and WebGL training modules within the existing LMS was needed to provide a seamless learning experience.",
+			"solution": "Implemented a custom integration that captures and sends training data from the simulator to the LMS in both WebGL and VR platforms, allowing for real-time progress tracking and assessment.",
+			"results": "Enhanced training effectiveness and streamlined progress tracking, resulting in improved learning outcomes.",
 			"links": {
 				"website": "https://example.com/project4",
 				"steam": "https://store.steampowered.com/app/yourappid"
@@ -253,36 +243,31 @@
 			"type": "Sify Technologies",
 			"title": "NetApp",
 			"tagline": "Server rack simulation for training and organising",
-			"category": ["Training Simulation"],
+			"category": ["Training", "Simulation"],
 			"year": 2021,
 			"description": "A server rack simulation designed for training and organizing IT infrastructure. It includes pre-built systems for server management, network configuration, and troubleshooting exercises, all optimized for realistic training scenarios.",
-			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
-			"thumbnail": "assets/images/project5-thumb.jpg",
+			"detailedDescription": "A robust server rack simulation featuring interactive training modules, realistic network configurations, and comprehensive troubleshooting exercises. Built with scalability in mind to support various training scenarios.",
+			"thumbnail": "assets/images/netapp/thumbnail.png",
 			"images": [
-				"assets/images/project5-img1.jpg",
-				"assets/images/project5-img2.jpg",
-				"assets/images/project5-img3.jpg"
+				"assets/images/netapp/netapp_1.png",
+				"assets/images/netapp/netapp_2.png",
+				"assets/images/netapp/netapp_3.png"
 			],
 			"videos": [
 				{
 					"type": "youtube",
-					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+					"url": "https://www.youtube.com/embed/waLNrszIR4A",
 					"title": "NetApp Training Overview"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/project5-gameplay.mp4",
-					"title": "Server Configuration Demo"
 				}
 			],
 			"role": ["Unity Programmer", "Tester"],
 			"team": 4,
 			"duration": "3 months",
 			"technologies": ["Unity", "C#", "Windows", "WebGL"],
-			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
-			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
-			"results": "1M+ registered players with 50K daily active users",
-			"links": {
+			"challenge": "Learning and practicing server management and network configuration can be risky and costly in real data centers.",
+			"solution": "Developed a safe and cost-effective simulation environment for training purposes.",
+			"results": "Improved training efficiency and reduced risk of errors in real-world scenarios.",
+			"comment_links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
@@ -294,15 +279,15 @@
 			"tagline": "Interactive 3D model visualization tool",
 			"category": ["Visualization Tool"],
 			"year": 2021,
-			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features for model manipulation, annotation, and real-time rendering.",
-			"detailedDescription": "A robust 3D model viewer featuring interactive controls, real-time rendering, and support for various 3D file formats. Built with scalability in mind to handle large and complex models.",
-			"thumbnail": "assets/images/project5-thumb.jpg",
+			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features such as panning, zooming, rotating, and support.",
+			"detailedDescription": "A powerful 3D model viewer that allows users to interact with complex models through intuitive controls.",
+			"thumbnail": "assets/images/model-viewer/thumbnail.jpg",
 			"images": [
-				"assets/images/project5-img1.jpg",
-				"assets/images/project5-img2.jpg",
-				"assets/images/project5-img3.jpg"
+				"assets/images/model-viewer/model_viewer_1.jpg",
+				"assets/images/model-viewer/model_viewer_2.jpg",
+				"assets/images/model-viewer/model_viewer_3.jpg"
 			],
-			"videos": [
+			"comment_videos": [
 				{
 					"type": "youtube",
 					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
@@ -325,10 +310,10 @@
 				"Android",
 				"Amazon S3"
 			],
-			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
-			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
-			"results": "1M+ registered players with 50K daily active users",
-			"links": {
+			"challenge": "Viewing a 3D model requires a 3D application or other such viewer software to be downloaded.",
+			"solution": "Implemented a web-based 3D model viewer that allows users to interact with models directly in their browser without the need for additional software.",
+			"results": "Shared 3D models with clients and stakeholders more easily, improving communication and collaboration.",
+			"comment_links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
@@ -364,9 +349,9 @@
 			"team": 4,
 			"duration": "3 months",
 			"technologies": ["Unity", "C#", "Android", "Photon Pun"],
-			"challenge": "Maintaining sub-100ms latency across global regions while ensuring fair competitive play.",
-			"solution": "Implemented region-locked servers and sophisticated matchmaking algorithms.",
-			"results": "1M+ registered players with 50K daily active users",
+			"challenge": "Create a multiplayer carrom game that matches with the existing games from that studio.",
+			"solution": "Implemented a multiplayer carrom game with realistic physics and engaging gameplay mechanics, ensuring it meets the quality standards of the studio.",
+			"comment_results": "",
 			"comment_links": {
 				"website": "https://example.com/project5",
 				"steam": "https://store.steampowered.com/app/yourappid"
@@ -415,7 +400,7 @@
 			"results": "Successfully launched in Google Play Store",
 			"links": {
 				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
-				"github": "https://github.com/yourname/project1"
+				"comment_github": "https://github.com/yourname/project1"
 			}
 		},
 		{

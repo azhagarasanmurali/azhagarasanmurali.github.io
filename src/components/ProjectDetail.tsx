@@ -64,6 +64,12 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 		null,
 	);
 	const [isGalleryHovered, setIsGalleryHovered] = useState(false);
+	const [isGalleryInView, setIsGalleryInView] = useState(false);
+	const [galleryElement, setGalleryElement] = useState<HTMLDivElement | null>(
+		null,
+	);
+	const [touchStartX, setTouchStartX] = useState<number | null>(null);
+	const [touchStartY, setTouchStartY] = useState<number | null>(null);
 	const [isAssetsLoading, setIsAssetsLoading] = useState(true);
 	const hasMultipleVideos = videos.length > 1;
 	const hasMultipleImages = project.images.length > 1;
@@ -115,6 +121,48 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 	const closeImageLightbox = useCallback(() => {
 		setLightboxImageIndex(null);
 	}, []);
+
+	const handleGalleryTouchStart = useCallback(
+		(event: React.TouchEvent<HTMLDivElement>) => {
+			const touch = event.changedTouches[0];
+			if (!touch) return;
+			setTouchStartX(touch.clientX);
+			setTouchStartY(touch.clientY);
+		},
+		[],
+	);
+
+	const handleGalleryTouchEnd = useCallback(
+		(event: React.TouchEvent<HTMLDivElement>) => {
+			if (touchStartX === null || touchStartY === null) return;
+
+			const touch = event.changedTouches[0];
+			if (!touch) return;
+
+			const deltaX = touch.clientX - touchStartX;
+			const deltaY = touch.clientY - touchStartY;
+			const absDeltaX = Math.abs(deltaX);
+			const absDeltaY = Math.abs(deltaY);
+
+			if (hasMultipleImages && absDeltaX > 45 && absDeltaX > absDeltaY) {
+				if (deltaX > 0) {
+					goToPreviousImage();
+				} else {
+					goToNextImage();
+				}
+			}
+
+			setTouchStartX(null);
+			setTouchStartY(null);
+		},
+		[
+			hasMultipleImages,
+			goToNextImage,
+			goToPreviousImage,
+			touchStartX,
+			touchStartY,
+		],
+	);
 
 	const goToPreviousLightboxImage = useCallback(() => {
 		if (lightboxImageIndex === null) return;
@@ -258,8 +306,32 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 	}, [project.id]);
 
 	useEffect(() => {
+		if (!galleryElement) {
+			setIsGalleryInView(false);
+			return;
+		}
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsGalleryInView(
+					entry.isIntersecting && entry.intersectionRatio >= 0.35,
+				);
+			},
+			{
+				threshold: [0.2, 0.35, 0.5],
+				rootMargin: "0px 0px -10% 0px",
+			},
+		);
+
+		observer.observe(galleryElement);
+
+		return () => observer.disconnect();
+	}, [galleryElement, project.id]);
+
+	useEffect(() => {
 		if (
 			!hasMultipleImages ||
+			!isGalleryInView ||
 			isGalleryHovered ||
 			lightboxImageIndex !== null
 		) {
@@ -275,6 +347,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 		return () => window.clearInterval(intervalId);
 	}, [
 		hasMultipleImages,
+		isGalleryInView,
 		isGalleryHovered,
 		lightboxImageIndex,
 		project.images.length,
@@ -367,7 +440,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 			{/* Close Button */}
 			<button
 				onClick={onClose}
-				className="fixed right-6 top-6 z-50 rounded-2xl border border-slate-700 bg-slate-900 p-3 shadow-lg shadow-black/40 transition-colors duration-300 hover:bg-slate-800 sm:right-8 sm:top-8"
+				className="fixed right-6 top-6 z-50 rounded-2xl border border-slate-700 bg-black p-3 shadow-lg shadow-black/40 transition-colors duration-300 hover:bg-slate-900 sm:right-8 sm:top-8"
 				aria-label="Close project detail"
 			>
 				<X className="h-6 w-6 text-white" />
@@ -377,7 +450,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 				<div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
 					{isAssetsLoading ? (
 						<div className="space-y-8 animate-pulse">
-							<div className="rounded-[2rem] border border-slate-800 bg-slate-900 p-8 shadow-[0_30px_80px_rgba(15,23,42,0.55)] sm:p-10">
+							<div className="rounded-[2rem] border border-slate-800 bg-black p-8 shadow-[0_30px_80px_rgba(15,23,42,0.55)] sm:p-10">
 								<div className="h-12 w-2/3 rounded bg-white/10" />
 								<div className="mt-4 h-6 w-5/6 rounded bg-white/10" />
 								<div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -391,7 +464,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 									)}
 								</div>
 							</div>
-							<div className="rounded-[2rem] border border-slate-800 bg-slate-900 p-3 shadow-[0_30px_80px_rgba(15,23,42,0.45)]">
+							<div className="rounded-[2rem] border border-slate-800 bg-black p-3 shadow-[0_30px_80px_rgba(15,23,42,0.45)]">
 								<div className="h-[clamp(18rem,42vh,48rem)] rounded-[1.4rem] bg-white/10" />
 							</div>
 							<div className="grid gap-8 md:grid-cols-2">
@@ -402,7 +475,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 					) : (
 						<>
 							{/* Header */}
-							<div className="mb-12 rounded-[2rem] border border-slate-800 bg-slate-900 p-8 shadow-[0_30px_80px_rgba(15,23,42,0.55)] sm:p-10">
+							<div className="mb-12 rounded-[2rem] border border-slate-800 bg-black p-8 shadow-[0_30px_80px_rgba(15,23,42,0.55)] sm:p-10">
 								<h1 className="text-5xl font-bold text-white mb-4">
 									{project.title}
 								</h1>
@@ -417,7 +490,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 										{metadataItems.map((item) => (
 											<div
 												key={item.label}
-												className="rounded-2xl border border-slate-700 bg-slate-800 p-4"
+												className="rounded-2xl border border-slate-700 bg-black p-4"
 											>
 												<div className="text-gray-400 text-sm">
 													{item.label}
@@ -433,8 +506,8 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
 							{/* Image Gallery */}
 							{project.images.length > 0 && (
-								<div className="mb-12">
-									<div className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900 p-3 shadow-[0_30px_80px_rgba(15,23,42,0.45)]">
+								<div className="mb-12" ref={setGalleryElement}>
+									<div className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-black p-3 shadow-[0_30px_80px_rgba(15,23,42,0.45)]">
 										<div className="mb-4 flex items-center justify-between gap-3 px-2 pt-2">
 											<div>
 												<h2 className="text-2xl font-bold text-white">
@@ -449,12 +522,18 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
 										{activeImage && (
 											<div
-												className="relative overflow-hidden rounded-[1.4rem] bg-slate-950 p-3"
+												className="relative overflow-hidden rounded-[1.4rem] bg-black p-3"
 												onMouseEnter={() =>
 													setIsGalleryHovered(true)
 												}
 												onMouseLeave={() =>
 													setIsGalleryHovered(false)
+												}
+												onTouchStart={
+													handleGalleryTouchStart
+												}
+												onTouchEnd={
+													handleGalleryTouchEnd
 												}
 											>
 												<button
@@ -464,7 +543,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 															currentImageIndex,
 														)
 													}
-													className="group flex h-[clamp(24rem,68vh,58rem)] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-800 bg-slate-950"
+													className="group flex h-[clamp(24rem,68vh,58rem)] w-full items-center justify-center overflow-hidden rounded-2xl border border-slate-800 bg-black"
 												>
 													<img
 														src={activeImage}
@@ -537,13 +616,13 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
 							{/* Video Section */}
 							{videos.length > 0 && (
-								<div className="mb-12 rounded-[2rem] border border-slate-800 bg-slate-900 p-6 shadow-[0_30px_80px_rgba(15,23,42,0.45)] sm:p-8">
+								<div className="mb-12 rounded-[2rem] border border-slate-800 bg-black p-6 shadow-[0_30px_80px_rgba(15,23,42,0.45)] sm:p-8">
 									<div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 										<h2 className="text-3xl font-bold text-white">
 											Video Showcase
 										</h2>
 										{activeVideo && (
-											<span className="rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+											<span className="rounded-full border border-slate-700 bg-black px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
 												{activeVideo.title}
 											</span>
 										)}
@@ -624,7 +703,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 								project.solution?.trim()) && (
 								<div className="mb-12 grid gap-8 md:grid-cols-2">
 									{project.challenge?.trim() && (
-										<div className="rounded-[2rem] border border-cyan-900 bg-slate-900 p-8 shadow-[0_20px_60px_rgba(8,145,178,0.18)]">
+										<div className="rounded-[2rem] border border-cyan-900 bg-black p-8 shadow-[0_20px_60px_rgba(8,145,178,0.18)]">
 											<h3 className="text-2xl font-bold text-white mb-4">
 												The Challenge
 											</h3>
@@ -635,7 +714,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 									)}
 
 									{project.solution?.trim() && (
-										<div className="rounded-[2rem] border border-blue-900 bg-slate-900 p-8 shadow-[0_20px_60px_rgba(37,99,235,0.16)]">
+										<div className="rounded-[2rem] border border-blue-900 bg-black p-8 shadow-[0_20px_60px_rgba(37,99,235,0.16)]">
 											<h3 className="text-2xl font-bold text-white mb-4">
 												Our Solution
 											</h3>
@@ -649,7 +728,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
 							{/* Results */}
 							{project.results?.trim() && (
-								<div className="mb-12 rounded-[2rem] border border-cyan-900 bg-slate-900 p-8 shadow-[0_20px_70px_rgba(34,211,238,0.16)]">
+								<div className="mb-12 rounded-[2rem] border border-cyan-900 bg-black p-8 shadow-[0_20px_70px_rgba(34,211,238,0.16)]">
 									<h3 className="text-2xl font-bold text-white mb-4">
 										Results & Impact
 									</h3>
@@ -661,7 +740,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
 							{/* Technologies */}
 							{project.technologies?.length ? (
-								<div className="mb-12 rounded-[2rem] border border-slate-800 bg-slate-900 p-8 shadow-[0_30px_80px_rgba(15,23,42,0.45)]">
+								<div className="mb-12 rounded-[2rem] border border-slate-800 bg-black p-8 shadow-[0_30px_80px_rgba(15,23,42,0.45)]">
 									<h3 className="text-2xl font-bold text-white mb-6">
 										Technologies Used
 									</h3>
@@ -670,7 +749,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 											(tech, index) => (
 												<span
 													key={index}
-													className="rounded-2xl border border-cyan-900 bg-slate-800 px-4 py-2 text-gray-200"
+													className="rounded-2xl border border-cyan-900 bg-black px-4 py-2 text-gray-200"
 												>
 													{tech}
 												</span>
