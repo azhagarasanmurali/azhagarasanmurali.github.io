@@ -548,7 +548,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 													<img
 														src={activeImage}
 														alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-														className="max-h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+														className="max-h-full w-auto max-w-full object-contain rounded-2xl transition-transform duration-300 group-hover:scale-[1.01]"
 													/>
 												</button>
 												{hasMultipleImages && (

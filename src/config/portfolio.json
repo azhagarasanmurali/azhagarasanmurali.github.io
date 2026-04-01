@@ -149,7 +149,7 @@
 			"description": "A cross-platform Unity starter template designed to accelerate development for the developers. It includes pre-built systems for character movement, camera control, UI management, audio management, all optimized for performance and scalability.",
 			"detailedDescription": "Template project featuring reusable systems for character movement, camera control, UI management, and audio management. Built with scalability in mind to support various platforms.",
 			"thumbnail": "assets/images/starter-template/thumbnail.jpg",
-			"images": [
+			"comment_images": [
 				"assets/images/starter-template/starter_template_1.jpg",
 				"assets/images/starter-template/starter_template_2.jpg",
 				"assets/images/starter-template/starter_template_3.jpg"
@@ -233,7 +233,7 @@
 			"challenge": "A solution for tracking progress and assessment data from VR and WebGL training modules within the existing LMS was needed to provide a seamless learning experience.",
 			"solution": "Implemented a custom integration that captures and sends training data from the simulator to the LMS in both WebGL and VR platforms, allowing for real-time progress tracking and assessment.",
 			"results": "Enhanced training effectiveness and streamlined progress tracking, resulting in improved learning outcomes.",
-			"links": {
+			"comment_links": {
 				"website": "https://example.com/project4",
 				"steam": "https://store.steampowered.com/app/yourappid"
 			}
@@ -248,7 +248,7 @@
 			"description": "A server rack simulation designed for training and organizing IT infrastructure. It includes pre-built systems for server management, network configuration, and troubleshooting exercises, all optimized for realistic training scenarios.",
 			"detailedDescription": "A robust server rack simulation featuring interactive training modules, realistic network configurations, and comprehensive troubleshooting exercises. Built with scalability in mind to support various training scenarios.",
 			"thumbnail": "assets/images/netapp/thumbnail.png",
-			"images": [
+			"comment_images": [
 				"assets/images/netapp/netapp_1.png",
 				"assets/images/netapp/netapp_2.png",
 				"assets/images/netapp/netapp_3.png"
@@ -313,9 +313,9 @@
 			"challenge": "Viewing a 3D model requires a 3D application or other such viewer software to be downloaded.",
 			"solution": "Implemented a web-based 3D model viewer that allows users to interact with models directly in their browser without the need for additional software.",
 			"results": "Shared 3D models with clients and stakeholders more easily, improving communication and collaboration.",
-			"comment_links": {
-				"website": "https://example.com/project5",
-				"steam": "https://store.steampowered.com/app/yourappid"
+			"links": {
+				"itch": "https://mrgreenstudio.itch.io/model-viewer",
+				"comment_steam": "https://store.steampowered.com/app/yourappid"
 			}
 		},
 		{
@@ -377,11 +377,6 @@
 					"type": "asset",
 					"url": "assets/videos/quick-shot-basketball/project-demo.mp4",
 					"title": "Gameplay Showcase"
-				},
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/rfFN6XBV0wA",
-					"title": "Quick-Shot Demo Reel"
 				}
 			],
 			"role": ["Full Stack Game Developer"],
