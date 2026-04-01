@@ -115,7 +115,7 @@
 			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
 			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
 			"thumbnail": "assets/images/uti/thumbnail.png",
-			"images": [
+			"comment_images": [
 				"assets/images/project3-img1.jpg",
 				"assets/images/project3-img2.jpg",
 				"assets/images/project3-img3.jpg"
@@ -327,13 +327,14 @@
 			"year": 2019,
 			"description": "An interactive multiplayer carrom board game with realistic physics and engaging gameplay.",
 			"detailedDescription": "A robust multiplayer carrom board game featuring interactive controls, real-time physics, and support for various platforms. Built with scalability in mind to handle multiple concurrent players.",
-			"thumbnail": "assets/images/project5-thumb.jpg",
+			"thumbnail": "assets/images/gamin-inztinct-carrom/thumbnail.png",
 			"images": [
-				"assets/images/project5-img1.jpg",
-				"assets/images/project5-img2.jpg",
-				"assets/images/project5-img3.jpg"
+				"assets/images/gamin-inztinct-carrom/board_1.jpg",
+				"assets/images/gamin-inztinct-carrom/board_2.jpg",
+				"assets/images/gamin-inztinct-carrom/board_3.jpg",
+				"assets/images/gamin-inztinct-carrom/board_4.jpg"
 			],
-			"videos": [
+			"comment_videos": [
 				{
 					"type": "youtube",
 					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
