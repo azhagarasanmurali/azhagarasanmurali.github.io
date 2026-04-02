@@ -90,10 +90,12 @@
 			"Game Design",
 			"Multiplayer Networking",
 			"Physics Systems",
-			"Audio Design",
 			"UI/UX Design",
 			"Version Control (Git, SVN)",
-			"SOLID Principles"
+			"SOLID Principles",
+			"Android App Development",
+			"Web Development (MERN Stack)",
+			"Gen AI Engineering"
 		],
 		"profileImage": "assets/images/azhagarasan.jpg"
 	},
