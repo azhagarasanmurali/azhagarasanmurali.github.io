@@ -391,8 +391,8 @@
 				"SOLID Principles",
 				"Git Version Control"
 			],
-			"challenge": "Creating a seamless open world with minimal loading times while maintaining visual fidelity and gameplay performance.",
-			"solution": "Implemented advanced streaming systems and optimized rendering pipelines to achieve 60 FPS on target platforms.",
+			"challenge": "Achieving smooth performance and realistic physics on mobile platforms while maintaining engaging gameplay.",
+			"solution": "Optimized physics calculations and implemented efficient rendering techniques to ensure smooth performance on a wide range of mobile devices.",
 			"results": "Successfully launched in Google Play Store",
 			"links": {
 				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
@@ -436,6 +436,108 @@
 			"solution": "Developed a mobile app that provides quick and easy font conversion with an intuitive interface and offline functionality.",
 			"results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
 			"links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+				"comment_itch": "https://yourname.itch.io/pixel-paradise"
+			}
+		},
+		{
+			"id": "project-9",
+			"type": "Personal",
+			"title": "AI Software Factory",
+			"tagline": "A local AI-powered software development platform",
+			"category": ["Gen AI", "Productivity"],
+			"year": 2026,
+			"description": "A tool that leverages local AI to streamline software development processes.",
+			"detailedDescription": "This platform provides a seamless experience for automating entire software development cycle using local AI models.",
+			"thumbnail": "assets/images/ai-software-factory/thumbnail.png",
+			"images": [
+				"assets/images/ai-software-factory/model-config.png",
+				"assets/images/ai-software-factory/create-project.png"
+			],
+			"comment_videos": [],
+			"role": ["Solo Developer"],
+			"team": 1,
+			"duration": "1 month",
+			"technologies": [
+				"Python",
+				"MongoDB",
+				"Ollama Models",
+				"React",
+				"Vibe Coded"
+			],
+			"challenge": "AI Coding agents require an internet connection and often raise privacy concerns due to data being sent to external servers.",
+			"solution": "Developed a local AI-powered mobile app that provides easy software development assistance with an intuitive interface and fully offline functionality.",
+			"results": "Creates simple web and mobile projects with AI assistance, without the need for an internet connection, ensuring user privacy and data security.",
+			"comment_links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.aisoftwarefactory",
+				"comment_itch": "https://yourname.itch.io/pixel-paradise"
+			}
+		},
+		{
+			"id": "project-10",
+			"type": "Personal",
+			"title": "Custom Chat",
+			"tagline": "A custom chat application",
+			"category": ["Chat App", "Productivity"],
+			"year": 2026,
+			"description": "A custom chat application that allows users to create their own chat sessions with customizable settings and features.",
+			"detailedDescription": "This app provides a seamless experience for creating and managing custom chat sessions with various customization options.",
+			"thumbnail": "assets/images/custom-chat/thumbnail.jpeg",
+			"images": [
+				"assets/images/custom-chat/jack-sparrow.jpeg",
+				"assets/images/custom-chat/settings.jpeg",
+				"assets/images/custom-chat/sidebar.jpeg"
+			],
+			"comment_videos": [],
+			"role": ["Solo Developer"],
+			"team": 1,
+			"duration": "1 week",
+			"technologies": ["Flutter"],
+			"challenge": "Existing chat applications do not offer the level of customization and control that some users desire for their communication needs.",
+			"solution": "Developed a mobile app that allows users to create and manage custom chat sessions with various customization options and individual persona per chat.",
+			"results": "A fun project that demonstrates the ability to build a fully functional chat application with customizable features, showcasing versatility in software development.",
+			"comment_links": {
+				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+				"comment_itch": "https://yourname.itch.io/pixel-paradise"
+			}
+		},
+		{
+			"id": "project-11",
+			"type": "Personal",
+			"title": "Crazy Labyrinth",
+			"tagline": "A challenging labyrinth game",
+			"category": ["Game", "Puzzle"],
+			"year": 2026,
+			"description": "A challenging labyrinth game that tests players' problem-solving skills and reflexes.",
+			"detailedDescription": "This game provides an engaging experience with intricate labyrinths, requiring players to navigate through complex mazes and overcome various obstacles.",
+			"thumbnail": "assets/images/crazy-labyrinth/thumbnail.png",
+			"images": [
+				"assets/images/crazy-labyrinth/main-menu.png",
+				"assets/images/crazy-labyrinth/level-selection.png",
+				"assets/images/crazy-labyrinth/start-level.png",
+				"assets/images/crazy-labyrinth/level-1.png",
+				"assets/images/crazy-labyrinth/level-2.png",
+				"assets/images/crazy-labyrinth/out-of-lives.png"
+			],
+			"comment_videos": [],
+			"role": ["Solo Developer"],
+			"team": 1,
+			"duration": "2 months",
+			"technologies": [
+				"Unity",
+				"C#",
+				"Unity Ads",
+				"Unity Analytics",
+				"Unity Remote Play",
+				"Unity Authentication",
+				"Procedural Generation",
+				"SOLID Principles",
+				"Git Version Control"
+			],
+			"challenge": "Existing games offers a limited number of levels.",
+			"solution": "Developed a game that procedurally generates labyrinths with various difficulty levels, providing endless replayability and a unique experience for each levels.",
+			"results": "An endless labyrinth game that offers fun experience.",
+			"comment_links": {
 				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
 				"comment_itch": "https://yourname.itch.io/pixel-paradise"
 			}
