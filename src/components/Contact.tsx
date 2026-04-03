@@ -22,6 +22,7 @@ interface ContactProps {
 			icon: string;
 		}[];
 	};
+	resumeUrl?: string;
 }
 
 const getIconComponent = (iconName: string) => {
@@ -61,7 +62,11 @@ const getIconComponent = (iconName: string) => {
 	return icons[iconName] || <ExternalLink className="w-6 h-6" />;
 };
 
-export const Contact: React.FC<ContactProps> = ({ contact, social }) => {
+export const Contact: React.FC<ContactProps> = ({
+	contact,
+	social,
+	resumeUrl,
+}) => {
 	const [ref, isInView] = useInView();
 
 	return (
