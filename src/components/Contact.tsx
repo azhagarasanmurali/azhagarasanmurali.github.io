@@ -98,19 +98,6 @@ export const Contact: React.FC<ContactProps> = ({
 								Get In Touch
 							</a>
 						</AnimatedItem>
-						{resumeUrl && (
-							<AnimatedItem delay={140} from="right">
-								<a
-									href={resumeUrl}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="px-[clamp(1rem,1.5vw,1.4rem)] py-[clamp(0.6rem,0.9vw,0.8rem)] bg-slate-800 hover:bg-slate-700 text-[clamp(0.9rem,0.95vw,1rem)] text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-[clamp(0.4rem,0.6vw,0.6rem)]"
-								>
-									Download Resume
-									<ExternalLink className="w-[clamp(0.8rem,1vw,1.1rem)] h-[clamp(0.8rem,1vw,1.1rem)]" />
-								</a>
-							</AnimatedItem>
-						)}
 					</div>
 
 					<AnimatedItem delay={180} from="scale">
