@@ -414,7 +414,6 @@ function App() {
 								<Contact
 									contact={portfolioData.contact}
 									social={portfolioData.social}
-									resumeUrl={portfolioData.personal.resumeUrl}
 								/>
 							</section>
 						);
