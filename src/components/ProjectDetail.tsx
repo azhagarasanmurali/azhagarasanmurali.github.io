@@ -432,11 +432,11 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 	return (
 		<div
 			data-modal-scroll-root
-			className="fixed inset-0 z-50 overflow-hidden bg-black/95 backdrop-blur-[22px]"
+			className="fixed inset-0 z-50 overflow-hidden bg-black backdrop-blur-[100px]"
 		>
-			<div className="absolute inset-0 bg-black/95 backdrop-blur-[22px]" />
+			<div className="absolute inset-0 bg-black backdrop-blur-[100px]" />
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(8,145,178,0.08),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.08),transparent_28%)]" />
-			<div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/95 to-slate-950/95" />
+			<div className="absolute inset-0 bg-gradient-to-b from-black via-black to-slate-950" />
 			{/* Close Button */}
 			<button
 				onClick={onClose}
@@ -548,7 +548,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 													<img
 														src={activeImage}
 														alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-														className="max-h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+														className="max-h-full w-auto max-w-full object-contain rounded-2xl transition-transform duration-300 group-hover:scale-[1.01]"
 													/>
 												</button>
 												{hasMultipleImages && (
@@ -602,8 +602,8 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 															className={`h-2.5 rounded-full transition-all ${
 																currentImageIndex ===
 																index
-																	? "w-8 bg-cyan-300"
-																	: "w-2.5 bg-white/35 hover:bg-white/55"
+																	? "w-8 bg-white"
+																	: "w-2.5 bg-white/50 hover:bg-white/55"
 															}`}
 														/>
 													),

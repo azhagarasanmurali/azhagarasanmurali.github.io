@@ -97,18 +97,11 @@
 		overscroll-behavior-y: contain;
 		padding-top: var(--nav-height);
 		scroll-behavior: smooth;
-		scroll-snap-type: y proximity;
 		-webkit-overflow-scrolling: touch;
 	}
 
 	.screen-section {
 		min-height: calc(100vh - var(--nav-height));
-		overscroll-behavior-y: contain;
-	}
-
-	section.screen-section {
-		scroll-snap-align: start;
-		scroll-snap-stop: always;
 	}
 
 	.hobby-marquee-track {

@@ -58,7 +58,7 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 			? "rounded border border-slate-700 px-4 py-2 text-gray-300"
 			: skillsStyle === "pill"
 				? "rounded-full border border-accent-primary/35 bg-accent-primary/10 px-4 py-2 text-sm text-cyan-100"
-				: "rounded-lg border border-accent-primary/30 bg-slate-800 px-4 py-3 text-gray-200 transition-colors duration-300 hover:border-accent-primary/60 hover:text-accent-primary";
+				: "rounded-lg border border-accent-primary/30 bg-slate-800 px-4 py-3 text-gray-200 transition-colors duration-300";
 	const imageGlowClass =
 		surface === "plain"
 			? "opacity-15"

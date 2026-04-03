@@ -655,7 +655,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 																								: 0,
 																						)
 																					}
-																					className="group block w-full aspect-square overflow-hidden rounded-xl border border-white/15 bg-slate-950/85 p-2"
+																					className="group block w-full overflow-hidden rounded-xl bg-slate-950/85 p-2"
 																				>
 																					<img
 																						src={
@@ -664,7 +664,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 																						alt={
 																							image.alt
 																						}
-																						className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+																						className="h-full w-full object-contain transition-transform rounded-xl duration-300 group-hover:scale-[1.2]"
 																						loading="lazy"
 																					/>
 																				</button>
@@ -696,7 +696,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 
 							<div
 								data-model-viewer
-								className="relative mt-5 aspect-square w-full overflow-hidden rounded-xl border border-white/10 bg-slate-950"
+								className="relative mt-5 aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/50 bg-slate-950"
 							>
 								<Canvas
 									camera={{
@@ -766,7 +766,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 										<button
 											type="button"
 											onClick={handleEnableInteraction}
-											className="rounded-lg border border-cyan-300/50 bg-slate-900/85 px-5 py-3 text-sm font-semibold text-cyan-100 transition-colors hover:bg-slate-800"
+											className="rounded-lg bg-white/10 backdrop-blur-[20px] border border-cyan-300/50 bg-slate-900/85 px-5 py-3 text-lg font-bold text-cyan-100 transition-colors hover:bg-slate-800"
 										>
 											{data.modelViewer
 												?.interactionButtonText ??
