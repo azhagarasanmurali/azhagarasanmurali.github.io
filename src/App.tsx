@@ -1,20 +1,47 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useSectionNav } from "./hooks/useSectionNav";
 import "./index.css";
-import {
-	Navigation,
-	Hero,
-	About,
-	Projects,
-	Hobbies,
-	Timeline,
-	DynamicSection,
-	ProjectDetail,
-	Contact,
-	LoadingScreen,
-	AppSkeleton,
-} from "./components";
+import { Navigation } from "./components/Navigation";
+import { Hero } from "./components/Hero";
+import { LoadingScreen } from "./components/LoadingScreen";
+import { AppSkeleton } from "./components/AppSkeleton";
 import { portfolioData } from "./config/portfolio";
+
+const About = lazy(() =>
+	import("./components/About").then((module) => ({
+		default: module.About,
+	})),
+);
+const Projects = lazy(() =>
+	import("./components/Projects").then((module) => ({
+		default: module.Projects,
+	})),
+);
+const Hobbies = lazy(() =>
+	import("./components/Hobbies").then((module) => ({
+		default: module.Hobbies,
+	})),
+);
+const Timeline = lazy(() =>
+	import("./components/Timeline").then((module) => ({
+		default: module.Timeline,
+	})),
+);
+const DynamicSection = lazy(() =>
+	import("./components/DynamicSection").then((module) => ({
+		default: module.DynamicSection,
+	})),
+);
+const ProjectDetail = lazy(() =>
+	import("./components/ProjectDetail").then((module) => ({
+		default: module.ProjectDetail,
+	})),
+);
+const Contact = lazy(() =>
+	import("./components/Contact").then((module) => ({
+		default: module.Contact,
+	})),
+);
 
 type SectionConfig = {
 	id: string;
@@ -82,6 +109,9 @@ function App() {
 		() => portfolioData.loading?.messages ?? ["Loading portfolio..."],
 		[],
 	);
+	const sectionFallback = (
+		<div className="section-vh w-full animate-pulse bg-slate-900/50" />
+	);
 
 	useEffect(() => {
 		let isCancelled = false;
@@ -114,36 +144,6 @@ function App() {
 			assets.add(portfolioData.hero.backgroundVideo);
 		if (portfolioData.about.profileImage)
 			assets.add(portfolioData.about.profileImage);
-		portfolioData.projects.forEach((project) => {
-			assets.add(project.thumbnail);
-		});
-
-		const hobbiesSection = portfolioData.hobbies as
-			| {
-					hobbyGallery?: {
-						rows?: Array<{
-							images?: Array<{ src: string }>;
-						}>;
-					};
-					modelViewer?: {
-						models?: Array<{ thumbnail?: string }>;
-					};
-			  }
-			| undefined;
-
-		hobbiesSection?.hobbyGallery?.rows?.forEach((row) => {
-			row.images?.forEach((image) => {
-				if (image.src) {
-					assets.add(image.src);
-				}
-			});
-		});
-
-		hobbiesSection?.modelViewer?.models?.forEach((model) => {
-			if (model.thumbnail) {
-				assets.add(model.thumbnail);
-			}
-		});
 
 		const assetList = Array.from(assets).filter(Boolean);
 		const total = assetList.length;
@@ -175,15 +175,17 @@ function App() {
 				}
 			};
 
-			for (const src of assetList) {
-				const lower = src.toLowerCase();
-				if (lower.endsWith(".mp4") || lower.endsWith(".webm")) {
-					await preloadVideo(src);
-				} else {
-					await preloadImage(src);
-				}
-				bump();
-			}
+			await Promise.all(
+				assetList.map((src) => {
+					const lower = src.toLowerCase();
+					const task =
+						lower.endsWith(".mp4") || lower.endsWith(".webm")
+							? preloadVideo(src)
+							: preloadImage(src);
+
+					return task.finally(bump);
+				}),
+			);
 
 			if (!isCancelled) {
 				setLoadingProgress(100);
@@ -266,7 +268,9 @@ function App() {
 								id={sectionId}
 								className={sectionClassName}
 							>
-								<About data={portfolioData.about} />
+								<Suspense fallback={sectionFallback}>
+									<About data={portfolioData.about} />
+								</Suspense>
 							</section>
 						);
 					}
@@ -282,18 +286,20 @@ function App() {
 								id={sectionId}
 								className={sectionClassName}
 							>
-								<Projects
-									title={
-										projectsSectionMeta.title ??
-										"Featured Projects"
-									}
-									description={
-										projectsSectionMeta.description ??
-										"Explore my latest game development projects and case studies"
-									}
-									projects={portfolioData.projects}
-									onProjectSelect={setSelectedProject}
-								/>
+								<Suspense fallback={sectionFallback}>
+									<Projects
+										title={
+											projectsSectionMeta.title ??
+											"Featured Projects"
+										}
+										description={
+											projectsSectionMeta.description ??
+											"Explore my latest game development projects and case studies"
+										}
+										projects={portfolioData.projects}
+										onProjectSelect={setSelectedProject}
+									/>
+								</Suspense>
 							</section>
 						);
 					}
@@ -305,7 +311,9 @@ function App() {
 								id={sectionId}
 								className={sectionClassName}
 							>
-								<Hobbies data={portfolioData.hobbies} />
+								<Suspense fallback={sectionFallback}>
+									<Hobbies data={portfolioData.hobbies} />
+								</Suspense>
 							</section>
 						);
 					}
@@ -394,12 +402,14 @@ function App() {
 								id={sectionId}
 								className={sectionClassName}
 							>
-								<Timeline
-									title={experience.title}
-									description={experience.description}
-									entries={experience.entries}
-									design={experience.design}
-								/>
+								<Suspense fallback={sectionFallback}>
+									<Timeline
+										title={experience.title}
+										description={experience.description}
+										entries={experience.entries}
+										design={experience.design}
+									/>
+								</Suspense>
 							</section>
 						);
 					}
@@ -411,10 +421,12 @@ function App() {
 								id={sectionId}
 								className={sectionClassName}
 							>
-								<Contact
-									contact={portfolioData.contact}
-									social={portfolioData.social}
-								/>
+								<Suspense fallback={sectionFallback}>
+									<Contact
+										contact={portfolioData.contact}
+										social={portfolioData.social}
+									/>
+								</Suspense>
 							</section>
 						);
 					}
@@ -427,18 +439,20 @@ function App() {
 								id={sectionId}
 								className={sectionClassName}
 							>
-								<DynamicSection
-									id={sectionId}
-									label={
-										navSections.find(
-											(section) =>
-												section.id === sectionId,
-										)?.label ?? sectionId
-									}
-									data={
-										dynamicData as Record<string, unknown>
-									}
-								/>
+								<Suspense fallback={sectionFallback}>
+									<DynamicSection
+										id={sectionId}
+										label={
+											navSections.find(
+												(section) =>
+													section.id === sectionId,
+											)?.label ?? sectionId
+										}
+										data={
+											dynamicData as Record<string, unknown>
+										}
+									/>
+								</Suspense>
 							</section>
 						);
 					}
@@ -449,10 +463,16 @@ function App() {
 
 			{/* Project Detail Modal */}
 			{selectedProjectData && (
-				<ProjectDetail
-					project={selectedProjectData}
-					onClose={() => setSelectedProject(null)}
-				/>
+				<Suspense
+					fallback={
+						<div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" />
+					}
+				>
+					<ProjectDetail
+						project={selectedProjectData}
+						onClose={() => setSelectedProject(null)}
+					/>
+				</Suspense>
 			)}
 		</div>
 	);

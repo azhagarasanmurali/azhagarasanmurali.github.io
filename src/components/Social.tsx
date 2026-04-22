@@ -26,6 +26,8 @@ const getIconComponent = (iconName: string) => {
 			<img
 				src="assets/images/social/github.svg"
 				alt="GitHub"
+				loading="lazy"
+				decoding="async"
 				className="h-6 w-6"
 			/>
 		),
@@ -33,16 +35,26 @@ const getIconComponent = (iconName: string) => {
 			<img
 				src="assets/images/social/linkedin.svg"
 				alt="LinkedIn"
+				loading="lazy"
+				decoding="async"
 				className="h-6 w-6"
 			/>
 		),
 		twitter: (
-			<img src="assets/images/social/x.svg" alt="X" className="h-6 w-6" />
+			<img
+				src="assets/images/social/x.svg"
+				alt="X"
+				loading="lazy"
+				decoding="async"
+				className="h-6 w-6"
+			/>
 		),
 		gamepad: (
 			<img
 				src="assets/images/social/itchio.svg"
 				alt="itch.io"
+				loading="lazy"
+				decoding="async"
 				className="h-6 w-6"
 			/>
 		),
@@ -50,6 +62,8 @@ const getIconComponent = (iconName: string) => {
 			<img
 				src="assets/images/social/youtube.svg"
 				alt="YouTube"
+				loading="lazy"
+				decoding="async"
 				className="h-6 w-6"
 			/>
 		),

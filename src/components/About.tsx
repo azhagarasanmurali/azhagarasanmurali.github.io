@@ -106,6 +106,8 @@ export const About: React.FC<AboutProps> = ({ data }) => {
 								<img
 									src={data.profileImage}
 									alt="Profile"
+									loading="lazy"
+									decoding="async"
 									className="relative rounded-2xl w-full h-auto shadow-2xl hover:shadow-accent-primary/20 transition-shadow duration-300"
 								/>
 							</div>

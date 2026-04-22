@@ -420,14 +420,6 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 	}, []);
 
 	useEffect(() => {
-		models.forEach((model) => {
-			if (model.path) {
-				useGLTF.preload(model.path);
-			}
-		});
-	}, [models]);
-
-	useEffect(() => {
 		setIsViewerInteractive(false);
 		handleResetView();
 	}, [selectedModelId, handleResetView]);
@@ -666,6 +658,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 																						}
 																						className="h-full w-full object-contain transition-transform rounded-xl duration-300 group-hover:scale-[1.2]"
 																						loading="lazy"
+																						decoding="async"
 																					/>
 																				</button>
 																			);
@@ -698,94 +691,102 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 								data-model-viewer
 								className="relative mt-5 aspect-[4/3] w-full overflow-hidden rounded-xl border border-white/50 bg-slate-950"
 							>
-								<Canvas
-									camera={{
-										position: toVec3(
-											selectedModelView?.cameraPosition,
-											[0, 0.25, 3.2],
-										),
-										fov: 48,
-									}}
-								>
-									<CameraResetOnModelLoad
-										resetToken={resetToken}
-										controlsRef={controlsRef}
-										view={selectedModelView}
-									/>
-									<ambientLight intensity={0.65} />
-									<directionalLight
-										position={[8, 10, 9]}
-										intensity={0.9}
-									/>
-
-									<Suspense fallback={<ViewerLoader />}>
-										{selectedModel?.path ? (
-											<CenteredModel
-												key={selectedModel.path}
-												url={selectedModel.path}
+								{isInView ? (
+									<>
+										<Canvas
+											camera={{
+												position: toVec3(
+													selectedModelView?.cameraPosition,
+													[0, 0.25, 3.2],
+												),
+												fov: 48,
+											}}
+										>
+											<CameraResetOnModelLoad
+												resetToken={resetToken}
+												controlsRef={controlsRef}
 												view={selectedModelView}
-												onTrianglesCalculated={
-													setTriangles
-												}
-												onModelLoaded={
-													handleModelLoaded
-												}
 											/>
-										) : (
-											<ProceduralModel
-												key={selectedModel?.id}
-												variant={
-													selectedModel?.primitive
-												}
-												view={selectedModelView}
-												onTrianglesCalculated={
-													setTriangles
-												}
-												onModelLoaded={
-													handleModelLoaded
-												}
+											<ambientLight intensity={0.65} />
+											<directionalLight
+												position={[8, 10, 9]}
+												intensity={0.9}
 											/>
-										)}
-									</Suspense>
 
-									<OrbitControls
-										ref={controlsRef}
-										enabled={isViewerInteractive}
-										enablePan
-										enableRotate
-										enableZoom
-										target={toVec3(
-											selectedModelView?.target,
-											[0, 0, 0],
-										)}
-									/>
-								</Canvas>
+											<Suspense fallback={<ViewerLoader />}>
+												{selectedModel?.path ? (
+													<CenteredModel
+														key={selectedModel.path}
+														url={selectedModel.path}
+														view={selectedModelView}
+														onTrianglesCalculated={
+															setTriangles
+														}
+														onModelLoaded={
+															handleModelLoaded
+														}
+													/>
+												) : (
+													<ProceduralModel
+														key={selectedModel?.id}
+														variant={
+															selectedModel?.primitive
+														}
+														view={selectedModelView}
+														onTrianglesCalculated={
+															setTriangles
+														}
+														onModelLoaded={
+															handleModelLoaded
+														}
+													/>
+												)}
+											</Suspense>
 
-								{!isViewerInteractive && (
-									<div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/35">
+											<OrbitControls
+												ref={controlsRef}
+												enabled={isViewerInteractive}
+												enablePan
+												enableRotate
+												enableZoom
+												target={toVec3(
+													selectedModelView?.target,
+													[0, 0, 0],
+												)}
+											/>
+										</Canvas>
+
+										{!isViewerInteractive && (
+											<div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/35">
+												<button
+													type="button"
+													onClick={handleEnableInteraction}
+													className="rounded-lg bg-white/10 backdrop-blur-[20px] border border-cyan-300/50 bg-slate-900/85 px-5 py-3 text-lg font-bold text-cyan-100 transition-colors hover:bg-slate-800"
+												>
+													{data.modelViewer
+														?.interactionButtonText ??
+														"Enable 3D Interaction"}
+												</button>
+											</div>
+										)}
+
+										<div className="pointer-events-none absolute left-3 top-3 z-10 rounded-md border border-cyan-300/25 bg-slate-950/80 px-3 py-2 text-xs font-semibold text-cyan-200">
+											Tris: {triangles.toLocaleString()}
+										</div>
+
 										<button
 											type="button"
-											onClick={handleEnableInteraction}
-											className="rounded-lg bg-white/10 backdrop-blur-[20px] border border-cyan-300/50 bg-slate-900/85 px-5 py-3 text-lg font-bold text-cyan-100 transition-colors hover:bg-slate-800"
+											onClick={handleResetView}
+											className="absolute right-3 top-3 z-10 rounded-md border border-white/20 bg-slate-900/85 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-slate-800"
 										>
-											{data.modelViewer
-												?.interactionButtonText ??
-												"Enable 3D Interaction"}
+											Reset View
 										</button>
+									</>
+								) : (
+									<div className="flex h-full items-center justify-center text-sm font-semibold text-slate-300">
+										3D viewer loads when this section is visible.
 									</div>
 								)}
-
-								<div className="pointer-events-none absolute left-3 top-3 z-10 rounded-md border border-cyan-300/25 bg-slate-950/80 px-3 py-2 text-xs font-semibold text-cyan-200">
-									Tris: {triangles.toLocaleString()}
-								</div>
-
-								<button
-									type="button"
-									onClick={handleResetView}
-									className="absolute right-3 top-3 z-10 rounded-md border border-white/20 bg-slate-900/85 px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-slate-800"
-								>
-									Reset View
-								</button>
 							</div>
 
 							<div className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -811,6 +812,8 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 													<img
 														src={model.thumbnail}
 														alt={model.name}
+														loading="lazy"
+														decoding="async"
 														className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
 													/>
 												) : (

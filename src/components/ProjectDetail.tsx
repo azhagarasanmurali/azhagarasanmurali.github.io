@@ -635,12 +635,14 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 													src={activeVideo.src}
 													title={`${project.title} Video`}
 													className="fade-in-soft h-full w-full"
+													loading="lazy"
 													allowFullScreen
 												/>
 											) : (
 												<video
 													key={activeVideo?.id}
 													controls
+													preload="metadata"
 													className="fade-in-soft h-full w-full"
 												>
 													<source

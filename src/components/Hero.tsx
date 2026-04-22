@@ -92,6 +92,8 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 					autoPlay
 					muted
 					loop
+					playsInline
+					preload="metadata"
 					className="absolute inset-0 h-full w-full object-cover opacity-30"
 				>
 					<source src={data.backgroundVideo} type="video/mp4" />
@@ -102,6 +104,7 @@ export const Hero: React.FC<HeroProps> = ({ data, onCtaClick }) => {
 				<img
 					src={data.heroImage}
 					alt="Hero"
+					decoding="async"
 					className="absolute inset-0 h-full w-full object-cover opacity-20"
 				/>
 			)}
