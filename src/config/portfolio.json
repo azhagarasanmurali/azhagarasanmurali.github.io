@@ -9,7 +9,7 @@
 		"location": "Chennai, India"
 	},
 	"hero": {
-		"heading": "Game Developer Portfolio",
+		"heading": "Software Developer Portfolio",
 		"subheading": "Bringing worlds to life through code and creativity",
 		"ctaText": "Explore My Work",
 		"backgroundVideo": "assets/videos/hero-bg.mp4",
@@ -74,7 +74,7 @@
 	},
 	"about": {
 		"title": "About Me",
-		"description": "I'm a Unity Game Developer using Unity for more than 9 years (since 2015). I have 5+ years of experience in an MNC environment developing Industrial Simulation Projects in Unity for Windows, WebGL and VR platforms. I have architected a company-wide Unity Template project using SOLID principles and design patterns (Singleton and Observer) that significantly cuts down development time for new projects by half through reusable, scalable systems that works well across different platforms. I have experience in the latest Unity 6 features including UI Toolkit, Input System, XR Interaction Toolkit and DOTS (ECS). I have also implemented multiplayer features using Netcode for GameObjects. I have a track record of consistently delivering tasks on time with zero missed deadlines and acts as a communication bridge between developers, designers and QA for efficient bug resolution.",
+		"description": "I'm a Software Developer using Unity for more than 9 years (since 2015). I have 5+ years of experience in an MNC environment developing Industrial Simulation Projects in Unity for Windows, WebGL and VR platforms. I have architected a company-wide Unity Template project using SOLID principles and design patterns (Singleton and Observer) that significantly cuts down development time for new projects by half through reusable, scalable systems that works well across different platforms. I have experience in the latest Unity 6 features including UI Toolkit, Input System, XR Interaction Toolkit and DOTS (ECS). I have also implemented multiplayer features using Netcode for GameObjects. I have a track record of consistently delivering tasks on time with zero missed deadlines and acts as a communication bridge between developers, designers and QA for efficient bug resolution.",
 		"design": {
 			"layout": "split",
 			"spacing": "comfortable",
@@ -86,8 +86,8 @@
 		"skills": [
 			"Unity",
 			"C#",
-			"3D Graphics",
-			"Game Design",
+			"MERN Stack",
+			"VR/AR Development",
 			"Multiplayer Networking",
 			"Physics Systems",
 			"UI/UX Design",
@@ -101,7 +101,7 @@
 	},
 	"projectsSection": {
 		"title": "Projects",
-		"description": "Explore my latest game development projects and case studies.",
+		"description": "Explore my latest software development projects and case studies.",
 		"design": {
 			"verticalAlign": "top"
 		}
