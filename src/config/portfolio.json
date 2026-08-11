@@ -93,7 +93,7 @@
       "Version Control (Git, SVN)",
       "SOLID Principles",
       "Android App Development",
-      "Web Development (MERN Stack)",
+      "Web Development",
       "Gen AI Engineering",
       "Python"
     ],
@@ -570,7 +570,7 @@
       "challenge": "",
       "solution": "",
       "results": "A relaxing minesweeper game that offers a fun and challenging experience for players of all skill levels.",
-      "comment_links": {
+      "links": {
         "comment_website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
         "itch": "https://azhagarasanmurali.itch.io/minesweeper"
       }
