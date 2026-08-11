@@ -1,822 +1,853 @@
 {
-	"personal": {
-		"name": "Azhagarasan Murali",
-		"title": "Game Developer & Creative Technologist",
-		"tagline": "Crafting immersive gaming experiences with cutting-edge technology",
-		"email": "azhagarasan.azhagu@gmail.com",
-		"phone": "+91 97882 65926",
-		"resumeUrl": "assets/documents/Azhagarasan-Resume.pdf",
-		"location": "Chennai, India"
-	},
-	"hero": {
-		"heading": "Software Developer Portfolio",
-		"subheading": "Bringing worlds to life through code and creativity",
-		"ctaText": "Explore My Work",
-		"backgroundVideo": "assets/videos/hero-bg.mp4",
-		"heroImage": "assets/images/hero-image.jpg",
-		"design": {
-			"verticalAlign": "center",
-			"spacing": "comfortable",
-			"textScale": "regular",
-			"contentWidth": "standard",
-			"mood": "balanced",
-			"ctaTone": "strong",
-			"showScrollCue": true
-		}
-	},
-	"loading": {
-		"messages": [
-			"Loading portfolio experience...",
-			"Streaming visuals and gameplay captures...",
-			"Preparing projects, experience, hobbies, and social links...",
-			"Almost ready. Syncing final assets..."
-		]
-	},
-	"sections": [
-		{
-			"id": "hero",
-			"label": "Home"
-		},
-		{
-			"id": "about",
-			"label": "About"
-		},
-		{
-			"id": "projects",
-			"label": "Projects"
-		},
-		{
-			"id": "hobbies",
-			"label": "Hobbies"
-		},
-		{
-			"id": "experience",
-			"label": "Experience"
-		},
-		{
-			"id": "social",
-			"label": "Social"
-		},
-		{
-			"id": "contact",
-			"label": "Contact"
-		}
-	],
-	"design": {
-		"notes": "Design settings are optional. Use section-level design fields to tune layout and spacing without code changes.",
-		"sectionOptions": {
-			"verticalAlign": "top|center",
-			"spacing": "compact|comfortable|airy",
-			"surface": "plain|muted|elevated",
-			"contentWidth": "narrow|standard|wide",
-			"emphasis": "soft|balanced|strong"
-		}
-	},
-	"about": {
-		"title": "About Me",
-		"description": "I'm a Software Developer using Unity for more than 9 years (since 2015). I have 5+ years of experience in an MNC environment developing Industrial Simulation Projects in Unity for Windows, WebGL and VR platforms. I have architected a company-wide Unity Template project using SOLID principles and design patterns (Singleton and Observer) that significantly cuts down development time for new projects by half through reusable, scalable systems that works well across different platforms. I have experience in the latest Unity 6 features including UI Toolkit, Input System, XR Interaction Toolkit and DOTS (ECS). I have also implemented multiplayer features using Netcode for GameObjects. I have a track record of consistently delivering tasks on time with zero missed deadlines and acts as a communication bridge between developers, designers and QA for efficient bug resolution.",
-		"design": {
-			"layout": "split",
-			"spacing": "comfortable",
-			"surface": "muted",
-			"skillsStyle": "card",
-			"verticalAlign": "center",
-			"contentWidth": "wide"
-		},
-		"skills": [
-			"Unity",
-			"C#",
-			"MERN Stack",
-			"VR/AR Development",
-			"Multiplayer Networking",
-			"Physics Systems",
-			"UI/UX Design",
-			"Version Control (Git, SVN)",
-			"SOLID Principles",
-			"Android App Development",
-			"Web Development (MERN Stack)",
-			"Gen AI Engineering"
-		],
-		"profileImage": "assets/images/azhagarasan.jpg"
-	},
-	"projectsSection": {
-		"title": "Projects",
-		"description": "Explore my latest software development projects and case studies.",
-		"design": {
-			"verticalAlign": "top"
-		}
-	},
-	"projects": [
-		{
-			"id": "project-1",
-			"type": "Sify Technologies",
-			"title": "Ultrasonic Immersive Scanner",
-			"tagline": "Non-destructive 3D scanner simulation",
-			"category": ["Training", "Simulation"],
-			"year": 2025,
-			"description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
-			"detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
-			"thumbnail": "assets/images/uti/thumbnail.png",
-			"comment_images": [
-				"assets/images/project3-img1.jpg",
-				"assets/images/project3-img2.jpg",
-				"assets/images/project3-img3.jpg"
-			],
-			"videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/5PmVvP9cTCE",
-					"title": "Ultrasonic Scanner Overview"
-				}
-			],
-			"role": ["Unity Programmer"],
-			"team": 3,
-			"duration": "18 months",
-			"technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
-			"challenge": "Ensuring accurate simulation of ultrasonic wave behavior and real-time interaction while maintaining performance across platforms.",
-			"solution": "Developed optimized algorithms and leveraged platform-specific features to achieve high performance and accuracy.",
-			"results": "Successfully created a realistic and responsive simulation environment, enhancing user experience and training effectiveness.",
-			"comment_links": {
-				"website": "https://example.com/project3",
-				"steam": "https://store.steampowered.com/app/yourappid"
-			}
-		},
-		{
-			"id": "project-2",
-			"type": "Sify Technologies",
-			"title": "Starter Template",
-			"tagline": "Ready to use Unity starter template for multi-platform development.",
-			"category": ["Template"],
-			"year": 2024,
-			"description": "A cross-platform Unity starter template designed to accelerate development for the developers. It includes pre-built systems for character movement, camera control, UI management, audio management, all optimized for performance and scalability.",
-			"detailedDescription": "Template project featuring reusable systems for character movement, camera control, UI management, and audio management. Built with scalability in mind to support various platforms.",
-			"thumbnail": "assets/images/starter-template/thumbnail.jpg",
-			"comment_images": [
-				"assets/images/starter-template/starter_template_1.jpg",
-				"assets/images/starter-template/starter_template_2.jpg",
-				"assets/images/starter-template/starter_template_3.jpg"
-			],
-			"comment_videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
-					"title": "Template Overview"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/project5-gameplay.mp4",
-					"title": "Setup & Demo"
-				}
-			],
-			"role": ["Unity Programmer", "Template Architect"],
-			"team": 1,
-			"duration": "3 months",
-			"technologies": [
-				"Unity",
-				"C#",
-				"Windows",
-				"macOS",
-				"VR",
-				"WebGL",
-				"SOLID Principles",
-				"Singletons",
-				"Scriptable Objects",
-				"Observer Pattern"
-			],
-			"challenge": "Creating a new project and setting up core systems can take weeks, delaying prototyping and iteration.",
-			"solution": "Developed a reusable starter template with pre-built systems to accelerate project setup and iteration.",
-			"results": "Reduced project setup time from weeks to days, enabling faster prototyping and development.",
-			"comment_links": {
-				"website": "https://example.com/project5",
-				"steam": "https://store.steampowered.com/app/yourappid"
-			}
-		},
-		{
-			"id": "project-3",
-			"type": "Sify Technologies",
-			"title": "ToolingU SME Virtual Simulator",
-			"tagline": "Industrial scenario simulation",
-			"category": ["Simulation", "Training"],
-			"year": 2023,
-			"description": "A virtual simulator designed for industrial training scenarios, providing realistic simulations of various industrial processes and equipment.",
-			"detailedDescription": "The ToolingU SME Virtual Simulator offers an immersive training experience for industrial professionals. It includes detailed simulations of machinery, interactive training modules, and performance tracking to ensure effective learning outcomes.",
-			"thumbnail": "assets/images/toolingu/thumbnail.jpg",
-			"images": [
-				"assets/images/toolingu/toolingu_1.jpg",
-				"assets/images/toolingu/toolingu_2.jpg",
-				"assets/images/toolingu/toolingu_3.jpg",
-				"assets/images/toolingu/toolingu_4.jpg",
-				"assets/images/toolingu/toolingu_5.jpg",
-				"assets/images/toolingu/toolingu_6.jpg"
-			],
-			"videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/DEAJMCInhBg",
-					"title": "ToolingU SME Virtual Simulator"
-				}
-			],
-			"role": [
-				"Platform Migration",
-				"CCD Integration",
-				"Appshell Integration"
-			],
-			"team": 12,
-			"duration": "36 months",
-			"technologies": [
-				"Unity",
-				"C#",
-				"VR",
-				"WebGL",
-				"Asset Bundles",
-				"Amazon S3",
-				"MongoDB"
-			],
-			"challenge": "A solution for tracking progress and assessment data from VR and WebGL training modules within the existing LMS was needed to provide a seamless learning experience.",
-			"solution": "Implemented a custom integration that captures and sends training data from the simulator to the LMS in both WebGL and VR platforms, allowing for real-time progress tracking and assessment.",
-			"results": "Enhanced training effectiveness and streamlined progress tracking, resulting in improved learning outcomes.",
-			"comment_links": {
-				"website": "https://example.com/project4",
-				"steam": "https://store.steampowered.com/app/yourappid"
-			}
-		},
-		{
-			"id": "project-4",
-			"type": "Sify Technologies",
-			"title": "NetApp",
-			"tagline": "Server rack simulation for training and organising",
-			"category": ["Training", "Simulation"],
-			"year": 2021,
-			"description": "A server rack simulation designed for training and organizing IT infrastructure. It includes pre-built systems for server management, network configuration, and troubleshooting exercises, all optimized for realistic training scenarios.",
-			"detailedDescription": "A robust server rack simulation featuring interactive training modules, realistic network configurations, and comprehensive troubleshooting exercises. Built with scalability in mind to support various training scenarios.",
-			"thumbnail": "assets/images/netapp/thumbnail.png",
-			"comment_images": [
-				"assets/images/netapp/netapp_1.png",
-				"assets/images/netapp/netapp_2.png",
-				"assets/images/netapp/netapp_3.png"
-			],
-			"videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/waLNrszIR4A",
-					"title": "NetApp Training Overview"
-				}
-			],
-			"role": ["Unity Programmer", "Tester"],
-			"team": 4,
-			"duration": "3 months",
-			"technologies": ["Unity", "C#", "Windows", "WebGL"],
-			"challenge": "Learning and practicing server management and network configuration can be risky and costly in real data centers.",
-			"solution": "Developed a safe and cost-effective simulation environment for training purposes.",
-			"results": "Improved training efficiency and reduced risk of errors in real-world scenarios.",
-			"comment_links": {
-				"website": "https://example.com/project5",
-				"steam": "https://store.steampowered.com/app/yourappid"
-			}
-		},
-		{
-			"id": "project-5",
-			"type": "Sify Technologies",
-			"title": "3D Model Viewer",
-			"tagline": "Interactive 3D model visualization tool",
-			"category": ["Visualization Tool"],
-			"year": 2021,
-			"description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features such as panning, zooming, rotating, and support.",
-			"detailedDescription": "A powerful 3D model viewer that allows users to interact with complex models through intuitive controls.",
-			"thumbnail": "assets/images/model-viewer/thumbnail.jpg",
-			"images": [
-				"assets/images/model-viewer/model_viewer_1.jpg",
-				"assets/images/model-viewer/model_viewer_2.jpg",
-				"assets/images/model-viewer/model_viewer_3.jpg"
-			],
-			"comment_videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
-					"title": "3D Model Viewer Demo"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/project5-gameplay.mp4",
-					"title": "Interactive Visualization Tutorial"
-				}
-			],
-			"role": ["Unity Programmer"],
-			"team": 4,
-			"duration": "3 months",
-			"technologies": [
-				"Unity",
-				"C#",
-				"Windows",
-				"WebGL",
-				"Android",
-				"Amazon S3"
-			],
-			"challenge": "Viewing a 3D model requires a 3D application or other such viewer software to be downloaded.",
-			"solution": "Implemented a web-based 3D model viewer that allows users to interact with models directly in their browser without the need for additional software.",
-			"results": "Shared 3D models with clients and stakeholders more easily, improving communication and collaboration.",
-			"links": {
-				"itch": "https://mrgreenstudio.itch.io/model-viewer",
-				"comment_steam": "https://store.steampowered.com/app/yourappid"
-			}
-		},
-		{
-			"id": "project-6",
-			"type": "Gamin Inztinct",
-			"title": "Carrom Board",
-			"tagline": "Interactive Multiplayer Carrom Board Game",
-			"category": ["Multiplayer"],
-			"year": 2019,
-			"description": "An interactive multiplayer carrom board game with realistic physics and engaging gameplay.",
-			"detailedDescription": "A robust multiplayer carrom board game featuring interactive controls, real-time physics, and support for various platforms. Built with scalability in mind to handle multiple concurrent players.",
-			"thumbnail": "assets/images/gamin-inztinct-carrom/thumbnail.png",
-			"images": [
-				"assets/images/gamin-inztinct-carrom/board_1.jpg",
-				"assets/images/gamin-inztinct-carrom/board_2.jpg",
-				"assets/images/gamin-inztinct-carrom/board_3.jpg",
-				"assets/images/gamin-inztinct-carrom/board_4.jpg"
-			],
-			"comment_videos": [
-				{
-					"type": "youtube",
-					"url": "https://www.youtube.com/embed/jNQXAC9IVRw",
-					"title": "Carrom Gameplay"
-				},
-				{
-					"type": "asset",
-					"url": "assets/videos/project5-gameplay.mp4",
-					"title": "Tutorial Video"
-				}
-			],
-			"role": ["Unity Programmer"],
-			"team": 4,
-			"duration": "3 months",
-			"technologies": ["Unity", "C#", "Android", "Photon Pun"],
-			"challenge": "Create a multiplayer carrom game that matches with the existing games from that studio.",
-			"solution": "Implemented a multiplayer carrom game with realistic physics and engaging gameplay mechanics, ensuring it meets the quality standards of the studio.",
-			"comment_results": "",
-			"comment_links": {
-				"website": "https://example.com/project5",
-				"steam": "https://store.steampowered.com/app/yourappid"
-			}
-		},
-		{
-			"id": "project-7",
-			"type": "Personal",
-			"title": "Quick-Shot: Basketball",
-			"tagline": "An immersive basketball experience",
-			"category": ["Sports", "Casual"],
-			"year": 2026,
-			"description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
-			"detailedDescription": "Quick-Shot: Basketball is a mobile game that combines realistic physics with engaging gameplay mechanics to provide a casual experience. Players can shoot hoops in various environments.",
-			"thumbnail": "assets/images/quick-shot-basketball/thumbnail.png",
-			"images": [
-				"assets/images/quick-shot-basketball/phone-screenshot-1.png",
-				"assets/images/quick-shot-basketball/phone-screenshot-2.png"
-			],
-			"videos": [
-				{
-					"type": "asset",
-					"url": "assets/videos/quick-shot-basketball/project-demo.mp4",
-					"title": "Gameplay Showcase"
-				}
-			],
-			"role": ["Full Stack Game Developer"],
-			"team": 1,
-			"duration": "2 months",
-			"technologies": [
-				"Unity Engine",
-				"C#",
-				"Google Analytics",
-				"Unity Ads",
-				"Unity Analytics",
-				"SOLID Principles",
-				"Git Version Control"
-			],
-			"challenge": "Achieving smooth performance and realistic physics on mobile platforms while maintaining engaging gameplay.",
-			"solution": "Optimized physics calculations and implemented efficient rendering techniques to ensure smooth performance on a wide range of mobile devices.",
-			"results": "Successfully launched in Google Play Store",
-			"links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
-				"comment_github": "https://github.com/yourname/project1"
-			}
-		},
-		{
-			"id": "project-8",
-			"type": "Personal",
-			"title": "Unicode to Tamil",
-			"tagline": "A font converter app",
-			"category": ["Utility"],
-			"year": 2020,
-			"description": "A utility app for converting Unicode text to Tamil and vice versa.",
-			"detailedDescription": "This app provides a seamless experience for converting Unicode text into Tamil font and vice versa.",
-			"thumbnail": "assets/images/unicode-to-tamil/thumbnail.png",
-			"images": [
-				"assets/images/unicode-to-tamil/feature_graphic.png",
-				"assets/images/unicode-to-tamil/l_main_screen.png",
-				"assets/images/unicode-to-tamil/l_bamini_to_unicode.png",
-				"assets/images/unicode-to-tamil/l_unicode_to_bamini.png",
-				"assets/images/unicode-to-tamil/l_settings.png",
-				"assets/images/unicode-to-tamil/d_main_screen.png",
-				"assets/images/unicode-to-tamil/d_bamini_to_unicode.png",
-				"assets/images/unicode-to-tamil/d_unicode_to_bamini.png",
-				"assets/images/unicode-to-tamil/d_settings.png"
-			],
-			"videos": [],
-			"role": ["Solo Developer"],
-			"team": 1,
-			"duration": "1 month",
-			"technologies": [
-				"Android Studio",
-				"JAVA",
-				"Kotlin",
-				"Google AdMob",
-				"Firebase Analytics",
-				"Firebase Crashlytics"
-			],
-			"challenge": "Users needed to use online tools for font conversion, which was inconvenient and time-consuming.",
-			"solution": "Developed a mobile app that provides quick and easy font conversion with an intuitive interface and offline functionality.",
-			"results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
-			"links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
-				"comment_itch": "https://yourname.itch.io/pixel-paradise"
-			}
-		},
-		{
-			"id": "project-9",
-			"type": "Personal",
-			"title": "AI Software Factory",
-			"tagline": "A local AI-powered software development platform",
-			"category": ["Gen AI", "Productivity"],
-			"year": 2026,
-			"description": "A tool that leverages local AI to streamline software development processes.",
-			"detailedDescription": "This platform provides a seamless experience for automating entire software development cycle using local AI models.",
-			"thumbnail": "assets/images/ai-software-factory/thumbnail.png",
-			"images": [
-				"assets/images/ai-software-factory/model-config.png",
-				"assets/images/ai-software-factory/create-project.png"
-			],
-			"comment_videos": [],
-			"role": ["Solo Developer"],
-			"team": 1,
-			"duration": "1 month",
-			"technologies": [
-				"Python",
-				"MongoDB",
-				"Ollama Models",
-				"React",
-				"Vibe Coded"
-			],
-			"challenge": "AI Coding agents require an internet connection and often raise privacy concerns due to data being sent to external servers.",
-			"solution": "Developed a local AI-powered mobile app that provides easy software development assistance with an intuitive interface and fully offline functionality.",
-			"results": "Creates simple web and mobile projects with AI assistance, without the need for an internet connection, ensuring user privacy and data security.",
-			"comment_links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.aisoftwarefactory",
-				"comment_itch": "https://yourname.itch.io/pixel-paradise"
-			}
-		},
-		{
-			"id": "project-10",
-			"type": "Personal",
-			"title": "Custom Chat",
-			"tagline": "A custom chat application",
-			"category": ["Chat App", "Productivity"],
-			"year": 2026,
-			"description": "A custom chat application that allows users to create their own chat sessions with customizable settings and features.",
-			"detailedDescription": "This app provides a seamless experience for creating and managing custom chat sessions with various customization options.",
-			"thumbnail": "assets/images/custom-chat/thumbnail.jpeg",
-			"images": [
-				"assets/images/custom-chat/jack-sparrow.jpeg",
-				"assets/images/custom-chat/settings.jpeg",
-				"assets/images/custom-chat/sidebar.jpeg"
-			],
-			"comment_videos": [],
-			"role": ["Solo Developer"],
-			"team": 1,
-			"duration": "1 week",
-			"technologies": ["Flutter"],
-			"challenge": "Existing chat applications do not offer the level of customization and control that some users desire for their communication needs.",
-			"solution": "Developed a mobile app that allows users to create and manage custom chat sessions with various customization options and individual persona per chat.",
-			"results": "A fun project that demonstrates the ability to build a fully functional chat application with customizable features, showcasing versatility in software development.",
-			"comment_links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
-				"comment_itch": "https://yourname.itch.io/pixel-paradise"
-			}
-		},
-		{
-			"id": "project-11",
-			"type": "Personal",
-			"title": "Crazy Labyrinth",
-			"tagline": "A challenging labyrinth game",
-			"category": ["Game", "Puzzle"],
-			"year": 2026,
-			"description": "A challenging labyrinth game that tests players' problem-solving skills and reflexes.",
-			"detailedDescription": "This game provides an engaging experience with intricate labyrinths, requiring players to navigate through complex mazes and overcome various obstacles.",
-			"thumbnail": "assets/images/crazy-labyrinth/thumbnail.png",
-			"images": [
-				"assets/images/crazy-labyrinth/main-menu.png",
-				"assets/images/crazy-labyrinth/level-selection.png",
-				"assets/images/crazy-labyrinth/start-level.png",
-				"assets/images/crazy-labyrinth/level-1.png",
-				"assets/images/crazy-labyrinth/level-2.png",
-				"assets/images/crazy-labyrinth/out-of-lives.png"
-			],
-			"comment_videos": [],
-			"role": ["Solo Developer"],
-			"team": 1,
-			"duration": "2 months",
-			"technologies": [
-				"Unity",
-				"C#",
-				"Unity Ads",
-				"Unity Analytics",
-				"Unity Remote Play",
-				"Unity Authentication",
-				"Procedural Generation",
-				"SOLID Principles",
-				"Git Version Control"
-			],
-			"challenge": "Existing games offers a limited number of levels.",
-			"solution": "Developed a game that procedurally generates labyrinths with various difficulty levels, providing endless replayability and a unique experience for each levels.",
-			"results": "An endless labyrinth game that offers fun experience.",
-			"comment_links": {
-				"website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
-				"comment_itch": "https://yourname.itch.io/pixel-paradise"
-			}
-		}
-	],
-	"hobbies": {
-		"title": "Hobbies & Interests",
-		"description": "Things I explore outside production work to stay creative, curious, and game-ready.",
-		"design": {
-			"verticalAlign": "top"
-		},
-		"entries": [
-			{
-				"id": "hobby-1",
-				"type": "creative",
-				"title": "Game Prototyping",
-				"description": "I regularly build rapid prototypes to test mechanics, improve iteration speed, and discover unconventional gameplay loops."
-			},
-			{
-				"id": "hobby-2",
-				"type": "creative",
-				"title": "Mobile Application Development",
-				"description": "I create utility apps and small games for mobile platforms to explore new technologies and reach wider audiences."
-			},
-			{
-				"id": "hobby-3",
-				"type": "creative",
-				"title": "Full Stack Web App Development",
-				"description": "I build full stack web applications to experiment with interactive web technologies and create engaging online experiences."
-			},
-			{
-				"id": "hobby-4",
-				"type": "creative",
-				"title": "Drawing & Digital Art",
-				"description": "I create traditional and digital artworks to explore visual storytelling and improve my artistic skills."
-			},
-			{
-				"id": "hobby-5",
-				"type": "active",
-				"title": "Travelling",
-				"description": "Traveling allows me to experience new cultures, gain fresh perspectives, and find inspiration for my creative work."
-			},
-			{
-				"id": "hobby-6",
-				"type": "active",
-				"title": "Gardening",
-				"description": "Gardening helps me relax and find inspiration in nature, which often influences my creative process."
-			}
-		],
-		"hobbyGallery": {
-			"title": "Artworks",
-			"description": "A collection of my traditional and digital artworks.",
-			"rows": [
-				{
-					"id": "gallery-row-1",
-					"speedSeconds": 28,
-					"direction": "left",
-					"images": [
-						{
-							"id": "row1-1",
-							"src": "assets/images/traditional-art/batman.jpg",
-							"alt": "Batman artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-2",
-							"src": "assets/images/traditional-art/ash-pikachu.jpg",
-							"alt": "Ash and Pikachu artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-3",
-							"src": "assets/images/traditional-art/avatar-the-last-airbender.jpg",
-							"alt": "Avatar: The Last Airbender artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-4",
-							"src": "assets/images/traditional-art/ben-10.jpg",
-							"alt": "Ben 10 artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-5",
-							"src": "assets/images/traditional-art/goku.jpg",
-							"alt": "Goku artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-6",
-							"src": "assets/images/traditional-art/kid-goku.jpg",
-							"alt": "Kid Goku artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-7",
-							"src": "assets/images/traditional-art/goofy.jpg",
-							"alt": "Goofy artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row1-8",
-							"src": "assets/images/traditional-art/sunset.jpg",
-							"alt": "Sunset artwork by Azhagarasan Murali"
-						}
-					]
-				},
-				{
-					"id": "gallery-row-2",
-					"speedSeconds": 34,
-					"direction": "right",
-					"images": [
-						{
-							"id": "row2-1",
-							"src": "assets/images/digital-art/avatar-the-last-airbender-digital.jpg",
-							"alt": "Avatar: The Last Airbender artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row2-2",
-							"src": "assets/images/digital-art/gohan.jpg",
-							"alt": "Gohan artwork by Azhagarasan Murali"
-						},
-						{
-							"id": "row2-3",
-							"src": "assets/images/digital-art/jackie-chan.png",
-							"alt": "Jackie Chan artwork by Azhagarasan Murali"
-						}
-					]
-				}
-			]
-		},
-		"modelViewer": {
-			"title": "3D Modeling",
-			"description": "A collection of 3D models made with Blender.",
-			"interactionButtonText": "Start Model Interaction",
-			"models": [
-				{
-					"id": "viewer-model-1",
-					"name": "Basketball Hoop",
-					"path": "assets/models/basketball_hoop.glb",
-					"thumbnail": "assets/images/models-thumbnails/basketball_hoop.png",
-					"view": {
-						"cameraPosition": [0.3, 0.9, 4.4],
-						"target": [0, 0.3, 0],
-						"zoom": 1,
-						"modelPosition": [0, -0.05, 0],
-						"modelRotation": [0, 0.45, 0],
-						"modelScale": 1
-					}
-				},
-				{
-					"id": "viewer-model-2",
-					"name": "Turret",
-					"path": "assets/models/turret.glb",
-					"thumbnail": "assets/images/models-thumbnails/turret.png",
-					"view": {
-						"cameraPosition": [0.5, 0.6, 3.7],
-						"target": [0, 0.15, 0],
-						"zoom": 1,
-						"modelPosition": [0, -0.08, 0],
-						"modelRotation": [0, 0.2, 0],
-						"modelScale": 1
-					}
-				}
-			]
-		}
-	},
-	"experience": {
-		"title": "Experience & Education",
-		"description": "A snapshot of the teams, products, and academic foundations that shaped my approach to building interactive experiences.",
-		"design": {
-			"verticalAlign": "top",
-			"spacing": "comfortable",
-			"surface": "muted",
-			"lineStyle": "balanced",
-			"cardTone": "balanced"
-		},
-		"entries": [
-			{
-				"id": "timeline-1",
-				"type": "work",
-				"title": "Unity Developer",
-				"organization": "Sify Technologies",
-				"location": "Taramani, Tamil Nadu, India",
-				"period": "Sep 2020 - Present",
-				"description": "Leading gameplay systems development for cross-platform titles, partnering with designers and artists to ship polished features on tight production schedules.",
-				"highlights": [
-					"Game System Architecture",
-					"Performance Optimization",
-					"Cross-Platform Development"
-				]
-			},
-			{
-				"id": "timeline-2",
-				"type": "work",
-				"title": "Unity Game Developer Intern",
-				"organization": "Gamin Inztinct",
-				"location": "Mylapore, Tamil Nadu, India",
-				"period": "Dec 2019 - Feb 2020",
-				"description": "Built prototypes, vertical slices, and production-ready gameplay features for indie teams, with a focus on responsive controls and maintainable technical pipelines.",
-				"highlights": [
-					"Unity Tooling",
-					"Rapid Prototyping",
-					"Client Collaboration",
-					"Multiplayer Networking"
-				]
-			},
-			{
-				"id": "timeline-3",
-				"type": "education",
-				"title": "M.Sc. Game Technology",
-				"organization": "ICAT Design and Media College",
-				"location": "Mylapore, Tamil Nadu, India",
-				"period": "2018 - 2020",
-				"description": "Focused on advanced game development techniques, including real-time rendering, physics simulation, and interactive storytelling.",
-				"highlights": ["Game Programming", "2D & 3D Art", "Game Design"]
-			},
-			{
-				"id": "timeline-4",
-				"type": "work",
-				"title": "J2EE Backend Developer",
-				"organization": "Wipro Technologies",
-				"location": "Sholinganallur, Tamil Nadu, India",
-				"period": "Oct 2017 - Aug 2018",
-				"description": "Worked on backend development using J2EE technologies, focusing on building scalable and maintainable enterprise applications.",
-				"highlights": [
-					"JAVA Spring Framework",
-					"DB2 Database",
-					"Client Collaboration"
-				]
-			},
-			{
-				"id": "timeline-5",
-				"type": "education",
-				"title": "B.E. Computer Science and Engineering",
-				"organization": "M.Kumarasamy College of Engineering",
-				"location": "Karur, Tamil Nadu, India",
-				"period": "2013 - 2017",
-				"description": "Studied software engineering fundamentals, graphics, and systems design while building a strong foundation in algorithmic thinking and interactive application development.",
-				"highlights": [
-					"Data Structures",
-					"Computer Graphics",
-					"Software Engineering",
-					"JAVA Programming"
-				]
-			}
-		]
-	},
-	"social": {
-		"title": "Connect With Me",
-		"description": "Let's collaborate and create something amazing together",
-		"design": {
-			"verticalAlign": "center"
-		},
-		"links": [
-			{
-				"platform": "GitHub",
-				"url": "https://github.com/azhagarasanmurali",
-				"icon": "github"
-			},
-			{
-				"platform": "LinkedIn",
-				"url": "https://www.linkedin.com/in/azhagarasan-murali/",
-				"icon": "linkedin"
-			},
-			{
-				"platform": "itch.io",
-				"url": "https://mrgreenstudio.itch.io",
-				"icon": "gamepad"
-			},
-			{
-				"platform": "YouTube",
-				"url": "https://youtube.com/@mr.greenstudio3879",
-				"icon": "youtube"
-			}
-		]
-	},
-	"contact": {
-		"title": "Let's Work Together",
-		"description": "Have an exciting project in mind? Let's discuss how we can collaborate.",
-		"email": "azhagarasan.azhagu@gmail.com",
-		"availability": "Open to freelance and full-time opportunities",
-		"design": {
-			"verticalAlign": "center"
-		}
-	}
+  "personal": {
+    "name": "Azhagarasan Murali",
+    "title": "Game Developer & Creative Technologist",
+    "tagline": "Crafting immersive gaming experiences with cutting-edge technology",
+    "email": "azhagarasan.azhagu@gmail.com",
+    "phone": "+91 97882 65926",
+    "resumeUrl": "assets/documents/Azhagarasan-Resume.pdf",
+    "location": "Chennai, India"
+  },
+  "hero": {
+    "heading": "Software Developer Portfolio",
+    "subheading": "Bringing worlds to life through code and creativity",
+    "ctaText": "Explore My Work",
+    "backgroundVideo": "assets/videos/hero-bg.mp4",
+    "heroImage": "assets/images/hero-image.jpg",
+    "design": {
+      "verticalAlign": "center",
+      "spacing": "comfortable",
+      "textScale": "regular",
+      "contentWidth": "standard",
+      "mood": "balanced",
+      "ctaTone": "strong",
+      "showScrollCue": true
+    }
+  },
+  "loading": {
+    "messages": [
+      "Loading portfolio experience...",
+      "Streaming visuals and gameplay captures...",
+      "Preparing projects, experience, hobbies, and social links...",
+      "Almost ready. Syncing final assets..."
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "label": "Home"
+    },
+    {
+      "id": "about",
+      "label": "About"
+    },
+    {
+      "id": "projects",
+      "label": "Projects"
+    },
+    {
+      "id": "hobbies",
+      "label": "Hobbies"
+    },
+    {
+      "id": "experience",
+      "label": "Experience"
+    },
+    {
+      "id": "social",
+      "label": "Social"
+    },
+    {
+      "id": "contact",
+      "label": "Contact"
+    }
+  ],
+  "design": {
+    "notes": "Design settings are optional. Use section-level design fields to tune layout and spacing without code changes.",
+    "sectionOptions": {
+      "verticalAlign": "top|center",
+      "spacing": "compact|comfortable|airy",
+      "surface": "plain|muted|elevated",
+      "contentWidth": "narrow|standard|wide",
+      "emphasis": "soft|balanced|strong"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a Software Developer using Unity for more than 9 years (since 2015). I have 6+ years of experience in an MNC environment developing Industrial Simulation Projects in Unity for Windows, WebGL and VR platforms. I have architected a company-wide Unity Template project using SOLID principles and design patterns (Singleton and Observer) that significantly cuts down development time for new projects by half through reusable, scalable systems that works well across different platforms. I have experience in the latest Unity 6 features including UI Toolkit, Input System, XR Interaction Toolkit and DOTS (ECS). I have also implemented multiplayer features using Netcode for GameObjects. I have a track record of consistently delivering tasks on time with zero missed deadlines and acts as a communication bridge between developers, designers and QA for efficient bug resolution.",
+    "design": {
+      "layout": "split",
+      "spacing": "comfortable",
+      "surface": "muted",
+      "skillsStyle": "card",
+      "verticalAlign": "center",
+      "contentWidth": "wide"
+    },
+    "skills": [
+      "Unity",
+      "C#",
+      "VR/AR Development",
+      "Multiplayer Networking",
+      "Physics Systems",
+      "UI/UX Design",
+      "Version Control (Git, SVN)",
+      "SOLID Principles",
+      "Android App Development",
+      "Web Development (MERN Stack)",
+      "Gen AI Engineering",
+      "Python"
+    ],
+    "profileImage": "assets/images/azhagarasan.jpg"
+  },
+  "projectsSection": {
+    "title": "Projects",
+    "description": "Explore my latest software development projects and case studies.",
+    "design": {
+      "verticalAlign": "top"
+    }
+  },
+  "projects": [
+    {
+      "id": "project-1",
+      "type": "Sify Technologies",
+      "title": "Ultrasonic Immersive Scanner",
+      "tagline": "Non-destructive 3D scanner simulation",
+      "category": ["Training", "Simulation"],
+      "year": 2025,
+      "description": "A cross-platform Unity-based virtual simulator that replicates an Ultrasonic Immersion Testing machine, enabling students to safely learn scanning techniques, interpret results, and gain hands-on experience before using real-world equipment.",
+      "detailedDescription": "A robust multiplayer-first game featuring competitive ranked matches, real-time voice communication, and sophisticated anti-cheat systems. Built with scalability in mind to support thousands of concurrent players.",
+      "thumbnail": "assets/images/uti/thumbnail.png",
+      "comment_images": [
+        "assets/images/project3-img1.jpg",
+        "assets/images/project3-img2.jpg",
+        "assets/images/project3-img3.jpg"
+      ],
+      "videos": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/embed/5PmVvP9cTCE",
+          "title": "Ultrasonic Scanner Overview"
+        }
+      ],
+      "role": ["Unity Programmer"],
+      "team": 3,
+      "duration": "18 months",
+      "technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
+      "challenge": "Ensuring accurate simulation of ultrasonic wave behavior and real-time interaction while maintaining performance across platforms.",
+      "solution": "Developed optimized algorithms and leveraged platform-specific features to achieve high performance and accuracy.",
+      "results": "Successfully created a realistic and responsive simulation environment, enhancing user experience and training effectiveness.",
+      "comment_links": {
+        "website": "https://example.com/project3",
+        "steam": "https://store.steampowered.com/app/yourappid"
+      }
+    },
+    {
+      "id": "project-2",
+      "type": "Sify Technologies",
+      "title": "Starter Template",
+      "tagline": "Ready to use Unity starter template for multi-platform development.",
+      "category": ["Template"],
+      "year": 2024,
+      "description": "A cross-platform Unity starter template designed to accelerate development for the developers. It includes pre-built systems for character movement, camera control, UI management, audio management, all optimized for performance and scalability.",
+      "detailedDescription": "Template project featuring reusable systems for character movement, camera control, UI management, and audio management. Built with scalability in mind to support various platforms.",
+      "thumbnail": "assets/images/starter-template/thumbnail.jpg",
+      "comment_images": [
+        "assets/images/starter-template/starter_template_1.jpg",
+        "assets/images/starter-template/starter_template_2.jpg",
+        "assets/images/starter-template/starter_template_3.jpg"
+      ],
+      "comment_videos": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+          "title": "Template Overview"
+        },
+        {
+          "type": "asset",
+          "url": "assets/videos/project5-gameplay.mp4",
+          "title": "Setup & Demo"
+        }
+      ],
+      "role": ["Unity Programmer", "Template Architect"],
+      "team": 1,
+      "duration": "3 months",
+      "technologies": [
+        "Unity",
+        "C#",
+        "Windows",
+        "macOS",
+        "VR",
+        "WebGL",
+        "SOLID Principles",
+        "Singletons",
+        "Scriptable Objects",
+        "Observer Pattern"
+      ],
+      "challenge": "Creating a new project and setting up core systems can take weeks, delaying prototyping and iteration.",
+      "solution": "Developed a reusable starter template with pre-built systems to accelerate project setup and iteration.",
+      "results": "Reduced project setup time from weeks to days, enabling faster prototyping and development.",
+      "comment_links": {
+        "website": "https://example.com/project5",
+        "steam": "https://store.steampowered.com/app/yourappid"
+      }
+    },
+    {
+      "id": "project-3",
+      "type": "Sify Technologies",
+      "title": "ToolingU SME Virtual Simulator",
+      "tagline": "Industrial scenario simulation",
+      "category": ["Simulation", "Training"],
+      "year": 2023,
+      "description": "A virtual simulator designed for industrial training scenarios, providing realistic simulations of various industrial processes and equipment.",
+      "detailedDescription": "The ToolingU SME Virtual Simulator offers an immersive training experience for industrial professionals. It includes detailed simulations of machinery, interactive training modules, and performance tracking to ensure effective learning outcomes.",
+      "thumbnail": "assets/images/toolingu/thumbnail.jpg",
+      "images": [
+        "assets/images/toolingu/toolingu_1.jpg",
+        "assets/images/toolingu/toolingu_2.jpg",
+        "assets/images/toolingu/toolingu_3.jpg",
+        "assets/images/toolingu/toolingu_4.jpg",
+        "assets/images/toolingu/toolingu_5.jpg",
+        "assets/images/toolingu/toolingu_6.jpg"
+      ],
+      "videos": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/embed/DEAJMCInhBg",
+          "title": "ToolingU SME Virtual Simulator"
+        }
+      ],
+      "role": ["Platform Migration", "CCD Integration", "Appshell Integration"],
+      "team": 12,
+      "duration": "36 months",
+      "technologies": [
+        "Unity",
+        "C#",
+        "VR",
+        "WebGL",
+        "Asset Bundles",
+        "Amazon S3",
+        "MongoDB"
+      ],
+      "challenge": "A solution for tracking progress and assessment data from VR and WebGL training modules within the existing LMS was needed to provide a seamless learning experience.",
+      "solution": "Implemented a custom integration that captures and sends training data from the simulator to the LMS in both WebGL and VR platforms, allowing for real-time progress tracking and assessment.",
+      "results": "Enhanced training effectiveness and streamlined progress tracking, resulting in improved learning outcomes.",
+      "comment_links": {
+        "website": "https://example.com/project4",
+        "steam": "https://store.steampowered.com/app/yourappid"
+      }
+    },
+    {
+      "id": "project-4",
+      "type": "Sify Technologies",
+      "title": "NetApp",
+      "tagline": "Server rack simulation for training and organising",
+      "category": ["Training", "Simulation"],
+      "year": 2021,
+      "description": "A server rack simulation designed for training and organizing IT infrastructure. It includes pre-built systems for server management, network configuration, and troubleshooting exercises, all optimized for realistic training scenarios.",
+      "detailedDescription": "A robust server rack simulation featuring interactive training modules, realistic network configurations, and comprehensive troubleshooting exercises. Built with scalability in mind to support various training scenarios.",
+      "thumbnail": "assets/images/netapp/thumbnail.png",
+      "comment_images": [
+        "assets/images/netapp/netapp_1.png",
+        "assets/images/netapp/netapp_2.png",
+        "assets/images/netapp/netapp_3.png"
+      ],
+      "videos": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/embed/waLNrszIR4A",
+          "title": "NetApp Training Overview"
+        }
+      ],
+      "role": ["Unity Programmer", "Tester"],
+      "team": 4,
+      "duration": "3 months",
+      "technologies": ["Unity", "C#", "Windows", "WebGL"],
+      "challenge": "Learning and practicing server management and network configuration can be risky and costly in real data centers.",
+      "solution": "Developed a safe and cost-effective simulation environment for training purposes.",
+      "results": "Improved training efficiency and reduced risk of errors in real-world scenarios.",
+      "comment_links": {
+        "website": "https://example.com/project5",
+        "steam": "https://store.steampowered.com/app/yourappid"
+      }
+    },
+    {
+      "id": "project-5",
+      "type": "Sify Technologies",
+      "title": "3D Model Viewer",
+      "tagline": "Interactive 3D model visualization tool",
+      "category": ["Visualization Tool"],
+      "year": 2021,
+      "description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features such as panning, zooming, rotating, and support.",
+      "detailedDescription": "A powerful 3D model viewer that allows users to interact with complex models through intuitive controls.",
+      "thumbnail": "assets/images/model-viewer/thumbnail.jpg",
+      "images": [
+        "assets/images/model-viewer/model_viewer_1.jpg",
+        "assets/images/model-viewer/model_viewer_2.jpg",
+        "assets/images/model-viewer/model_viewer_3.jpg"
+      ],
+      "comment_videos": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+          "title": "3D Model Viewer Demo"
+        },
+        {
+          "type": "asset",
+          "url": "assets/videos/project5-gameplay.mp4",
+          "title": "Interactive Visualization Tutorial"
+        }
+      ],
+      "role": ["Unity Programmer"],
+      "team": 4,
+      "duration": "3 months",
+      "technologies": [
+        "Unity",
+        "C#",
+        "Windows",
+        "WebGL",
+        "Android",
+        "Amazon S3"
+      ],
+      "challenge": "Viewing a 3D model requires a 3D application or other such viewer software to be downloaded.",
+      "solution": "Implemented a web-based 3D model viewer that allows users to interact with models directly in their browser without the need for additional software.",
+      "results": "Shared 3D models with clients and stakeholders more easily, improving communication and collaboration.",
+      "links": {
+        "itch": "https://azhagarasanmurali.itch.io/model-viewer",
+        "comment_steam": "https://store.steampowered.com/app/yourappid"
+      }
+    },
+    {
+      "id": "project-6",
+      "type": "Gamin Inztinct",
+      "title": "Carrom Board",
+      "tagline": "Interactive Multiplayer Carrom Board Game",
+      "category": ["Multiplayer"],
+      "year": 2019,
+      "description": "An interactive multiplayer carrom board game with realistic physics and engaging gameplay.",
+      "detailedDescription": "A robust multiplayer carrom board game featuring interactive controls, real-time physics, and support for various platforms. Built with scalability in mind to handle multiple concurrent players.",
+      "thumbnail": "assets/images/gamin-inztinct-carrom/thumbnail.png",
+      "images": [
+        "assets/images/gamin-inztinct-carrom/board_1.jpg",
+        "assets/images/gamin-inztinct-carrom/board_2.jpg",
+        "assets/images/gamin-inztinct-carrom/board_3.jpg",
+        "assets/images/gamin-inztinct-carrom/board_4.jpg"
+      ],
+      "comment_videos": [
+        {
+          "type": "youtube",
+          "url": "https://www.youtube.com/embed/jNQXAC9IVRw",
+          "title": "Carrom Gameplay"
+        },
+        {
+          "type": "asset",
+          "url": "assets/videos/project5-gameplay.mp4",
+          "title": "Tutorial Video"
+        }
+      ],
+      "role": ["Unity Programmer"],
+      "team": 4,
+      "duration": "3 months",
+      "technologies": ["Unity", "C#", "Android", "Photon Pun"],
+      "challenge": "Create a multiplayer carrom game that matches with the existing games from that studio.",
+      "solution": "Implemented a multiplayer carrom game with realistic physics and engaging gameplay mechanics, ensuring it meets the quality standards of the studio.",
+      "comment_results": "",
+      "comment_links": {
+        "website": "https://example.com/project5",
+        "steam": "https://store.steampowered.com/app/yourappid"
+      }
+    },
+    {
+      "id": "project-7",
+      "type": "Personal",
+      "title": "Quick-Shot: Basketball",
+      "tagline": "An immersive basketball experience",
+      "category": ["Sports", "Casual"],
+      "year": 2026,
+      "description": "An immersive basketball experience with realistic physics and dynamic gameplay.",
+      "detailedDescription": "Quick-Shot: Basketball is a mobile game that combines realistic physics with engaging gameplay mechanics to provide a casual experience. Players can shoot hoops in various environments.",
+      "thumbnail": "assets/images/quick-shot-basketball/thumbnail.png",
+      "images": [
+        "assets/images/quick-shot-basketball/phone-screenshot-1.png",
+        "assets/images/quick-shot-basketball/phone-screenshot-2.png"
+      ],
+      "videos": [
+        {
+          "type": "asset",
+          "url": "assets/videos/quick-shot-basketball/project-demo.mp4",
+          "title": "Gameplay Showcase"
+        }
+      ],
+      "role": ["Full Stack Game Developer"],
+      "team": 1,
+      "duration": "2 months",
+      "technologies": [
+        "Unity Engine",
+        "C#",
+        "Google Analytics",
+        "Unity Ads",
+        "Unity Analytics",
+        "SOLID Principles",
+        "Git Version Control"
+      ],
+      "challenge": "Achieving smooth performance and realistic physics on mobile platforms while maintaining engaging gameplay.",
+      "solution": "Optimized physics calculations and implemented efficient rendering techniques to ensure smooth performance on a wide range of mobile devices.",
+      "results": "Successfully launched in Google Play Store",
+      "links": {
+        "website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.quickshot.basketball",
+        "comment_github": "https://github.com/yourname/project1"
+      }
+    },
+    {
+      "id": "project-8",
+      "type": "Personal",
+      "title": "Unicode to Tamil",
+      "tagline": "A font converter app",
+      "category": ["Utility"],
+      "year": 2020,
+      "description": "A utility app for converting Unicode text to Tamil and vice versa.",
+      "detailedDescription": "This app provides a seamless experience for converting Unicode text into Tamil font and vice versa.",
+      "thumbnail": "assets/images/unicode-to-tamil/thumbnail.png",
+      "images": [
+        "assets/images/unicode-to-tamil/feature_graphic.png",
+        "assets/images/unicode-to-tamil/l_main_screen.png",
+        "assets/images/unicode-to-tamil/l_bamini_to_unicode.png",
+        "assets/images/unicode-to-tamil/l_unicode_to_bamini.png",
+        "assets/images/unicode-to-tamil/l_settings.png",
+        "assets/images/unicode-to-tamil/d_main_screen.png",
+        "assets/images/unicode-to-tamil/d_bamini_to_unicode.png",
+        "assets/images/unicode-to-tamil/d_unicode_to_bamini.png",
+        "assets/images/unicode-to-tamil/d_settings.png"
+      ],
+      "videos": [],
+      "role": ["Solo Developer"],
+      "team": 1,
+      "duration": "1 month",
+      "technologies": [
+        "Android Studio",
+        "JAVA",
+        "Kotlin",
+        "Google AdMob",
+        "Firebase Analytics",
+        "Firebase Crashlytics"
+      ],
+      "challenge": "Users needed to use online tools for font conversion, which was inconvenient and time-consuming.",
+      "solution": "Developed a mobile app that provides quick and easy font conversion with an intuitive interface and offline functionality.",
+      "results": "Successfully launched on Google Play Store with positive user feedback and 100K+ downloads",
+      "links": {
+        "website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+        "comment_itch": "https://azhagarasanmurali.itch.io/pixel-paradise"
+      }
+    },
+    {
+      "id": "project-9",
+      "type": "Personal",
+      "title": "AI Software Factory",
+      "tagline": "A local AI-powered software development platform",
+      "category": ["Gen AI", "Productivity"],
+      "year": 2026,
+      "description": "A tool that leverages local AI to streamline software development processes.",
+      "detailedDescription": "This platform provides a seamless experience for automating entire software development cycle using local AI models.",
+      "thumbnail": "assets/images/ai-software-factory/thumbnail.png",
+      "images": [
+        "assets/images/ai-software-factory/model-config.png",
+        "assets/images/ai-software-factory/create-project.png"
+      ],
+      "comment_videos": [],
+      "role": ["Solo Developer"],
+      "team": 1,
+      "duration": "1 month",
+      "technologies": [
+        "Python",
+        "MongoDB",
+        "Ollama Models",
+        "React",
+        "Vibe Coded"
+      ],
+      "challenge": "AI Coding agents require an internet connection and often raise privacy concerns due to data being sent to external servers.",
+      "solution": "Developed a local AI-powered mobile app that provides easy software development assistance with an intuitive interface and fully offline functionality.",
+      "results": "Creates simple web and mobile projects with AI assistance, without the need for an internet connection, ensuring user privacy and data security.",
+      "comment_links": {
+        "website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.aisoftwarefactory",
+        "comment_itch": "https://azhagarasanmurali.itch.io/pixel-paradise"
+      }
+    },
+    {
+      "id": "project-10",
+      "type": "Personal",
+      "title": "Custom Chat",
+      "tagline": "A custom chat application",
+      "category": ["Chat App", "Productivity"],
+      "year": 2026,
+      "description": "A custom chat application that allows users to create their own chat sessions with customizable settings and features.",
+      "detailedDescription": "This app provides a seamless experience for creating and managing custom chat sessions with various customization options.",
+      "thumbnail": "assets/images/custom-chat/thumbnail.jpeg",
+      "images": [
+        "assets/images/custom-chat/jack-sparrow.jpeg",
+        "assets/images/custom-chat/settings.jpeg",
+        "assets/images/custom-chat/sidebar.jpeg"
+      ],
+      "comment_videos": [],
+      "role": ["Solo Developer"],
+      "team": 1,
+      "duration": "1 week",
+      "technologies": ["Flutter"],
+      "challenge": "Existing chat applications do not offer the level of customization and control that some users desire for their communication needs.",
+      "solution": "Developed a mobile app that allows users to create and manage custom chat sessions with various customization options and individual persona per chat.",
+      "results": "A fun project that demonstrates the ability to build a fully functional chat application with customizable features, showcasing versatility in software development.",
+      "comment_links": {
+        "website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+        "comment_itch": "https://azhagarasanmurali.itch.io/pixel-paradise"
+      }
+    },
+    {
+      "id": "project-11",
+      "type": "Personal",
+      "title": "Crazy Labyrinth",
+      "tagline": "A challenging labyrinth game",
+      "category": ["Game", "Puzzle"],
+      "year": 2026,
+      "description": "A challenging labyrinth game that tests players' problem-solving skills and reflexes.",
+      "detailedDescription": "This game provides an engaging experience with intricate labyrinths, requiring players to navigate through complex mazes and overcome various obstacles.",
+      "thumbnail": "assets/images/crazy-labyrinth/thumbnail.png",
+      "images": [
+        "assets/images/crazy-labyrinth/main-menu.png",
+        "assets/images/crazy-labyrinth/level-selection.png",
+        "assets/images/crazy-labyrinth/start-level.png",
+        "assets/images/crazy-labyrinth/level-1.png",
+        "assets/images/crazy-labyrinth/level-2.png",
+        "assets/images/crazy-labyrinth/out-of-lives.png"
+      ],
+      "comment_videos": [],
+      "role": ["Solo Developer"],
+      "team": 1,
+      "duration": "2 months",
+      "technologies": [
+        "Unity",
+        "C#",
+        "Unity Ads",
+        "Unity Analytics",
+        "Unity Remote Play",
+        "Unity Authentication",
+        "Procedural Generation",
+        "SOLID Principles",
+        "Git Version Control"
+      ],
+      "challenge": "Existing games offers a limited number of levels.",
+      "solution": "Developed a game that procedurally generates labyrinths with various difficulty levels, providing endless replayability and a unique experience for each levels.",
+      "results": "An endless labyrinth game that offers fun experience.",
+      "comment_links": {
+        "website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+        "comment_itch": "https://azhagarasanmurali.itch.io/pixel-paradise"
+      }
+    },
+    {
+      "id": "project-12",
+      "type": "Personal",
+      "title": "Minesweeper",
+      "tagline": "A relaxing minesweeper game",
+      "category": ["Game", "Puzzle"],
+      "year": 2026,
+      "description": "A relaxing minesweeper game that challenges players to clear a grid of hidden mines without detonating any.",
+      "detailedDescription": "This game provides a classic minesweeper experience with various difficulty levels and a user-friendly interface.",
+      "thumbnail": "assets/images/minesweeper/thumbnail.png",
+      "images": [
+        "assets/images/minesweeper/main-menu.png",
+        "assets/images/minesweeper/level-selection.png",
+        "assets/images/minesweeper/level-1.png",
+        "assets/images/minesweeper/level-2.png"
+      ],
+      "comment_videos": [],
+      "role": ["Solo Developer"],
+      "team": 1,
+      "duration": "1 month",
+      "technologies": [
+        "Unity",
+        "C#",
+        "Procedural Generation",
+        "SOLID Principles",
+        "Git Version Control"
+      ],
+      "challenge": "",
+      "solution": "",
+      "results": "A relaxing minesweeper game that offers a fun and challenging experience for players of all skill levels.",
+      "comment_links": {
+        "comment_website": "https://play.google.com/store/apps/details?id=com.mrgreenstudio.unicodetotamil",
+        "itch": "https://azhagarasanmurali.itch.io/minesweeper"
+      }
+    }
+  ],
+  "hobbies": {
+    "title": "Hobbies & Interests",
+    "description": "Things I explore outside production work to stay creative, curious, and game-ready.",
+    "design": {
+      "verticalAlign": "top"
+    },
+    "entries": [
+      {
+        "id": "hobby-1",
+        "type": "creative",
+        "title": "Game Prototyping",
+        "description": "I regularly build rapid prototypes to test mechanics, improve iteration speed, and discover unconventional gameplay loops."
+      },
+      {
+        "id": "hobby-2",
+        "type": "creative",
+        "title": "Mobile Application Development",
+        "description": "I create utility apps and small games for mobile platforms to explore new technologies and reach wider audiences."
+      },
+      {
+        "id": "hobby-3",
+        "type": "creative",
+        "title": "Full Stack Web App Development",
+        "description": "I build full stack web applications to experiment with interactive web technologies and create engaging online experiences."
+      },
+      {
+        "id": "hobby-4",
+        "type": "creative",
+        "title": "Drawing & Digital Art",
+        "description": "I create traditional and digital artworks to explore visual storytelling and improve my artistic skills."
+      },
+      {
+        "id": "hobby-5",
+        "type": "active",
+        "title": "Travelling",
+        "description": "Traveling allows me to experience new cultures, gain fresh perspectives, and find inspiration for my creative work."
+      },
+      {
+        "id": "hobby-6",
+        "type": "active",
+        "title": "Gardening",
+        "description": "Gardening helps me relax and find inspiration in nature, which often influences my creative process."
+      }
+    ],
+    "hobbyGallery": {
+      "title": "Artworks",
+      "description": "A collection of my traditional and digital artworks.",
+      "rows": [
+        {
+          "id": "gallery-row-1",
+          "speedSeconds": 28,
+          "direction": "left",
+          "images": [
+            {
+              "id": "row1-1",
+              "src": "assets/images/traditional-art/batman.jpg",
+              "alt": "Batman artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-2",
+              "src": "assets/images/traditional-art/ash-pikachu.jpg",
+              "alt": "Ash and Pikachu artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-3",
+              "src": "assets/images/traditional-art/avatar-the-last-airbender.jpg",
+              "alt": "Avatar: The Last Airbender artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-4",
+              "src": "assets/images/traditional-art/ben-10.jpg",
+              "alt": "Ben 10 artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-5",
+              "src": "assets/images/traditional-art/goku.jpg",
+              "alt": "Goku artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-6",
+              "src": "assets/images/traditional-art/kid-goku.jpg",
+              "alt": "Kid Goku artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-7",
+              "src": "assets/images/traditional-art/goofy.jpg",
+              "alt": "Goofy artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-8",
+              "src": "assets/images/traditional-art/sunset.jpg",
+              "alt": "Sunset artwork by Azhagarasan Murali"
+            }
+          ]
+        },
+        {
+          "id": "gallery-row-2",
+          "speedSeconds": 34,
+          "direction": "right",
+          "images": [
+            {
+              "id": "row2-1",
+              "src": "assets/images/digital-art/avatar-the-last-airbender-digital.jpg",
+              "alt": "Avatar: The Last Airbender artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row2-2",
+              "src": "assets/images/digital-art/gohan.jpg",
+              "alt": "Gohan artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row2-3",
+              "src": "assets/images/digital-art/jackie-chan.png",
+              "alt": "Jackie Chan artwork by Azhagarasan Murali"
+            }
+          ]
+        }
+      ]
+    },
+    "modelViewer": {
+      "title": "3D Modeling",
+      "description": "A collection of 3D models made with Blender.",
+      "interactionButtonText": "Start Model Interaction",
+      "models": [
+        {
+          "id": "viewer-model-1",
+          "name": "Basketball Hoop",
+          "path": "assets/models/basketball_hoop.glb",
+          "thumbnail": "assets/images/models-thumbnails/basketball_hoop.png",
+          "view": {
+            "cameraPosition": [0.3, 0.9, 4.4],
+            "target": [0, 0.3, 0],
+            "zoom": 1,
+            "modelPosition": [0, -0.05, 0],
+            "modelRotation": [0, 0.45, 0],
+            "modelScale": 1
+          }
+        },
+        {
+          "id": "viewer-model-2",
+          "name": "Turret",
+          "path": "assets/models/turret.glb",
+          "thumbnail": "assets/images/models-thumbnails/turret.png",
+          "view": {
+            "cameraPosition": [0.5, 0.6, 3.7],
+            "target": [0, 0.15, 0],
+            "zoom": 1,
+            "modelPosition": [0, -0.08, 0],
+            "modelRotation": [0, 0.2, 0],
+            "modelScale": 1
+          }
+        }
+      ]
+    }
+  },
+  "experience": {
+    "title": "Experience & Education",
+    "description": "A snapshot of the teams, products, and academic foundations that shaped my approach to building interactive experiences.",
+    "design": {
+      "verticalAlign": "top",
+      "spacing": "comfortable",
+      "surface": "muted",
+      "lineStyle": "balanced",
+      "cardTone": "balanced"
+    },
+    "entries": [
+      {
+        "id": "timeline-1",
+        "type": "work",
+        "title": "Unity Developer",
+        "organization": "Sify Technologies",
+        "location": "Taramani, Tamil Nadu, India",
+        "period": "Sep 2020 - Present",
+        "description": "Leading gameplay systems development for cross-platform titles, partnering with designers and artists to ship polished features on tight production schedules.",
+        "highlights": [
+          "Game System Architecture",
+          "Performance Optimization",
+          "Cross-Platform Development"
+        ]
+      },
+      {
+        "id": "timeline-2",
+        "type": "work",
+        "title": "Unity Game Developer Intern",
+        "organization": "Gamin Inztinct",
+        "location": "Mylapore, Tamil Nadu, India",
+        "period": "Dec 2019 - Feb 2020",
+        "description": "Built prototypes, vertical slices, and production-ready gameplay features for indie teams, with a focus on responsive controls and maintainable technical pipelines.",
+        "highlights": [
+          "Unity Tooling",
+          "Rapid Prototyping",
+          "Client Collaboration",
+          "Multiplayer Networking"
+        ]
+      },
+      {
+        "id": "timeline-3",
+        "type": "education",
+        "title": "M.Sc. Game Technology",
+        "organization": "ICAT Design and Media College",
+        "location": "Mylapore, Tamil Nadu, India",
+        "period": "2018 - 2020",
+        "description": "Focused on advanced game development techniques, including real-time rendering, physics simulation, and interactive storytelling.",
+        "highlights": ["Game Programming", "2D & 3D Art", "Game Design"]
+      },
+      {
+        "id": "timeline-4",
+        "type": "work",
+        "title": "J2EE Backend Developer",
+        "organization": "Wipro Technologies",
+        "location": "Sholinganallur, Tamil Nadu, India",
+        "period": "Oct 2017 - Aug 2018",
+        "description": "Worked on backend development using J2EE technologies, focusing on building scalable and maintainable enterprise applications.",
+        "highlights": [
+          "JAVA Spring Framework",
+          "DB2 Database",
+          "Client Collaboration"
+        ]
+      },
+      {
+        "id": "timeline-5",
+        "type": "education",
+        "title": "B.E. Computer Science and Engineering",
+        "organization": "M.Kumarasamy College of Engineering",
+        "location": "Karur, Tamil Nadu, India",
+        "period": "2013 - 2017",
+        "description": "Studied software engineering fundamentals, graphics, and systems design while building a strong foundation in algorithmic thinking and interactive application development.",
+        "highlights": [
+          "Data Structures",
+          "Computer Graphics",
+          "Software Engineering",
+          "JAVA Programming"
+        ]
+      }
+    ]
+  },
+  "social": {
+    "title": "Connect With Me",
+    "description": "Let's collaborate and create something amazing together",
+    "design": {
+      "verticalAlign": "center"
+    },
+    "links": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/azhagarasanmurali",
+        "icon": "github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/azhagarasan-murali/",
+        "icon": "linkedin"
+      },
+      {
+        "platform": "itch.io",
+        "url": "https://azhagarasanmurali.itch.io",
+        "icon": "gamepad"
+      },
+      {
+        "platform": "YouTube",
+        "url": "https://youtube.com/@mr.greenstudio3879",
+        "icon": "youtube"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Have an exciting project in mind? Let's discuss how we can collaborate.",
+    "email": "azhagarasan.azhagu@gmail.com",
+    "availability": "Open to freelance and full-time opportunities",
+    "design": {
+      "verticalAlign": "center"
+    }
+  }
 }
