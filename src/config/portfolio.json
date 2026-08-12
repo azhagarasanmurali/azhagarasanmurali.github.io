@@ -130,7 +130,7 @@
       ],
       "role": ["Unity Programmer"],
       "team": 3,
-      "duration": "18 months",
+      "duration": "24 months",
       "technologies": ["Unity", "C#", "VR", "Windows", "macOS"],
       "challenge": "Ensuring accurate simulation of ultrasonic wave behavior and real-time interaction while maintaining performance across platforms.",
       "solution": "Developed optimized algorithms and leveraged platform-specific features to achieve high performance and accuracy.",
@@ -217,7 +217,7 @@
       ],
       "role": ["Platform Migration", "CCD Integration", "Appshell Integration"],
       "team": 12,
-      "duration": "36 months",
+      "duration": "48 months",
       "technologies": [
         "Unity",
         "C#",
