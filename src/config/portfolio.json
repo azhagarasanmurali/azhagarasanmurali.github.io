@@ -551,9 +551,12 @@
       "thumbnail": "assets/images/minesweeper/thumbnail.png",
       "images": [
         "assets/images/minesweeper/main-menu.png",
+        "assets/images/minesweeper/mode-selection.png",
         "assets/images/minesweeper/level-selection.png",
         "assets/images/minesweeper/level-1.png",
-        "assets/images/minesweeper/level-2.png"
+        "assets/images/minesweeper/level-2.png",
+        "assets/images/minesweeper/won.png",
+        "assets/images/minesweeper/lost.png"
       ],
       "comment_videos": [],
       "role": ["Solo Developer"],
