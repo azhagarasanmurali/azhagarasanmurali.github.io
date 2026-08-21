@@ -747,15 +747,16 @@
       {
         "id": "timeline-1",
         "type": "work",
-        "title": "Unity Developer",
+        "title": "Software Developer",
         "organization": "Sify Technologies",
         "location": "Taramani, Tamil Nadu, India",
         "period": "Sep 2020 - Present",
-        "description": "Leading gameplay systems development for cross-platform titles, partnering with designers and artists to ship polished features on tight production schedules.",
+        "description": "Leading gameplay systems development for cross-platform titles, partnering with designers and artists to ship polished features on tight production schedules. Developed multiple automation workflows to manage internal ticketing systems.",
         "highlights": [
           "Game System Architecture",
           "Performance Optimization",
-          "Cross-Platform Development"
+          "Cross-Platform Development",
+          "AI Engineer"
         ]
       },
       {
@@ -775,16 +776,6 @@
       },
       {
         "id": "timeline-3",
-        "type": "education",
-        "title": "M.Sc. Game Technology",
-        "organization": "ICAT Design and Media College",
-        "location": "Mylapore, Tamil Nadu, India",
-        "period": "2018 - 2020",
-        "description": "Focused on advanced game development techniques, including real-time rendering, physics simulation, and interactive storytelling.",
-        "highlights": ["Game Programming", "2D & 3D Art", "Game Design"]
-      },
-      {
-        "id": "timeline-4",
         "type": "work",
         "title": "J2EE Backend Developer",
         "organization": "Wipro Technologies",
@@ -796,6 +787,16 @@
           "DB2 Database",
           "Client Collaboration"
         ]
+      },
+      {
+        "id": "timeline-4",
+        "type": "education",
+        "title": "M.Sc. Game Technology",
+        "organization": "ICAT Design and Media College",
+        "location": "Mylapore, Tamil Nadu, India",
+        "period": "2018 - 2020",
+        "description": "Focused on advanced game development techniques, including real-time rendering, physics simulation, and interactive storytelling.",
+        "highlights": ["Game Programming", "2D & 3D Art", "Game Design"]
       },
       {
         "id": "timeline-5",
