@@ -1,400 +1,142 @@
-# Portfolio Site (JSON-Driven)
+<div align="center">
 
-This portfolio is configured primarily from one file:
+# Azhagarasan Murali — Portfolio
 
-- src/config/portfolio.json
+**Portfolio showcasing game development, Unity engineering, and immersive interactive experiences.**
 
-You can control section order, section visibility, navigation labels, content, grouping, and most visual behavior by editing that JSON.
+![React](https://img.shields.io/badge/React-19.2-61DAFB?style=flat-square&logo=react&logoColor=black) · ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white) · ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white) · ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) · ![ESLint](https://img.shields.io/badge/ESLint-9-4B32C3?style=flat-square&logo=eslint&logoColor=white) · ![Deploy](https://github.com/azhagarasanmurali/azhagarasanmurali.github.io/actions/workflows/deploy.yml/badge.svg) · ![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-blue?style=flat-square)
 
-## Quick Start
+[Live Demo](https://azhagarasanmurali.github.io/) · [Repository](https://github.com/azhagarasanmurali/azhagarasanmurali.github.io) · [Featured Projects](#-featured-highlights)
 
-1. Install dependencies:
+</div>
+
+---
+
+## Preview
+
+![Portfolio preview](public/assets/images/hero-image.png)
+
+---
+
+## Overview
+
+This portfolio is a single-page React application powered by Vite and TypeScript. Sections are lazy-loaded for faster initial paint, critical hero assets are preloaded behind a branded loading screen, and scroll-triggered animations use Intersection Observer for smooth, GPU-friendly motion. The site ships with semantic HTML, viewport and theme-color meta tags, and is deployed automatically to GitHub Pages on every push to `main`.
+
+---
+
+## Features
+
+### Responsive & Accessible Layout
+
+- 📱 Mobile-first design with a collapsible navigation menu and touch-friendly section scrolling
+- 🖥️ Full-viewport section layout optimized for desktop and tablet breakpoints
+- ♿ Semantic structure, lazy-loaded media, and async image decoding for smoother rendering
+
+### Immersive Dark Theme
+
+- 🌙 Curated dark palette with violet and cyan accent tones tuned for readability
+- ✨ Ambient hero effects, glass-style surfaces, and subtle glow accents
+- 🎨 Centralized design tokens via Tailwind CSS for consistent spacing and typography
+
+### Interactive Components
+
+- 🎬 Hero section with video/image background and scroll-to-projects CTA
+- 📂 Project gallery grouped by organization, with rich detail modals and image lightboxes
+- 🕹️ Hobbies section featuring an art gallery marquee and interactive Three.js 3D model viewer
+- 📅 Experience timeline with work and education highlights
+- ⏳ Branded loading screen with asset preload progress
+
+### Contact & Social Integration
+
+- 📬 Contact section with availability status and embedded social links
+- 🔗 One-click links to GitHub, LinkedIn, itch.io, and YouTube
+- 📄 Direct resume download from the navigation bar
+
+---
+
+## Featured Highlights
+
+| Project                            | Summary                                                                                                | Stack                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| **Ultrasonic Immersive Scanner**   | Cross-platform Unity VR simulator replicating ultrasonic immersion testing for safe, hands-on training | Unity, C#, VR, Windows, macOS                        |
+| **Starter Template**               | Company-wide Unity starter template with reusable movement, camera, UI, and audio systems              | Unity, C#, SOLID, Scriptable Objects, WebGL, VR      |
+| **ToolingU SME Virtual Simulator** | Industrial training simulator with realistic process and equipment workflows                           | Unity, C#, VR, WebGL, Asset Bundles, AWS S3, MongoDB |
+
+Explore all projects on the [live demo](https://azhagarasanmurali.github.io/).
+
+---
+
+## Tech Stack
+
+| Category         | Technologies                                           |
+| ---------------- | ------------------------------------------------------ |
+| **Core**         | React 19, TypeScript 5.9, Vite 8                       |
+| **Styling & UI** | Tailwind CSS 3, PostCSS, Autoprefixer, Lucide React    |
+| **3D & Media**   | Three.js, React Three Fiber, React Three Drei          |
+| **Tooling**      | ESLint 9, TypeScript ESLint, React Hooks ESLint plugin |
+| **Deployment**   | GitHub Actions, GitHub Pages, Node.js 20               |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** 20 or later (matches CI deploy workflow)
+- **npm** (comes with Node.js)
+
+### Local Development
 
 ```bash
+git clone https://github.com/azhagarasanmurali/azhagarasanmurali.github.io.git
+cd azhagarasanmurali.github.io
 npm install
-```
-
-2. Run locally:
-
-```bash
 npm run dev
 ```
 
-3. Build for production:
+Open the URL shown in the terminal (typically `http://localhost:5173`).
+
+### Production Build
 
 ```bash
-npm run build
+npm run build      # Type-check + Vite production build → dist/
+npm run preview    # Preview the production build locally
+npm run lint       # Run ESLint across the project
 ```
 
-## Core Idea
+### Deployment
 
-The app reads top-level keys from portfolio.json and renders sections in the order defined by the sections array.
+Pushes to the `main` branch automatically build and deploy to GitHub Pages via [.github/workflows/deploy.yml](.github/workflows/deploy.yml). No manual deploy step is required once GitHub Pages is enabled for the repository.
 
-- Move a section in sections: the page order and navigation order both change.
-- Rename a section id in sections: use the same id as the section object key.
-- Hide a section: set hidden to true in sections.
-- Add a new section: add a new object key plus an entry in sections.
+---
 
-## Configuration Map
+## Project Structure
 
-Top-level keys you can define:
+| Path                           | Purpose                                                       |
+| ------------------------------ | ------------------------------------------------------------- |
+| `src/config/portfolio.json`    | All portfolio content and section configuration               |
+| `src/App.tsx`                  | Section orchestration, lazy loading, and asset preloading     |
+| `src/components/`              | Hero, About, Projects, Hobbies, Timeline, Contact, Navigation |
+| `public/assets/`               | Images, videos, documents, and social icons                   |
+| `tailwind.config.ts`           | Color palette, animations, and responsive tokens              |
+| `.github/workflows/deploy.yml` | CI/CD pipeline for GitHub Pages                               |
 
-- personal: identity + resume
-- loading: loading text
-- sections: page structure and nav labels
-- design: optional global guidance values
-- hero, about, projectsSection, projects, hobbies, experience, social, contact
-- any custom section object (rendered by the dynamic section renderer)
+---
 
-## sections (Order + Navigation)
+## Links
+<div align="center">
 
-Example:
+[![GitHub](https://img.shields.io/badge/github-blue?logo=github)](https://github.com/azhagarasanmurali) [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://www.linkedin.com/in/azhagarasan-murali/) [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:azhagarasan.azhagu@gmail.com) [![Itch.io](https://img.shields.io/badge/itch.io-%23FF0B34.svg?logo=Itch.io&logoColor=white)](https://azhagarasanmurali.itch.io) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@mr.greenstudio3879)
+</div>
 
-```json
-{
-	"sections": [
-		{ "id": "hero", "label": "Home" },
-		{ "id": "about", "label": "About" },
-		{ "id": "projects", "label": "Projects" },
-		{ "id": "hobbies", "label": "Hobbies" },
-		{ "id": "experience", "label": "Experience" },
-		{ "id": "social", "label": "Social" },
-		{ "id": "contact", "label": "Contact" }
-	]
-}
-```
+---
 
-Supported section entry fields:
+## License
 
-- id: section id key (required)
-- label: nav label (required)
-- hidden: true/false (optional)
+© 2026 Azhagarasan Murali. **All Rights Reserved.**
 
-## Generic Style Language (No low-level style values)
+This repository is a personal portfolio for viewing purposes only. No permission is granted to copy, modify, distribute, or reuse any part of this project without explicit written consent.
 
-Use these generic design terms under each section's design object.
+---
 
-Shared terms (many sections):
-
-- verticalAlign: top | center
-- spacing: compact | comfortable | airy
-- surface: plain | muted | elevated
-- contentWidth: narrow | standard | wide
-- emphasis/card tone terms: soft | balanced | strong
-
-### Hero design options
-
-Path: hero.design
-
-- verticalAlign: top | center
-- spacing: compact | comfortable | airy
-- textScale: compact | regular | large
-- contentWidth: narrow | standard | wide
-- mood: calm | balanced | dramatic
-- ctaTone: soft | balanced | strong
-- showScrollCue: true | false
-
-### About design options
-
-Path: about.design
-
-- layout: split | stacked
-- spacing: compact | comfortable | airy
-- surface: plain | muted | elevated
-- skillsStyle: minimal | pill | card
-- verticalAlign: top | center
-- contentWidth: standard | wide
-
-### Experience design options
-
-Path: experience.design
-
-- spacing: compact | comfortable | airy
-- surface: plain | muted | elevated
-- lineStyle: subtle | balanced | strong
-- cardTone: soft | balanced | strong
-- verticalAlign: top | center
-
-### Social and Contact design options
-
-Path: social.design and contact.design
-
-- verticalAlign: top | center
-
-### Dynamic section design options
-
-Any custom section can include:
-
-- title
-- description
-- design.verticalAlign
-- list data in one of: entries | items | list
-
-## Section Content Schemas
-
-### personal
-
-```json
-{
-	"personal": {
-		"name": "Your Name",
-		"title": "Role",
-		"tagline": "Tagline",
-		"email": "you@example.com",
-		"phone": "+00 00000 00000",
-		"resumeUrl": "https://...",
-		"location": "City, Country"
-	}
-}
-```
-
-### loading
-
-```json
-{
-	"loading": {
-		"messages": ["Message 1", "Message 2", "Message 3"]
-	}
-}
-```
-
-### hero
-
-```json
-{
-	"hero": {
-		"heading": "Main heading",
-		"subheading": "Supporting text",
-		"ctaText": "Button text",
-		"backgroundVideo": "assets/videos/hero.mp4",
-		"heroImage": "assets/images/hero.jpg",
-		"design": {
-			"mood": "balanced",
-			"textScale": "regular"
-		}
-	}
-}
-```
-
-Note: if both backgroundVideo and heroImage exist, video is used first.
-
-### about
-
-```json
-{
-	"about": {
-		"title": "About Me",
-		"description": "...",
-		"profileImage": "assets/images/profile.jpg",
-		"skills": ["Skill 1", "Skill 2"],
-		"design": {
-			"layout": "split",
-			"skillsStyle": "card"
-		}
-	}
-}
-```
-
-### projectsSection + projects
-
-projectsSection controls section heading copy only.
-
-```json
-{
-	"projectsSection": {
-		"title": "Featured Projects",
-		"description": "Section subtitle"
-	},
-	"projects": [
-		{
-			"id": "project-1",
-			"type": "Personal",
-			"title": "Project title",
-			"tagline": "One-liner",
-			"category": "Category",
-			"year": 2026,
-			"description": "Short",
-			"detailedDescription": "Long",
-			"thumbnail": "assets/images/projects/thumb.jpg",
-			"images": ["assets/images/projects/1.jpg"],
-			"youtubeUrl": "https://www.youtube.com/embed/...",
-			"videoAsset": "assets/videos/demo.mp4",
-			"role": "Role",
-			"team": 1,
-			"duration": "2 months",
-			"technologies": ["Tech A", "Tech B"],
-			"challenge": "...",
-			"solution": "...",
-			"results": "...",
-			"links": {
-				"website": "https://...",
-				"github": "https://...",
-				"steam": "https://...",
-				"itch": "https://..."
-			}
-		}
-	]
-}
-```
-
-Type grouping behavior:
-
-- Items with the same type are grouped automatically.
-- Changing type names changes rendered group names automatically.
-
-### hobbies
-
-```json
-{
-	"hobbies": {
-		"title": "Hobbies",
-		"description": "...",
-		"entries": [
-			{
-				"id": "hobby-1",
-				"type": "creative",
-				"title": "...",
-				"description": "..."
-			}
-		]
-	}
-}
-```
-
-### experience
-
-```json
-{
-	"experience": {
-		"title": "Experience",
-		"description": "...",
-		"design": {
-			"lineStyle": "balanced",
-			"cardTone": "balanced"
-		},
-		"entries": [
-			{
-				"id": "exp-1",
-				"type": "work",
-				"title": "Role",
-				"organization": "Company",
-				"location": "City",
-				"period": "2022 - Present",
-				"description": "...",
-				"highlights": ["A", "B"]
-			}
-		]
-	}
-}
-```
-
-Compatibility:
-
-- experience is preferred.
-- timeline is also supported for backward compatibility.
-
-### social
-
-```json
-{
-	"social": {
-		"title": "Connect",
-		"description": "...",
-		"design": { "verticalAlign": "center" },
-		"links": [
-			{ "platform": "GitHub", "url": "https://...", "icon": "github" }
-		]
-	}
-}
-```
-
-Supported icons:
-
-- github
-- linkedin
-- twitter
-- gamepad
-- youtube
-
-### contact
-
-```json
-{
-	"contact": {
-		"title": "Let's Work Together",
-		"description": "...",
-		"email": "you@example.com",
-		"availability": "Open to opportunities",
-		"design": { "verticalAlign": "center" }
-	}
-}
-```
-
-## Add a New Section (No code changes in most cases)
-
-1. Add the section to sections:
-
-```json
-{ "id": "awards", "label": "Awards" }
-```
-
-2. Add a top-level awards object:
-
-```json
-{
-	"awards": {
-		"title": "Awards",
-		"description": "Recognition and milestones",
-		"design": { "verticalAlign": "top" },
-		"entries": [
-			{
-				"id": "award-1",
-				"type": "global",
-				"title": "Best Indie Game",
-				"description": "Award details"
-			}
-		]
-	}
-}
-```
-
-3. Done. It appears in nav and page order automatically.
-
-## Reorder Existing Sections
-
-Just reorder sections array items.
-
-- Navigation order follows it.
-- Render order follows it.
-
-## Hide a Section Temporarily
-
-```json
-{ "id": "hobbies", "label": "Hobbies", "hidden": true }
-```
-
-## Asset Paths
-
-Put media under public/assets and reference paths like:
-
-- assets/images/...
-- assets/videos/...
-
-## Troubleshooting
-
-- Section not visible:
-- Ensure sections includes the section id.
-- Ensure top-level object key matches id exactly.
-- Check hidden is not true.
-
-- Grouping not as expected:
-- Verify each item's type field.
-
-- Media not showing:
-- Verify file exists under public/assets and path is correct.
-
-## Notes for Advanced Users
-
-- comment\_ prefixed fields in JSON are ignored by the loader.
-- Dynamic sections can be used for future content models without code edits.
-- For highly custom interactions, create a dedicated component and map it in App.
+Built with React, TypeScript, and Vite · Deployed on GitHub Pages
