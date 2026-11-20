@@ -49,36 +49,9 @@ export default {
 				36: "clamp(1.5rem, 1.2vw + 0.2rem, 2.5rem)",
 			},
 			animation: {
-				"fade-in": "fadeIn 0.8s ease-in-out",
-				"slide-in-right": "slideInRight 0.8s ease-out",
-				"slide-in-left": "slideInLeft 0.8s ease-out",
-				float: "float 3s ease-in-out infinite",
-				glow: "glow 2s ease-in-out infinite",
 				blob: "blob 7s infinite",
 			},
 			keyframes: {
-				fadeIn: {
-					"0%": { opacity: "0" },
-					"100%": { opacity: "1" },
-				},
-				slideInRight: {
-					"0%": { transform: "translateX(100px)", opacity: "0" },
-					"100%": { transform: "translateX(0)", opacity: "1" },
-				},
-				slideInLeft: {
-					"0%": { transform: "translateX(-100px)", opacity: "0" },
-					"100%": { transform: "translateX(0)", opacity: "1" },
-				},
-				float: {
-					"0%, 100%": { transform: "translateY(0px)" },
-					"50%": { transform: "translateY(-20px)" },
-				},
-				glow: {
-					"0%, 100%": {
-						boxShadow: "0 0 20px rgba(124, 58, 237, 0.3)",
-					},
-					"50%": { boxShadow: "0 0 40px rgba(124, 58, 237, 0.6)" },
-				},
 				blob: {
 					"0%, 100%": { transform: "translate(0, 0) scale(1)" },
 					"33%": { transform: "translate(30px, -50px) scale(1.1)" },

@@ -307,9 +307,10 @@ function CameraResetOnModelLoad({
 	controlsRef: React.RefObject<OrbitControlsImpl | null>;
 	view?: HobbyModel["view"];
 }) {
-	const { camera } = useThree();
+	const getThree = useThree((state) => state.get);
 
 	useEffect(() => {
+		const { camera } = getThree();
 		const [camX, camY, camZ] = toVec3(view?.cameraPosition, [0, 0.25, 3.2]);
 		const [targetX, targetY, targetZ] = toVec3(view?.target, [0, 0, 0]);
 		camera.position.set(camX, camY, camZ);
@@ -322,7 +323,7 @@ function CameraResetOnModelLoad({
 
 		camera.lookAt(targetX, targetY, targetZ);
 		camera.updateProjectionMatrix();
-	}, [camera, controlsRef, resetToken, view]);
+	}, [getThree, controlsRef, resetToken, view]);
 
 	return null;
 }
@@ -341,9 +342,20 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 	const selectedModel =
 		models.find((model) => model.id === selectedModelId) ?? models[0];
 	const selectedModelView = selectedModel?.view;
-	const wasInViewRef = useRef(false);
+	const [wasInView, setWasInView] = useState(isInView);
 
-	const galleryRows = data.hobbyGallery?.rows ?? [];
+	// Leaving or re-entering the viewport locks the 3D viewer again and
+	// re-centers the camera (adjusting state during render, not in an effect).
+	if (isInView !== wasInView) {
+		setWasInView(isInView);
+		setIsViewerInteractive(false);
+		if (isInView) setResetToken((value) => value + 1);
+	}
+
+	const galleryRows = useMemo(
+		() => data.hobbyGallery?.rows ?? [],
+		[data.hobbyGallery?.rows],
+	);
 	const galleryImages = useMemo(() => {
 		const uniqueImages = new Map<string, HobbyGalleryImage>();
 
@@ -419,37 +431,11 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 		setLightboxIndex(null);
 	}, []);
 
-	useEffect(() => {
+	const selectModel = useCallback((modelId: string) => {
+		setSelectedModelId(modelId);
 		setIsViewerInteractive(false);
-		handleResetView();
-	}, [selectedModelId, handleResetView]);
-
-	useEffect(() => {
-		if (!isInView) {
-			wasInViewRef.current = false;
-			setIsViewerInteractive(false);
-			return;
-		}
-
-		if (!wasInViewRef.current) {
-			setIsViewerInteractive(false);
-			handleResetView();
-			wasInViewRef.current = true;
-		}
-	}, [handleResetView, isInView]);
-
-	useEffect(() => {
-		if (!galleryImages.length) {
-			setLightboxIndex(null);
-			return;
-		}
-
-		setLightboxIndex((currentIndex) =>
-			currentIndex === null
-				? null
-				: getWrappedIndex(currentIndex, galleryImages.length),
-		);
-	}, [galleryImages.length]);
+		setResetToken((value) => value + 1);
+	}, []);
 
 	useEffect(() => {
 		if (lightboxIndex === null) {
@@ -797,9 +783,7 @@ export const Hobbies: React.FC<HobbiesProps> = ({ data }) => {
 										<button
 											key={model.id}
 											type="button"
-											onClick={() =>
-												setSelectedModelId(model.id)
-											}
+											onClick={() => selectModel(model.id)}
 											className={`group overflow-hidden rounded-lg text-left transition-all duration-500 shadow-[0_0_26px_rgba(124,58,237,0.12)] hover:shadow-[0_0_52px_rgba(124,58,237,0.38),0_20px_60px_rgba(0,0,0,0.44)] ${
 												isActive
 													? "bg-slate-700 ring-2 ring-cyan-400/60"

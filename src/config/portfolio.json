@@ -12,7 +12,6 @@
     "heading": "Software Developer",
     "subheading": "Bringing worlds to life through code and creativity",
     "ctaText": "Explore My Work",
-    "backgroundVideo": "assets/videos/hero-bg.mp4",
     "heroImage": "assets/images/hero-image.jpg",
     "design": {
       "verticalAlign": "center",
@@ -279,7 +278,7 @@
       "description": "A 3D model viewer designed for interactive visualization and analysis of complex models. It includes features such as panning, zooming, rotating, and support.",
       "detailedDescription": "A powerful 3D model viewer that allows users to interact with complex models through intuitive controls.",
       "thumbnail": "assets/images/model-viewer/thumbnail.jpg",
-      "images": [
+      "comment_images": [
         "assets/images/model-viewer/model_viewer_1.jpg",
         "assets/images/model-viewer/model_viewer_2.jpg",
         "assets/images/model-viewer/model_viewer_3.jpg"
@@ -670,6 +669,11 @@
               "id": "row1-8",
               "src": "assets/images/traditional-art/sunset.jpg",
               "alt": "Sunset artwork by Azhagarasan Murali"
+            },
+            {
+              "id": "row1-9",
+              "src": "assets/images/traditional-art/fairy-tales.jpg",
+              "alt": "Fairy tales artwork by Azhagarasan Murali"
             }
           ]
         },

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { useSectionNav } from "./hooks/useSectionNav";
 import "./index.css";
 import { Navigation } from "./components/Navigation";
@@ -49,66 +49,52 @@ type SectionConfig = {
   hidden?: boolean;
 };
 
+// Section order and nav items come from static JSON, so compute them once.
+const dataMap = portfolioData as unknown as Record<string, unknown>;
+const configuredSections =
+  (dataMap.sections as SectionConfig[] | undefined)?.filter(
+    (section) => !section.hidden && section.id !== "social",
+  ) ?? [];
+
+const reservedKeys = new Set([
+  "personal",
+  "loading",
+  "sections",
+  "design",
+  "projectsSection",
+  "social",
+]);
+
+const orderedSections =
+  configuredSections.length > 0
+    ? configuredSections.map((section) => section.id)
+    : Object.keys(portfolioData).filter((key) => !reservedKeys.has(key));
+
+const navSections =
+  configuredSections.length > 0
+    ? configuredSections.map(({ id, label }) => ({ id, label }))
+    : orderedSections.map((id) => ({
+        id,
+        label: id
+          .replace(/[-_]+/g, " ")
+          .replace(/\b\w/g, (char) => char.toUpperCase()),
+      }));
+
+const loadingMessages = portfolioData.loading?.messages ?? [
+  "Loading portfolio...",
+];
+
 function App() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [showSkeleton, setShowSkeleton] = useState(false);
-  const dataMap = portfolioData as unknown as Record<string, unknown>;
-  const orderedSections = useMemo(() => {
-    const sectionConfig =
-      (dataMap.sections as SectionConfig[] | undefined)?.filter(
-        (section) => !section.hidden,
-      ) ?? [];
-    if (sectionConfig.length > 0) {
-      return sectionConfig
-        .map((section) => section.id)
-        .filter((id) => id !== "social");
-    }
-
-    const reservedKeys = new Set([
-      "personal",
-      "loading",
-      "sections",
-      "design",
-      "projectsSection",
-    ]);
-    return Object.keys(portfolioData)
-      .filter((key) => !reservedKeys.has(key))
-      .filter((key) => key !== "social");
-  }, []);
-
-  const navSections = useMemo(() => {
-    const configured =
-      (dataMap.sections as SectionConfig[] | undefined)?.filter(
-        (section) => !section.hidden,
-      ) ?? [];
-    if (configured.length > 0) {
-      return configured
-        .filter((section) => section.id !== "social")
-        .map((section) => ({
-          id: section.id,
-          label: section.label,
-        }));
-    }
-
-    return orderedSections.map((id) => ({
-      id,
-      label: id
-        .replace(/[-_]+/g, " ")
-        .replace(/\b\w/g, (char) => char.toUpperCase()),
-    }));
-  }, [orderedSections]);
 
   const { activeSectionId, navigateToSection } = useSectionNav(
     orderedSections,
     selectedProject === null,
   );
 
-  const loadingMessages = useMemo(
-    () => portfolioData.loading?.messages ?? ["Loading portfolio..."],
-    [],
-  );
   const sectionFallback = (
     <div className="section-vh w-full animate-pulse bg-slate-900/50" />
   );
@@ -146,21 +132,6 @@ function App() {
 
     const assetList = Array.from(assets).filter(Boolean);
     const total = assetList.length;
-
-    if (!total) {
-      setLoadingProgress(100);
-      const elapsed = Date.now() - loadStartAt;
-      const waitForMinimum = Math.max(0, minimumLoadingDurationMs - elapsed);
-      window.setTimeout(() => {
-        if (isCancelled) return;
-        setIsLoading(false);
-        setShowSkeleton(true);
-        window.setTimeout(() => {
-          if (!isCancelled) setShowSkeleton(false);
-        }, 500);
-      }, waitForMinimum + finishHoldMs);
-      return;
-    }
 
     const run = async () => {
       let loaded = 0;
@@ -422,6 +393,7 @@ function App() {
           }
         >
           <ProjectDetail
+            key={selectedProjectData.id}
             project={selectedProjectData}
             onClose={() => setSelectedProject(null)}
           />

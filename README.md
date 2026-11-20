@@ -118,7 +118,7 @@ Pushes to the `main` branch automatically build and deploy to GitHub Pages via [
 | `src/App.tsx`                  | Section orchestration, lazy loading, and asset preloading     |
 | `src/components/`              | Hero, About, Projects, Hobbies, Timeline, Contact, Navigation |
 | `public/assets/`               | Images, videos, documents, and social icons                   |
-| `tailwind.config.ts`           | Color palette, animations, and responsive tokens              |
+| `tailwind.config.js`           | Color palette, animations, and responsive tokens              |
 | `.github/workflows/deploy.yml` | CI/CD pipeline for GitHub Pages                               |
 
 ---

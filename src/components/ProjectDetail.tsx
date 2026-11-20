@@ -299,17 +299,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 	}, []);
 
 	useEffect(() => {
-		setCurrentVideoIndex(0);
-		setCurrentImageIndex(0);
-		setLightboxImageIndex(null);
-		setIsGalleryHovered(false);
-	}, [project.id]);
-
-	useEffect(() => {
-		if (!galleryElement) {
-			setIsGalleryInView(false);
-			return;
-		}
+		if (!galleryElement) return;
 
 		const observer = new IntersectionObserver(
 			([entry]) => {
@@ -331,6 +321,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 	useEffect(() => {
 		if (
 			!hasMultipleImages ||
+			!galleryElement ||
 			!isGalleryInView ||
 			isGalleryHovered ||
 			lightboxImageIndex !== null
@@ -347,6 +338,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 		return () => window.clearInterval(intervalId);
 	}, [
 		hasMultipleImages,
+		galleryElement,
 		isGalleryInView,
 		isGalleryHovered,
 		lightboxImageIndex,

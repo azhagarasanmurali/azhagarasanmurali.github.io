@@ -15,7 +15,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 	);
 	const pool = messages.length ? messages : fallbackMessages;
 	const [messageIndex, setMessageIndex] = useState(0);
-	const [displayProgress, setDisplayProgress] = useState(0);
 	const [isMessageVisible, setIsMessageVisible] = useState(true);
 
 	useEffect(() => {
@@ -35,13 +34,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 			}
 		};
 	}, [pool.length]);
-
-	useEffect(() => {
-		setDisplayProgress((current) => {
-			if (progress <= current) return current;
-			return progress;
-		});
-	}, [progress]);
 
 	return (
 		<div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-slate-950">
@@ -63,13 +55,13 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
 						<div
 							className="h-full rounded-full bg-gradient-to-r from-accent-primary via-fuchsia-400 to-accent-secondary shadow-[0_0_14px_rgba(34,211,238,0.55)] transition-[width] duration-700 ease-out"
 							style={{
-								width: `${Math.max(6, Math.min(100, displayProgress))}%`,
+								width: `${Math.max(6, Math.min(100, progress))}%`,
 							}}
 						/>
 					</div>
 				</div>
 				<div className="mt-3 text-sm text-slate-400">
-					{Math.round(Math.max(0, Math.min(100, displayProgress)))}%
+					{Math.round(Math.max(0, Math.min(100, progress)))}%
 				</div>
 			</div>
 		</div>

@@ -6,13 +6,6 @@ export const useSectionNav = (
 ) => {
 	const [activeSectionId, setActiveSectionId] = useState(sectionIds[0] ?? "");
 	const mainRef = useRef<HTMLElement | null>(null);
-	const observerRef = useRef<IntersectionObserver | null>(null);
-
-	useEffect(() => {
-		if (!sectionIds.includes(activeSectionId) && sectionIds[0]) {
-			setActiveSectionId(sectionIds[0]);
-		}
-	}, [activeSectionId, sectionIds]);
 
 	const navigateToSection = useCallback((id: string) => {
 		const section = document.getElementById(id);
@@ -82,14 +75,13 @@ export const useSectionNav = (
 			if (rafId !== null) {
 				window.cancelAnimationFrame(rafId);
 			}
-			if (observerRef.current) {
-				observerRef.current.disconnect();
-			}
 		};
 	}, [sectionIds, enabled]);
 
 	return {
-		activeSectionId,
+		activeSectionId: sectionIds.includes(activeSectionId)
+			? activeSectionId
+			: (sectionIds[0] ?? ""),
 		navigateToSection,
 	};
 };

@@ -36,7 +36,7 @@ This is a single-page React 19 + TypeScript + Vite portfolio. Almost all visible
 
 **Project detail modal:** selecting a project sets `selectedProject` state in App; `ProjectDetail` renders over the page from `portfolioData.projects`.
 
-**Styling:** Tailwind CSS 3 with custom tokens (`dark-950`…`dark-700`, `accent-primary` #7c3aed, `accent-secondary` #06b6d4) and global styles in `src/index.css` and `src/App.css`. Note that two Tailwind configs exist (`tailwind.config.js` and `tailwind.config.ts`) with overlapping but not identical content; check which one is picked up before changing theme tokens, and keep them in sync if both are relied on.
+**Styling:** Tailwind CSS 3 with custom tokens (`dark-950`…`dark-700`, `accent-primary` #7c3aed, `accent-secondary` #06b6d4) and global styles in `src/index.css`. Theme tokens live in `tailwind.config.js` (the only Tailwind config).
 
 **Static assets** live in `public/assets/` (images, videos, resume PDF) and are referenced by relative paths from the JSON (e.g. `assets/images/hero-image.jpg`).
 
